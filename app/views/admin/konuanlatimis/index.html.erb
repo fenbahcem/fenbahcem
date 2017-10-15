@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Admin Konuanlatimis</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Sinif</th>
+      <th>Uniteadi</th>
+      <th>Kavram</th>
+      <th>Metin</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_konuanlatimis.each do |admin_konuanlatimi| %>
+      <tr>
+        <td><%= admin_konuanlatimi.sinif %></td>
+        <td><%= admin_konuanlatimi.uniteadi %></td>
+        <td><%= admin_konuanlatimi.kavram %></td>
+        <td><%= admin_konuanlatimi.metin %></td>
+        <td><%= link_to 'Show', admin_konuanlatimi %></td>
+        <td><%= link_to 'Edit', edit_admin_konuanlatimi_path(admin_konuanlatimi) %></td>
+        <td><%= link_to 'Destroy', admin_konuanlatimi, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Admin Konuanlatimi', new_admin_konuanlatimi_path %>

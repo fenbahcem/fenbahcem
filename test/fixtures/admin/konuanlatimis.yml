@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  sinif: 1
+  uniteadi: MyString
+  kavram: MyString
+  metin: MyText
+
+two:
+  sinif: 1
+  uniteadi: MyString
+  kavram: MyString
+  metin: MyText

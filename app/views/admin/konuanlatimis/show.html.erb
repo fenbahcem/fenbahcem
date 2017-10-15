@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Sinif:</strong>
+  <%= @admin_konuanlatimi.sinif %>
+</p>
+
+<p>
+  <strong>Uniteadi:</strong>
+  <%= @admin_konuanlatimi.uniteadi %>
+</p>
+
+<p>
+  <strong>Kavram:</strong>
+  <%= @admin_konuanlatimi.kavram %>
+</p>
+
+<p>
+  <strong>Metin:</strong>
+  <%= @admin_konuanlatimi.metin %>
+</p>
+
+<%= link_to 'Edit', edit_admin_konuanlatimi_path(@admin_konuanlatimi) %> |
+<%= link_to 'Back', admin_konuanlatimis_path %>
