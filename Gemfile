@@ -32,7 +32,7 @@ gem 'jbuilder', '~> 2.5'
 
 # Gem devise and devise-bootstrapped
 gem 'devise'
-gem 'devise-bootstrapped', github: 'king601/devise-bootstrapped', branch: 'bootstrap4'
+gem 'devise-bootstrapped'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
