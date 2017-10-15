@@ -30,8 +30,9 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# Gem devise and devise-bootstrapped
 gem 'devise'
-
+gem 'devise-bootstrapped', github: 'king601/devise-bootstrapped', branch: 'bootstrap4'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
