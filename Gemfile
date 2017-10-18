@@ -33,6 +33,9 @@ gem 'jbuilder', '~> 2.5'
 # file upload
 gem "paperclip", "~> 5.0.0"
 
+# text editor
+gem 'ckeditor', github: 'galetahub/ckeditor'
+
 # Gem devise and devise-bootstrapped
 gem 'devise'
 gem 'devise-bootstrapped'

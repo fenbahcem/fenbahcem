@@ -33,7 +33,7 @@
 
   <div class="field">
     <%= form.label :metin %>
-    <%= form.text_area :metin, id: :admin_konuanlatimi_metin %>
+		<%= form.cktext_area :metin, id: :admin_konuanlatimi_metin, ckeditor: { language: 'tr'}	%>
   </div>
 
   <div class="field">
