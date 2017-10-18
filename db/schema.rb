@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171018121543) do
+ActiveRecord::Schema.define(version: 20171018121544) do
 
   create_table "admin_konuanlatimis", force: :cascade do |t|
     t.integer "sinif"
@@ -32,6 +32,10 @@ ActiveRecord::Schema.define(version: 20171018121543) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "sinif"
+    t.string "uniteresmi_file_name"
+    t.string "uniteresmi_content_type"
+    t.integer "uniteresmi_file_size"
+    t.datetime "uniteresmi_updated_at"
   end
 
   create_table "ckeditor_assets", force: :cascade do |t|

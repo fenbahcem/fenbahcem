@@ -71,6 +71,6 @@ class Admin::UnitesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_unite_params
-      params.require(:admin_unite).permit(:uniteadi, :aciklama, :sinif)
+      params.require(:admin_unite).permit(:uniteadi, :aciklama, :sinif, :uniteresmi)
     end
 end

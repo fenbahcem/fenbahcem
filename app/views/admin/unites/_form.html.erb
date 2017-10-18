@@ -1,4 +1,4 @@
-<%= form_with(model: admin_unite, local: true) do |form| %>
+<%= form_with(model: admin_unite, local: true, html: { multipart: true }) do |form| %>
   <% if admin_unite.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(admin_unite.errors.count, "error") %> prohibited this admin_unite from being saved:</h2>
@@ -24,6 +24,11 @@
   <div class="field">
     <%= form.label :sinif %>
     <%= form.number_field :sinif, id: :admin_unite_sinif %>
+  </div>
+	
+	<div class="field">
+    <%= form.label :uniteresmi %>
+    <%= form.file_field :uniteresmi, id: :admin_unite_uniteresmi %>
   </div>
 	
 	<div class="actions">
