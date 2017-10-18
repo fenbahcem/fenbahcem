@@ -1,4 +1,4 @@
-<%= form_with(model: admin_konuanlatimi, local: true) do |form| %>
+<%= form_with(model: admin_konuanlatimi, local: true, html: {multipart: true}) do |form| %>
   <% if admin_konuanlatimi.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(admin_konuanlatimi.errors.count, "error") %> prohibited this admin_konuanlatimi from being saved:</h2>
@@ -35,6 +35,12 @@
     <%= form.label :metin %>
     <%= form.text_area :metin, id: :admin_konuanlatimi_metin %>
   </div>
+
+  <div class="field">
+    <%= form.label :dosya %>
+    <%= form.file_field :dosya, id: :admin_konuanlatimi_dosya %>
+  </div>
+
 
   <div class="actions">
     <%= form.submit %>

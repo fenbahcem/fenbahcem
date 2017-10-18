@@ -71,6 +71,6 @@ class Admin::KonuanlatimisController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_konuanlatimi_params
-      params.require(:admin_konuanlatimi).permit(:sinif, :uniteadi, :kavram, :metin, :konuadi)
+      params.require(:admin_konuanlatimi).permit(:sinif, :uniteadi, :kavram, :metin, :konuadi, :dosya)
     end
 end

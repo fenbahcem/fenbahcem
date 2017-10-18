@@ -30,6 +30,9 @@ gem 'jbuilder', '~> 2.5'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
+# file upload
+gem "paperclip", "~> 5.0.0"
+
 # Gem devise and devise-bootstrapped
 gem 'devise'
 gem 'devise-bootstrapped'

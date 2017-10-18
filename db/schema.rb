@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171017134139) do
+ActiveRecord::Schema.define(version: 20171018085727) do
 
   create_table "admin_konuanlatimis", force: :cascade do |t|
     t.integer "sinif"
@@ -20,6 +20,10 @@ ActiveRecord::Schema.define(version: 20171017134139) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "konuadi"
+    t.string "dosya_file_name"
+    t.string "dosya_content_type"
+    t.integer "dosya_file_size"
+    t.datetime "dosya_updated_at"
   end
 
   create_table "admin_unites", force: :cascade do |t|
