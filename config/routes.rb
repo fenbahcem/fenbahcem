@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :unites
+  end
   root to: 'ogrenci#index'
-
+	
+	get '/ogrenci/sinif5konuanlatimi/uniteler' => 'ogrenci#uniteler', sinif: 5	
+	get '/ogrenci/sinif5konuanlatimi/uniteler/:id' => 'ogrenci#unite_konu', sinif: 5
+	get '/ogrenci/sinif5konuanlatimi/uniteler/konu/:id' => 'ogrenci#konuanlatimi_incele'
   namespace :admin do
     resources :konuanlatimis
   end

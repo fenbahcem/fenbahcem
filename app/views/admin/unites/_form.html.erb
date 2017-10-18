@@ -1,0 +1,32 @@
+<%= form_with(model: admin_unite, local: true) do |form| %>
+  <% if admin_unite.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(admin_unite.errors.count, "error") %> prohibited this admin_unite from being saved:</h2>
+
+      <ul>
+      <% admin_unite.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :uniteadi %>
+    <%= form.text_field :uniteadi, id: :admin_unite_uniteadi %>
+  </div>
+
+  <div class="field">
+    <%= form.label :aciklama %>
+    <%= form.text_area :aciklama, id: :admin_unite_aciklama %>
+  </div>
+
+  <div class="field">
+    <%= form.label :sinif %>
+    <%= form.number_field :sinif, id: :admin_unite_sinif %>
+  </div>
+	
+	<div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

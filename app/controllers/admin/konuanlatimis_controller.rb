@@ -1,5 +1,6 @@
 class Admin::KonuanlatimisController < ApplicationController
-  before_action :authenticate_user!
+  layout "admin"
+	before_action :authenticate_user!
 	before_action :set_admin_konuanlatimi, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/konuanlatimis
@@ -70,6 +71,6 @@ class Admin::KonuanlatimisController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_konuanlatimi_params
-      params.require(:admin_konuanlatimi).permit(:sinif, :uniteadi, :kavram, :metin)
+      params.require(:admin_konuanlatimi).permit(:sinif, :uniteadi, :kavram, :metin, :konuadi)
     end
 end

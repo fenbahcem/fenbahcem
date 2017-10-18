@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Admin Unites</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Uniteadi</th>
+      <th>Aciklama</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_unites.each do |admin_unite| %>
+      <tr>
+        <td><%= admin_unite.uniteadi %></td>
+        <td><%= admin_unite.aciklama %></td>
+        <td><%= link_to 'Show', admin_unite %></td>
+        <td><%= link_to 'Edit', edit_admin_unite_path(admin_unite) %></td>
+        <td><%= link_to 'Destroy', admin_unite, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Admin Unite', new_admin_unite_path %>
