@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<%= content_for :title do %>
+	<h4 style="margin: 0px;">Proje Görüntüle</h4>
+<% end %>
+
+<table class="table table-striped">
+	<tr>
+		<td><strong>Proje Adı:</strong></td>
+		<td><%= @admin_proje.projeadi %></td>
+	</tr>
+	<tr>
+		<td><strong>Proje Açıklaması:</strong></td>
+		<td><%= @admin_proje.projeaciklama.html_safe %></td>
+	</tr>
+	<tr>
+		<td><strong>Kişi:</strong></td>
+		<td><%= @admin_proje.kisi.html_safe %></td>
+	</tr>
+	<tr>
+		<td><strong>Kavramlar:</strong></td>
+		<td><%= @admin_proje.kavram.html_safe %></td>
+	</tr>
+	<tr>
+		<td><strong>Projenin Yapılışı:</strong></td>
+		<td><%= @admin_proje.nasil.html_safe %></td>
+	</tr>
+	<tr>
+		<td><strong>Sonuç:</strong></td>
+		<td><%= @admin_proje.sonuc.html_safe %></td>
+	</tr>
+	<tr>
+		<td><strong>Ek:</strong></td>
+		<td><%= link_to "Görüntüle",  @admin_proje.ek.url %></td>
+	</tr>
+</table>

@@ -10,7 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171018121544) do
+ActiveRecord::Schema.define(version: 20171019150346) do
+
+  create_table "admin_denemes", force: :cascade do |t|
+    t.integer "sinif"
+    t.string "uniteadi"
+    t.string "denemeadi"
+    t.text "aciklama"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "dosya_file_name"
+    t.string "dosya_content_type"
+    t.integer "dosya_file_size"
+    t.datetime "dosya_updated_at"
+  end
 
   create_table "admin_konuanlatimis", force: :cascade do |t|
     t.integer "sinif"
@@ -24,6 +37,21 @@ ActiveRecord::Schema.define(version: 20171018121544) do
     t.string "dosya_content_type"
     t.integer "dosya_file_size"
     t.datetime "dosya_updated_at"
+  end
+
+  create_table "admin_projes", force: :cascade do |t|
+    t.string "projeadi"
+    t.text "projeaciklama"
+    t.text "kisi"
+    t.text "kavram"
+    t.text "nasil"
+    t.text "sonuc"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "ek_file_name"
+    t.string "ek_content_type"
+    t.integer "ek_file_size"
+    t.datetime "ek_updated_at"
   end
 
   create_table "admin_unites", force: :cascade do |t|

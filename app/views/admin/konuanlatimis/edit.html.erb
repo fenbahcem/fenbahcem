@@ -1,6 +1,5 @@
-<h1>Editing Admin Konuanlatimi</h1>
+<%= content_for :title do %>
+	<h4 style="margin:0px;">Konu Anlatımı Düzenle</h4>
+<% end %>
 
 <%= render 'form', admin_konuanlatimi: @admin_konuanlatimi %>
-
-<%= link_to 'Show', @admin_konuanlatimi %> |
-<%= link_to 'Back', admin_konuanlatimis_path %>

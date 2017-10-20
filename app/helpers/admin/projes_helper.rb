@@ -1,0 +1,2 @@
+module Admin::ProjesHelper
+end

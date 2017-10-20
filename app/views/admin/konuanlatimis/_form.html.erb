@@ -11,38 +11,33 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :sinif %>
-    <%= form.number_field :sinif, id: :admin_konuanlatimi_sinif %>
-  </div>
-
-  <div class="field">
-    <%= form.label :uniteadi %>
-    <%= form.text_field :uniteadi, id: :admin_konuanlatimi_uniteadi %>
-	</div>
-
-  <div class="field">
-    <%= form.label :konuadi %>
-    <%= form.text_field :konuadi, id: :admin_konuanlatimi_konuadi %>
-  </div>
-
-  <div class="field">
-    <%= form.label :kavram %>
-    <%= form.text_field :kavram, id: :admin_konuanlatimi_kavram %>
-  </div>
-
-  <div class="field">
-    <%= form.label :metin %>
-		<%= form.cktext_area :metin, id: :admin_konuanlatimi_metin, ckeditor: { language: 'tr'}	%>
-  </div>
-
-  <div class="field">
-    <%= form.label :dosya %>
-    <%= form.file_field :dosya, id: :admin_konuanlatimi_dosya %>
-  </div>
-
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
+	<table class="table table-striped">
+		<tr>
+			<td>Sınıf</td>
+			<td><%= form.select  :sinif, options_for_select([["5. Sınıf", 5], ["6. Sınıf", 6], ["7. Sınıf", 7],["8. Sınıf", 8]]),{}, id: :admin_konuanlatimi_sinif, class: "form-control" %></td>
+		</tr>
+		<tr>
+			<td>Ünite</td>
+			<td><%= form.text_field :uniteadi, id: :admin_konuanlatimi_uniteadi, class: "form-control"  %></td>
+		</tr>
+		<tr>
+			<td>Konu Adı</td>
+			<td><%= form.text_field :konuadi, id: :admin_konuanlatimi_konuadi, class: "form-control" %></td>
+		</tr>
+		<tr>
+			<td>Kavram</td>
+			<td><%= form.text_field :kavram, id: :admin_konuanlatimi_kavram, class: "form-control" %></td>
+		</tr>
+		<tr>
+			<td>Metin</td>
+			<td><%= form.cktext_area :metin, id: :admin_konuanlatimi_metin, ckeditor: { language: 'tr'}	%></td>
+		</tr>
+		<tr>
+			<td>Dosya</td>
+    	<td><%= form.file_field :dosya, id: :admin_konuanlatimi_dosya, class: "form-control" %></td>
+		</tr>
+		<tr>
+			<td colspan=2><%= form.submit :Kaydet,  class: "btn btn-primary btn-block" %></td>
+		</tr>	
+	</table>
 <% end %>

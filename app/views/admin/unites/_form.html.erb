@@ -11,27 +11,25 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= form.label :uniteadi %>
-    <%= form.text_field :uniteadi, id: :admin_unite_uniteadi %>
-  </div>
-
-  <div class="field">
-    <%= form.label :aciklama %>
-    <%= form.text_area :aciklama, id: :admin_unite_aciklama %>
-  </div>
-
-  <div class="field">
-    <%= form.label :sinif %>
-    <%= form.number_field :sinif, id: :admin_unite_sinif %>
-  </div>
-	
-	<div class="field">
-    <%= form.label :uniteresmi %>
-    <%= form.file_field :uniteresmi, id: :admin_unite_uniteresmi %>
-  </div>
-	
-	<div class="actions">
-    <%= form.submit %>
-  </div>
+	<table class="table table-striped">
+		<tr>
+			<td><%= form.label :sinif %></td>
+			<td><%= form.select  :sinif, options_for_select([["5. Sınıf", 5], ["6. Sınıf", 6], ["7. Sınıf", 7],["8. Sınıf", 8]]),{}, id: :admin_unite_sinif, class: "form-control" %></td>
+		</tr>
+		<tr>
+			<td><%= form.label :uniteadi %></td>
+			<td><%= form.text_field :uniteadi, id: :admin_unite_uniteadi, class: "form-control" %></td>
+		</tr>
+		<tr>
+			<td><%= form.label :aciklama %></td>
+			<td><%= form.cktext_area :aciklama, id: :admin_unite_aciklama, ckeditor: { language: 'tr'} %></td>
+		</tr>
+		<tr>
+			<td><%= form.label :uniteresmi %></td>
+			<td><%= form.file_field :uniteresmi, id: :admin_unite_uniteresmi, class: "form-control" %></td>
+		</tr>
+		<tr>
+			<td colspan=2><%= form.submit :Kaydet,  class: "btn btn-primary btn-block" %></td>
+		</tr>	
+	</table>
 <% end %>

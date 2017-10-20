@@ -1,14 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Uniteadi:</strong>
-  <%= @admin_unite.uniteadi %>
-</p>
+<%= content_for :title do %>
+	<h4 style="margin:0px;">Ünite Görüntüle</h4>
+<% end %>
 
-<p>
-  <strong>Aciklama:</strong>
-  <%= @admin_unite.aciklama %>
-</p>
-
-<%= link_to 'Edit', edit_admin_unite_path(@admin_unite) %> |
-<%= link_to 'Back', admin_unites_path %>
+<table class="table table-striped">
+	<tr>
+		<td><strong>Unite Adı:</strong></td>
+		<td><%= @admin_unite.uniteadi %></td>
+	</tr>
+	<tr>
+		<td><strong>Açıklama:</strong></td>
+		<td><%= @admin_unite.aciklama %></td>
+	</tr>
+	<tr>
+		<td><strong>Ünite Resmi:</strong></td>
+		<td><%= image_tag @admin_unite.uniteresmi.url(:thumb) %></td>
+	</tr>
+</table>

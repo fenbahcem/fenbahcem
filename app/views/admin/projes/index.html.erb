@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<%= content_for :title do %>
+	<h4 style="margin:0px;">Proje Listesi</h4>
+<% end %>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Proje Adı</th>
+      <th>Proje Açıklaması</th>
+      <th>Kişi</th>
+      <th>Kavramlar</th>
+      <th>Projenin Yapılışı</th>
+      <th>Sonuç</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_projes.each do |admin_proje| %>
+      <tr>
+        <td><%= admin_proje.projeadi %></td>
+        <td><%= admin_proje.projeaciklama.truncate(500).html_safe %></td>
+        <td><%= admin_proje.kisi.truncate(500).html_safe %></td>
+        <td><%= admin_proje.kavram.truncate(500).html_safe %></td>
+        <td><%= admin_proje.nasil.truncate(500).html_safe %></td>
+        <td><%= admin_proje.sonuc.truncate(500).html_safe %></td>
+        <td><%= link_to 'Görüntüle', admin_proje %></td>
+        <td><%= link_to 'Düzenle', edit_admin_proje_path(admin_proje) %></td>
+        <td><%= link_to 'Sil', admin_proje, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

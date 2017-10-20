@@ -1,3 +1,3 @@
 class MydeviseController < ActionController::Base
-	  layout "admin"
+	  layout "admin_sign"
 end

@@ -1,0 +1,47 @@
+<%= form_with(model: admin_proje, local: true) do |form| %>
+  <% if admin_proje.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(admin_proje.errors.count, "error") %> prohibited this admin_proje from being saved:</h2>
+
+      <ul>
+      <% admin_proje.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+	<table class="table table-striped">
+		<tr>
+			<td>Proje Adı:</td>
+			<td><%= form.text_field :projeadi, id: :admin_proje_projeadi, class: "form-control" %></td>
+		</tr>
+		<tr>
+			<td>Proje Açıklama</td>
+			<td><%= form.cktext_area :projeaciklama, id: :admin_proje_projeaciklama, ckeditor: { language: 'tr'} %></td>
+		</tr>
+		<tr>
+			<td>Kişi Ekle</td>
+			<td><%= form.cktext_area :kisi, id: :admin_proje_kisi, ckeditor: { language: 'tr'} %> </td>
+		</tr>
+		<tr>
+			<td>Kavramlar</td>
+			<td><%= form.cktext_area :kavram, id: :admin_proje_kavram, ckeditor: { language: 'tr'} %></td>
+		</tr>
+		<tr>
+			<td>Projenin Yapılışı</td>
+			<td><%= form.cktext_area :nasil, id: :admin_proje_nasil, ckeditor: { language: 'tr'} %></td>
+		</tr>
+		<tr>
+			<td>Sonuç</td>
+			<td><%= form.cktext_area :sonuc, id: :admin_proje_sonuc, ckeditor: { language: 'tr'} %></td>
+		</tr>
+		<tr>
+			<td>Ek Dosya</td>
+			<td><%= form.file_field :ek, id: :admin_proje_ek, class: "form-control" %></td>
+		</tr>
+		<tr>
+			<td colspan=2><%= form.submit :Kaydet,  class: "btn btn-primary btn-block" %></td>
+		</tr>	
+	</table>
+<% end %>

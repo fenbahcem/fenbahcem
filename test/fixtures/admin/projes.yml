@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  projeadi: MyString
+  projeaciklama: MyText
+  kisi: MyText
+  kavram: MyText
+  nasil: MyText
+  sonuc: MyText
+
+two:
+  projeadi: MyString
+  projeaciklama: MyText
+  kisi: MyText
+  kavram: MyText
+  nasil: MyText
+  sonuc: MyText

@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<%= content_for :title do %>
+	<h4 style="margin:0px">Deneme Görüntüle</h4>
+<% end %>
+
+
+<table class="table table-striped">
+	<tr>
+		<td><strong>Sınıf:</strong></td>
+		<td><%= @admin_deneme.sinif %></td>
+	</tr>
+	<tr>
+		<td><strong>Ünite Adı:</strong></td>
+		<td><%= @admin_deneme.uniteadi %></td>
+	</tr>
+	<tr>
+		<td><strong>Deneme Adı:</strong></td>
+		<td><%= @admin_deneme.denemeadi %></td>
+	</tr>
+	<tr>
+		<td><strong>Açıklama:</strong></td>
+		<td><%= @admin_deneme.aciklama.html_safe %></td>
+	</tr>
+	<tr>
+		<td><strong>Dosya</strong></td>
+		<td><%= link_to 'Görüntüle', @admin_deneme.dosya.url %></td>
+	</tr>
+</table>

@@ -5,23 +5,161 @@
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-
+		<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>    
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">	
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">	
 	</head>
 
   <body>
 		<style>
 		body{
 			margin-top:50px;
-			min-height: 2000px;
 			padding-top: 50px;}
 		.glyphicon { margin-right:10px; }
 		.panel-body { padding:0px; }
 		.panel-body table tr td { padding-left: 15px }
 		.panel-body .table {margin-bottom: 0px; }
+		.footer1 {
+			background: #fff url("../images/footer/footer-bg.png") repeat scroll left top;
+			margin-top: 100px;
+			padding-top: 40px;
+			padding-right: 0;
+			padding-bottom: 20px;
+			padding-left: 0;/*	border-top-width: 4px;
+			border-top-style: solid;
+			border-top-color: #003;*/
+		}
+		
+		.title-widget {
+			color: #898989;
+			font-size: 20px;
+			font-weight: 300;
+			line-height: 1;
+			position: relative;
+			text-transform: uppercase;
+			font-family: 'Fjalla One', sans-serif;
+			margin-top: 0;
+			margin-right: 0;
+			margin-bottom: 25px;
+			margin-left: 0;
+			padding-left: 28px;
+		}
+		
+		.title-widget::before {
+			background-color: #ea5644;
+			content: "";
+			height: 22px;
+			left: 0px;
+			position: absolute;
+			top: -2px;
+			width: 5px;
+		}
+		
+		
+		
+		.widget_nav_menu ul {
+			list-style: outside none none;
+			padding-left: 0;
+		}
+		
+		.widget_archive ul li {
+			background-color: rgba(0, 0, 0, 0.3);
+			content: "";
+			height: 3px;
+			left: 0;
+			position: absolute;
+			top: 7px;
+			width: 3px;
+		}
+		
+		
+		.widget_nav_menu ul li {
+			font-size: 13px;
+			font-weight: 700;
+			line-height: 10px;
+			position: relative;
+			text-transform: uppercase;
+			border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+			margin-bottom: 7px;
+			padding-bottom: 7px;
+			width:95%;
+		}
+		
+		
+		
+		.title-median {
+			color: #636363;
+			font-size: 20px;
+			line-height: 20px;
+			margin: 0 0 15px;
+			text-transform: uppercase;
+			font-family: 'Fjalla One', sans-serif;
+		}
+		
+		.footerp p {font-family: 'Gudea', sans-serif; }
+		
+		
+		#social:hover {
+						-webkit-transform:scale(1.1); 
+		-moz-transform:scale(1.1); 
+		-o-transform:scale(1.1); 
+					}
+					#social {
+						-webkit-transform:scale(0.8);
+						/* Browser Variations: */
+		-moz-transform:scale(0.8);
+		-o-transform:scale(0.8); 
+		-webkit-transition-duration: 0.5s; 
+		-moz-transition-duration: 0.5s;
+		-o-transition-duration: 0.5s;
+					}           
+		/* 
+			Only Needed in Multi-Coloured Variation 
+													   */
+					.social-fb:hover {
+						color: #3B5998;
+					}
+					.social-tw:hover {
+						color: #4099FF;
+					}
+					.social-gp:hover {
+						color: #d34836;
+					}
+					.social-em:hover {
+						color: #f39c12;
+					}
+					.nomargin { margin:0px; padding:0px;}
+		
+		
+		
+		
+		
+		.footer-bottom {
+			background-color: #15224f;
+			min-height: 30px;
+			width: 100%;
+		}
+		.copyright {
+			color: #fff;
+			line-height: 30px;
+			min-height: 30px;
+			padding: 7px 0;
+		}
+		.design {
+			color: #fff;
+			line-height: 30px;
+			min-height: 30px;
+			padding: 7px 0;
+			text-align: right;
+		}
+		.design a {
+			color: #fff;
+		}
 		</style>
+
 		<!-- Fixed navbar -->
 		<nav class="navbar navbar-default navbar-fixed-top">
 			<div class="container">
@@ -54,7 +192,7 @@
 						<li class="dropdown">
 									<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Faydalı Bilgiler<span class="caret"></span></a>
 									<ul class="dropdown-menu">
-										<li><a href="#">Bilim Fuarı</a></li>
+										<li><a href="/bilimfuari">Bilim Fuarı</a></li>
 										<li><a href="#">Bilim İnsanları</a></li>
 										<li><a href="#">Resmi Evraklar</a></li>
 										<li><a href="#">İlginç Bilgiler</a></li>
@@ -78,7 +216,20 @@
 				</div>
 			</div>
 		</nav>
+		
+		<% if params[:sinif] == 5 %>
+			<% @in5 = "in" %>
+		<% elsif params[:sinif] == 6 %>
+			<% @in6 = "in" %>
+			
+		<% elsif params[:sinif] == 7 %>
+			<% @in7 = "in" %>
 
+		<% elsif params[:sinif] == 8 %>
+			<% @in8 = "in" %>
+				
+		<% end %>
+		
 		<div class="container">
 			<div class="row">
 					<div class="col-sm-3 col-md-3">
@@ -90,7 +241,7 @@
 															</span>5. Sınıf</a>
 													</h4>
 											</div>
-											<div id="collapseOne" class="panel-collapse collapse in">
+											<div id="collapseOne" class="panel-collapse collapse <%= @in5 %>">
 													<div class="panel-body">
 															<table class="table">
 																	<tr>
@@ -105,7 +256,7 @@
 																	</tr>
 																	<tr>
 																			<td>
-																					<span class="glyphicon glyphicon-file text-info"></span><a href="#">Deneme Sınavları</a>
+																				<span class="glyphicon glyphicon-file text-info"></span><a href="/ogrenci/sinif5deneme/uniteler">Deneme Sınavları</a>
 																			</td>
 																	</tr>
 																	<tr>
@@ -140,12 +291,12 @@
 															</span>6. Sınıf</a>
 													</h4>
 											</div>
-											<div id="collapseTwo" class="panel-collapse collapse">
+											<div id="collapseTwo" class="panel-collapse collapse <%= @in6 %>">
 													<div class="panel-body">
 																	<table class="table">
 																					<tr>
 																							<td>
-																									<span class="glyphicon glyphicon-pencil text-primary"></span><a href="#">Konu Anlatımı</a>
+																									<span class="glyphicon glyphicon-pencil text-primary"></span><a href="/ogrenci/sinif6konuanlatimi/uniteler">Konu Anlatımı</a>
 																							</td>
 																					</tr>
 																					<tr>
@@ -155,7 +306,7 @@
 																					</tr>
 																					<tr>
 																							<td>
-																									<span class="glyphicon glyphicon-file text-info"></span><a href="#">Deneme Sınavları</a>
+																									<span class="glyphicon glyphicon-file text-info"></span><a href="/ogrenci/sinif6deneme/uniteler">Deneme Sınavları</a>
 																							</td>
 																					</tr>
 																					<tr>
@@ -190,12 +341,12 @@
 															</span>7. Sınıf</a>
 													</h4>
 											</div>
-											<div id="collapseThree" class="panel-collapse collapse">
+											<div id="collapseThree" class="panel-collapse collapse <%= @in7 %>">
 													<div class="panel-body">
 																	<table class="table">
 																					<tr>
 																							<td>
-																									<span class="glyphicon glyphicon-pencil text-primary"></span><a href="#">Konu Anlatımı</a>
+																									<span class="glyphicon glyphicon-pencil text-primary"></span><a href="/ogrenci/sinif7konuanlatimi/uniteler">Konu Anlatımı</a>
 																							</td>
 																					</tr>
 																					<tr>
@@ -205,7 +356,7 @@
 																					</tr>
 																					<tr>
 																							<td>
-																									<span class="glyphicon glyphicon-file text-info"></span><a href="#">Deneme Sınavları</a>
+																									<span class="glyphicon glyphicon-file text-info"></span><a href="/ogrenci/sinif7deneme/uniteler">Deneme Sınavları</a>
 																							</td>
 																					</tr>
 																					<tr>
@@ -240,12 +391,12 @@
 															</span>8. Sınıf</a>
 													</h4>
 											</div>
-											<div id="collapseFour" class="panel-collapse collapse">
+											<div id="collapseFour" class="panel-collapse collapse <%= @in8 %>">
 													<div class="panel-body">
 																	<table class="table">
 																					<tr>
 																							<td>
-																									<span class="glyphicon glyphicon-pencil text-primary"></span><a href="#">Konu Anlatımı</a>
+																									<span class="glyphicon glyphicon-pencil text-primary"></span><a href="/ogrenci/sinif8konuanlatimi/uniteler">Konu Anlatımı</a>
 																							</td>
 																					</tr>
 																					<tr>
@@ -255,7 +406,7 @@
 																					</tr>
 																					<tr>
 																							<td>
-																									<span class="glyphicon glyphicon-file text-info"></span><a href="#">Deneme Sınavları</a>
+																									<span class="glyphicon glyphicon-file text-info"></span><a href="/ogrenci/sinif8deneme/uniteler">Deneme Sınavları</a>
 																							</td>
 																					</tr>
 																					<tr>
@@ -290,7 +441,111 @@
 					</div>
 			</div>
 		</div>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>    
-		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+		<footer class="footer1">
+		<div class="container">
+		
+		<div class="row"><!-- row -->
+					
+						<div class="col-lg-3 col-md-3"><!-- widgets column left -->
+						<ul class="list-unstyled clear-margins"><!-- widgets -->
+								
+									<li class="widget-container widget_nav_menu"><!-- widgets list -->
+							
+										<h1 class="title-widget">Hızlı Erİşİm</h1>
+										
+										<ul>
+											<li><a  href="#"><i class="fa fa-angle-double-right"></i>Bağlantı</a></li>
+											<li><a  href="#"><i class="fa fa-angle-double-right"></i>Bağlantı</a></li>
+											<li><a  href="#"><i class="fa fa-angle-double-right"></i>Bağlantı</a></li>
+											<li><a  href="#"><i class="fa fa-angle-double-right"></i>Bağlantı</a></li>
+										</ul>
+							
+									</li>
+									
+								</ul>
+								 
+							  
+						</div><!-- widgets column left end -->
+						
+						
+						
+						<div class="col-lg-3 col-md-3"><!-- widgets column left -->
+					
+						<ul class="list-unstyled clear-margins"><!-- widgets -->
+								
+									<li class="widget-container widget_nav_menu"><!-- widgets list -->
+							
+										<h1 class="title-widget">Useful links</h1>
+										
+										<ul>
+											<li><a  href="#"><i class="fa fa-angle-double-right"></i>Bağlantı</a></li>
+											<li><a  href="#"><i class="fa fa-angle-double-right"></i>Bağlantı</a></li>
+											<li><a  href="#"><i class="fa fa-angle-double-right"></i>Bağlantı</a></li>
+											<li><a  href="#"><i class="fa fa-angle-double-right"></i>Bağlantı</a></li>
+										</ul>
+							
+									</li>
+									
+								</ul>
+								 
+							  
+						</div><!-- widgets column left end -->
+									
+						<div class="col-lg-3 col-md-3"><!-- widgets column left -->
+						<ul class="list-unstyled clear-margins"><!-- widgets -->
+									<li class="widget-container widget_nav_menu"><!-- widgets list -->
+										<h1 class="title-widget">Useful links</h1>
+										<ul>
+											<li><a  href="#"><i class="fa fa-angle-double-right"></i>Bağlantı</a></li>
+											<li><a  href="#"><i class="fa fa-angle-double-right"></i>Bağlantı</a></li>
+											<li><a  href="#"><i class="fa fa-angle-double-right"></i>Bağlantı</a></li>
+											<li><a  href="#"><i class="fa fa-angle-double-right"></i>Bağlantı</a></li>
+										</ul>
+									</li>
+								</ul>
+						</div><!-- widgets column left end -->
+						
+						
+						<div class="col-lg-3 col-md-3"><!-- widgets column center -->
+								<ul class="list-unstyled clear-margins"><!-- widgets -->
+									<li class="widget-container widget_recent_news"><!-- widgets list -->
+										<h1 class="title-widget">İletİşİm Bİlgİlerİ </h1>	
+										<div class="footerp"> 
+											<p><i class="fa fa-facebook-official" style="font-size:24px; padding-right:5px;"></i>Facebook</p>
+											<p><i class="fa fa-twitter-square" style="font-size:24px; padding-right:5px;"></i>Twitter</p>
+											<p><i class="fa fa-instagram" style="font-size:24px; padding-right:5px;"></i>Instagram</p>
+											<p><i class="fa fa-google-plus-official" style="font-size:24px; padding-right:5px;"></i>Google Plus</p>
+										</div>
+									</li>
+								  </ul>
+							   </div>
+						</div>
+		</div>
+		</footer>
+		<!--header-->
+		
+		<div class="footer-bottom">
+			<div class="container">
+				<div class="row">
+					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+						<div class="copyright">
+							© 2017, Fenbahçem, Tüm hakları saklıdır.
+						</div>
+					</div>
+		
+					<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+						<div class="design">
+							 <a href="#">2017</a> |  <a target="_blank" href="http://alidasbasi.com">Web Tasarım & Programlama</a>
+						</div>
+					</div>
+				</div>
+			</div>	
+		</div>
+		<script charset="utf-8">
+$(document).ready(function () {
+  location.hash && $(location.hash + '.collapse').collapse('show');
+});
+		</script>
   </body>
 </html>

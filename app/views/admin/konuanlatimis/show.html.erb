@@ -1,29 +1,32 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Sinif:</strong>
-  <%= @admin_konuanlatimi.sinif %>
-</p>
+<%= content_for :title do %>
+	<h4 style="margin:0px;">Konu Görüntüle</h4>
+<% end %>
 
-<p>
-  <strong>Uniteadi:</strong>
-  <%= @admin_konuanlatimi.uniteadi %>
-</p>
-
-<p>
-  <strong>Konuadi:</strong>
-  <%= @admin_konuanlatimi.konuadi %>
-</p>
-
-<p>
-  <strong>Kavram:</strong>
-  <%= @admin_konuanlatimi.kavram %>
-</p>
-
-<p>
-  <strong>Metin:</strong>
-  <%= @admin_konuanlatimi.metin.html_safe %>
-</p>
-
-<%= link_to 'Edit', edit_admin_konuanlatimi_path(@admin_konuanlatimi) %> |
-<%= link_to 'Back', admin_konuanlatimis_path %>
+<table class="table table-striped">
+	<tr>
+		<td><strong>Sınıf:</strong></td>
+		<td><%= @admin_konuanlatimi.sinif %></td>
+	</tr>
+	<tr>
+		<td><strong>Ünite Adı:</strong></td>
+		<td><%= @admin_konuanlatimi.uniteadi %></td>
+	</tr>
+	<tr>
+		<td><strong>Konu Adı:</strong></td>
+		<td><%= @admin_konuanlatimi.konuadi %></td>
+	</tr>
+	<tr>
+		<td><strong>Kavram:</strong></td>
+		<td><%= @admin_konuanlatimi.kavram %></td>
+	</tr>
+	<tr>
+		<td><strong>Metin:</strong></td>
+		<td><%= @admin_konuanlatimi.metin.html_safe %></td>
+	</tr>
+	<tr>
+		<td><strong>Dosya:</strong></td>
+		<td><%= @admin_konuanlatimi.dosya.url %></td>
+	</tr>
+</table>
