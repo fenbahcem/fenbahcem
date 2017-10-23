@@ -56,6 +56,12 @@ Rails.application.routes.draw do
 	get '/ogrenci/sinif7yazili/uniteler' => 'ogrenci#yazili', sinif: 7, materyaltur: 3
 	get '/ogrenci/sinif8yazili/uniteler' => 'ogrenci#yazili', sinif: 8, materyaltur: 3	
 	
+	# Calisma Kagitlari 5-6-7-8 sinif
+	get '/ogrenci/sinif5calismakagitlari/uniteler' => 'ogrenci#calismakagitlari', sinif: 5, materyaltur: 4
+	get '/ogrenci/sinif6calismakagitlari/uniteler' => 'ogrenci#calismakagitlari', sinif: 6, materyaltur: 4	
+	get '/ogrenci/sinif7calismakagitlari/uniteler' => 'ogrenci#calismakagitlari', sinif: 7, materyaltur: 4
+	get '/ogrenci/sinif8calismakagitlari/uniteler' => 'ogrenci#calismakagitlari', sinif: 8, materyaltur: 4	
+	
 	# Bilim Fuari
 	get '/bilimfuari' => 'ogrenci#bilimfuari'
 	get '/bilimfuari/proje/:id' => 'ogrenci#proje_show'	

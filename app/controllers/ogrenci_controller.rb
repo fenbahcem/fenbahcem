@@ -44,4 +44,10 @@ class OgrenciController < ApplicationController
 		@unitesinif = params[:sinif]
 	end
 
+	def calismakagitlari
+		@unite = Admin::Unite.where(sinif: params[:sinif])
+		@calismakagitlari =  Admin::Materyal.where(sinif: params[:sinif]).where(materyaltur: params[:materyaltur])
+		@unitesinif = params[:sinif]
+	end
+
 end
