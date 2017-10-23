@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171019150346) do
+ActiveRecord::Schema.define(version: 20171023143115) do
 
   create_table "admin_denemes", force: :cascade do |t|
     t.integer "sinif"
@@ -37,6 +37,16 @@ ActiveRecord::Schema.define(version: 20171019150346) do
     t.string "dosya_content_type"
     t.integer "dosya_file_size"
     t.datetime "dosya_updated_at"
+  end
+
+  create_table "admin_materyals", force: :cascade do |t|
+    t.integer "sinif"
+    t.string "uniteadi"
+    t.integer "materyaltur"
+    t.string "materyaladi"
+    t.text "materyalaciklama"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "admin_projes", force: :cascade do |t|

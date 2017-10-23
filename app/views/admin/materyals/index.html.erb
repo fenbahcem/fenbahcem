@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Admin Materyals</h1>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Sınıf</th>
+      <th>Uniteadi</th>
+      <th>Materyaltur</th>
+      <th>Materyaladi</th>
+      <th>Materyalaciklama</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_materyals.each do |admin_materyal| %>
+      <tr>
+        <td><%= admin_materyal.sinif %></td>
+        <td><%= admin_materyal.uniteadi %></td>
+        <td><%= admin_materyal.materyaltur %></td>
+        <td><%= admin_materyal.materyaladi %></td>
+        <td><%= admin_materyal.materyalaciklama %></td>
+        <td><%= link_to 'Show', admin_materyal %></td>
+        <td><%= link_to 'Edit', edit_admin_materyal_path(admin_materyal) %></td>
+        <td><%= link_to 'Destroy', admin_materyal, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Admin Materyal', new_admin_materyal_path %>

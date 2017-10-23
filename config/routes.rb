@@ -1,12 +1,20 @@
 Rails.application.routes.draw do
+	mount Ckeditor::Engine => '/ckeditor'
+  
+	namespace :admin do
+ 		resources :materyals, except: :index
+  end
+
   namespace :admin do
     resources :projes
   end
-  namespace :admin do
+  
+	namespace :admin do
     resources :denemes
   end
-  mount Ckeditor::Engine => '/ckeditor'
-  namespace :admin do
+  
+  
+	namespace :admin do
     resources :unites
   end
 

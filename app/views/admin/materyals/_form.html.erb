@@ -1,0 +1,39 @@
+<%= form_with(model: admin_materyal, local: true) do |form| %>
+  <% if admin_materyal.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(admin_materyal.errors.count, "error") %> prohibited this admin_materyal from being saved:</h2>
+
+      <ul>
+      <% admin_materyal.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+	
+	<table class="table table-striped">
+		<tr>
+			<td>Sınıf</td>
+			<td><%= form.select :sinif, options_for_select([["5. Sınıf", 5], ["6. Sınıf", 6], ["7. Sınıf", 7],["8. Sınıf", 8]]),{}, id: :admin_materyal_sinif, class: "form-control" %></td>	
+		</tr>
+		<tr>
+			<td>Ünite Adı</td>
+			<td><%= form.text_field :uniteadi, id: :admin_materyal_uniteadi, class: "form-control" %></td>
+		</tr>
+		<tr>
+			<td>Materyal Türü</td>
+			<td><%= form.select :materyaltur, options_for_select([["Yaprak Testler", 1], ["Deneme Sınavları", 2], ["Yazılılar", 3],["Çalışma Kağıtları", 4], ["Çıkmış Sınav Soruları", 5],["Kazanımlar", 6],["Yıllık Plan", 7], ["Günlük Plan", 8], ["BEP", 9]]),{}, id: :admin_materyal_materyaltur, class: "form-control" %></td>	
+		</tr>
+		<tr>
+			<td>Materyal Adı</td>
+			<td><%= form.text_field :materyaladi, id: :admin_materyal_materyaladi, class: "form-control" %></td>
+		</tr>
+		<tr>
+			<td>Materyal Açıklaması</td>
+			<td><%= form.cktext_area :materyalaciklama, id: :admin_materyal_materyalaciklama, class: "form-control", ckeditor: { language: 'tr'} %></td>
+		</tr>
+		<tr>
+			<td colspan=2><%= form.submit :Kaydet,  class: "btn btn-primary btn-block" %></td>
+		</tr>	
+	</table>
+<% end %>
