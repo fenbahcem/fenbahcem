@@ -44,6 +44,12 @@ Rails.application.routes.draw do
 	get '/ogrenci/sinif7deneme/uniteler' => 'ogrenci#deneme_uniteler', sinif: 7	
 	get '/ogrenci/sinif8deneme/uniteler' => 'ogrenci#deneme_uniteler', sinif: 8	
 
+	# Yaprak Testler 5-6-7-8 sinif
+	get '/ogrenci/sinif5yapraktest/uniteler' => 'ogrenci#yapraktest', sinif: 5, materyaltur: 1
+	get '/ogrenci/sinif6yapraktest/uniteler' => 'ogrenci#yapraktest', sinif: 6, materyaltur: 1	
+	get '/ogrenci/sinif7yapraktest/uniteler' => 'ogrenci#yapraktest', sinif: 7, materyaltur: 1
+	get '/ogrenci/sinif8yapraktest/uniteler' => 'ogrenci#yapraktest', sinif: 8, materyaltur: 1	
+	
 	# Bilim Fuari
 	get '/bilimfuari' => 'ogrenci#bilimfuari'
 	get '/bilimfuari/proje/:id' => 'ogrenci#proje_show'	

@@ -31,4 +31,10 @@ class OgrenciController < ApplicationController
 	def proje_show
 		@proje = Admin::Proje.find(params[:id])
 	end
+
+	def yapraktest
+		@unite = Admin::Unite.where(sinif: params[:sinif])
+		@yapraktest =  Admin::Materyal.where(sinif: params[:sinif]).where(materyaltur: params[:materyaltur])
+		@unitesinif = params[:sinif]
+	end
 end
