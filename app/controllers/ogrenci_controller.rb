@@ -37,4 +37,11 @@ class OgrenciController < ApplicationController
 		@yapraktest =  Admin::Materyal.where(sinif: params[:sinif]).where(materyaltur: params[:materyaltur])
 		@unitesinif = params[:sinif]
 	end
+
+	def yazili
+		@unite = Admin::Unite.where(sinif: params[:sinif])
+		@yazili =  Admin::Materyal.where(sinif: params[:sinif]).where(materyaltur: params[:materyaltur])
+		@unitesinif = params[:sinif]
+	end
+
 end

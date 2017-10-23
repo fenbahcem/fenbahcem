@@ -50,6 +50,12 @@ Rails.application.routes.draw do
 	get '/ogrenci/sinif7yapraktest/uniteler' => 'ogrenci#yapraktest', sinif: 7, materyaltur: 1
 	get '/ogrenci/sinif8yapraktest/uniteler' => 'ogrenci#yapraktest', sinif: 8, materyaltur: 1	
 	
+	# Yazililar 5-6-7-8 sinif
+	get '/ogrenci/sinif5yazili/uniteler' => 'ogrenci#yazili', sinif: 5, materyaltur: 3
+	get '/ogrenci/sinif6yazili/uniteler' => 'ogrenci#yazili', sinif: 6, materyaltur: 3	
+	get '/ogrenci/sinif7yazili/uniteler' => 'ogrenci#yazili', sinif: 7, materyaltur: 3
+	get '/ogrenci/sinif8yazili/uniteler' => 'ogrenci#yazili', sinif: 8, materyaltur: 3	
+	
 	# Bilim Fuari
 	get '/bilimfuari' => 'ogrenci#bilimfuari'
 	get '/bilimfuari/proje/:id' => 'ogrenci#proje_show'	
