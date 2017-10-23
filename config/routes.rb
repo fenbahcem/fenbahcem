@@ -62,6 +62,36 @@ Rails.application.routes.draw do
 	get '/ogrenci/sinif7calismakagitlari/uniteler' => 'ogrenci#calismakagitlari', sinif: 7, materyaltur: 4
 	get '/ogrenci/sinif8calismakagitlari/uniteler' => 'ogrenci#calismakagitlari', sinif: 8, materyaltur: 4	
 	
+	# Cikmis Sinav Sorulari 5-6-7-8 sinif
+	get '/ogrenci/sinif5cikmissinavsorulari/uniteler' => 'ogrenci#cikmissinavsorulari', sinif: 5, materyaltur: 5
+	get '/ogrenci/sinif6cikmissinavsorulari/uniteler' => 'ogrenci#cikmissinavsorulari', sinif: 6, materyaltur: 5	
+	get '/ogrenci/sinif7cikmissinavsorulari/uniteler' => 'ogrenci#cikmissinavsorulari', sinif: 7, materyaltur: 5
+	get '/ogrenci/sinif8cikmissinavsorulari/uniteler' => 'ogrenci#cikmissinavsorulari', sinif: 8, materyaltur: 5	
+	
+	# Kazanimlar 5-6-7-8 sinif
+	get '/ogrenci/sinif5kazanimlar/uniteler' => 'ogrenci#kazanimlar', sinif: 5, materyaltur: 6
+	get '/ogrenci/sinif6kazanimlar/uniteler' => 'ogrenci#kazanimlar', sinif: 6, materyaltur: 6	
+	get '/ogrenci/sinif7kazanimlar/uniteler' => 'ogrenci#kazanimlar', sinif: 7, materyaltur: 6
+	get '/ogrenci/sinif8kazanimlar/uniteler' => 'ogrenci#kazanimlar', sinif: 8, materyaltur: 6	
+	
+	# Yillik Plan 5-6-7-8 sinif
+	get '/ogrenci/sinif5yillikplan/uniteler' => 'ogrenci#yillikplan', sinif: 5, materyaltur: 7
+	get '/ogrenci/sinif6yillikplan/uniteler' => 'ogrenci#yillikplan', sinif: 6, materyaltur: 7	
+	get '/ogrenci/sinif7yillikplan/uniteler' => 'ogrenci#yillikplan', sinif: 7, materyaltur: 7
+	get '/ogrenci/sinif8yillikplan/uniteler' => 'ogrenci#yillikplan', sinif: 8, materyaltur: 7	
+	
+	# Gunluk Plan 5-6-7-8 sinif
+	get '/ogrenci/sinif5gunlukplan/uniteler' => 'ogrenci#gunlukplan', sinif: 5, materyaltur: 8
+	get '/ogrenci/sinif6gunlukplan/uniteler' => 'ogrenci#gunlukplan', sinif: 6, materyaltur: 8	
+	get '/ogrenci/sinif7gunlukplan/uniteler' => 'ogrenci#gunlukplan', sinif: 7, materyaltur: 8
+	get '/ogrenci/sinif8gunlukplan/uniteler' => 'ogrenci#gunlukplan', sinif: 8, materyaltur: 8	
+	
+	# BEP 5-6-7-8 sinif
+	get '/ogrenci/sinif5BEP/uniteler' => 'ogrenci#bep', sinif: 5, materyaltur: 9
+	get '/ogrenci/sinif6BEP/uniteler' => 'ogrenci#bep', sinif: 6, materyaltur: 9	
+	get '/ogrenci/sinif7BEP/uniteler' => 'ogrenci#bep', sinif: 7, materyaltur: 9
+	get '/ogrenci/sinif8BEP/uniteler' => 'ogrenci#bep', sinif: 8, materyaltur: 9	
+	
 	# Bilim Fuari
 	get '/bilimfuari' => 'ogrenci#bilimfuari'
 	get '/bilimfuari/proje/:id' => 'ogrenci#proje_show'	

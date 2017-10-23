@@ -50,4 +50,34 @@ class OgrenciController < ApplicationController
 		@unitesinif = params[:sinif]
 	end
 
+	def cikmissinavsorulari
+		@unite = Admin::Unite.where(sinif: params[:sinif])
+		@cikmissinavsorulari =  Admin::Materyal.where(sinif: params[:sinif]).where(materyaltur: params[:materyaltur])
+		@unitesinif = params[:sinif]
+	end
+
+	def kazanimlar
+		@unite = Admin::Unite.where(sinif: params[:sinif])
+		@kazanimlar =  Admin::Materyal.where(sinif: params[:sinif]).where(materyaltur: params[:materyaltur])
+		@unitesinif = params[:sinif]
+	end
+
+	def yillikplan
+		@unite = Admin::Unite.where(sinif: params[:sinif])
+		@yillikplan =  Admin::Materyal.where(sinif: params[:sinif]).where(materyaltur: params[:materyaltur])
+		@unitesinif = params[:sinif]
+	end
+
+	def gunlukplan
+		@unite = Admin::Unite.where(sinif: params[:sinif])
+		@gunlukplan =  Admin::Materyal.where(sinif: params[:sinif]).where(materyaltur: params[:materyaltur])
+		@unitesinif = params[:sinif]
+	end
+
+	def bep
+		@unite = Admin::Unite.where(sinif: params[:sinif])
+		@bep =  Admin::Materyal.where(sinif: params[:sinif]).where(materyaltur: params[:materyaltur])
+		@unitesinif = params[:sinif]
+	end
+
 end
