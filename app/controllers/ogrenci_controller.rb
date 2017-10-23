@@ -1,5 +1,6 @@
 class OgrenciController < ApplicationController
 	layout "app-other", only: [:bilimfuari, :proje_show]  
+	helper_method :sayac
 	def index
   end
 	
@@ -78,6 +79,10 @@ class OgrenciController < ApplicationController
 		@unite = Admin::Unite.where(sinif: params[:sinif])
 		@bep =  Admin::Materyal.where(sinif: params[:sinif]).where(materyaltur: params[:materyaltur])
 		@unitesinif = params[:sinif]
+	end
+
+	def sayac(sinif, materyaltur, uniteadi)
+		return Admin::Materyal.where(sinif: sinif).where(materyaltur: materyaltur).where(uniteadi: uniteadi).count
 	end
 
 end
