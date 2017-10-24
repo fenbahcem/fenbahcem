@@ -26,7 +26,7 @@
 							<% @kazanimlar.each do |d|  %>
 								<% if d.uniteadi == u.uniteadi %>
 									<tr>
-										<td><%= d.materyaladi %>: <%= d.materyalaciklama.html_safe %><br><%= link_to "Ünite kazanımlarını Görüntüle", d.dosya.url %></td>
+										<td><%= d.materyaladi %>: <%= d.materyalaciklama.html_safe %><br><%= link_to "Ünite kazanımlarını Görüntüle", d.dosya.url, class: "btn btn-primary btn-block" %></td>
 									</tr>
 								<% end  %>
 							<% end %>

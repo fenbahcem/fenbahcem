@@ -26,7 +26,7 @@
 							<% @deneme.each do |d|  %>
 								<% if d.uniteadi == u.uniteadi %>
 									<tr>
-										<td><%= d.denemeadi %>: <%= d.aciklama.html_safe %><br><%= link_to "Deneme Görüntüle", d.dosya.url %></td>
+										<td><%= d.materyaladi %>: <%= d.materyalaciklama.html_safe %><br><%= link_to "Deneme Görüntüle", d.dosya.url, class: "btn btn-primary btn-block" %></td>
 									</tr>
 								<% end  %>
 							<% end %>

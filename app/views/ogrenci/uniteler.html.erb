@@ -23,7 +23,7 @@
             </h4>
 						<p><%= u.aciklama.html_safe %></p>
 						<p>
-						<%= link_to "Konuları Görüntüle", controller: "ogrenci", action: "unite_konu",sinif: u.sinif, uniteadi: u.uniteadi, id: u.id  %>
+						<%= link_to "Konuları Görüntüle", { controller: "ogrenci", action: "unite_konu",sinif: u.sinif, uniteadi: u.uniteadi, id: u.id }, class: "btn btn-primary btn-block"  %>
 						</p>
             <hr />
             <div class="row rating-desc">
