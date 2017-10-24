@@ -19,18 +19,18 @@ class OgrenciController < ApplicationController
 		@unite_konu = params[:uniteadi]
 	end
 	
-	def deneme_uniteler
-		@unite = Admin::Unite.where(sinif: params[:sinif])
-		@deneme =  Admin::Deneme.where(sinif: params[:sinif])
-		@unitesinif = params[:sinif]
-	end
-
 	def bilimfuari
 		@proje = Admin::Proje.all
 	end
 
 	def proje_show
 		@proje = Admin::Proje.find(params[:id])
+	end
+
+	def deneme
+		@unite = Admin::Unite.where(sinif: params[:sinif])
+		@deneme =  Admin::Materyal.where(sinif: params[:sinif]).where(materyaltur: params[:materyaltur])
+		@unitesinif = params[:sinif]
 	end
 
 	def yapraktest

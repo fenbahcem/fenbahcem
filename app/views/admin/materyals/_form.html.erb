@@ -33,6 +33,10 @@
 			<td><%= form.cktext_area :materyalaciklama, id: :admin_materyal_materyalaciklama, class: "form-control", ckeditor: { language: 'tr'} %></td>
 		</tr>
 		<tr>
+			<td>Dosya</td>
+			<td><%= form.file_field :dosya, id: :admin_deneme_dosya, class: "form-control" %></td>
+		</tr>
+		<tr>
 			<td colspan=2><%= form.submit :Kaydet,  class: "btn btn-primary btn-block" %></td>
 		</tr>	
 	</table>
