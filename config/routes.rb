@@ -1,9 +1,21 @@
 Rails.application.routes.draw do
 	mount Ckeditor::Engine => '/ckeditor'
   
+	get '/admin' => 'admin#index'
+  
 	namespace :admin do
- 		resources :materyals, except: :index
+ 		resources :materyals #, except: :index
   end
+	
+	get '/admin/yapraktest' => 'admin/materyals#index', materyaltur: 1, title: 'Yaprak Test'
+	get '/admin/denemesinavlari' => 'admin/materyals#index', materyaltur: 2, title: 'Deneme Sınavları'
+	get '/admin/yazililar' => 'admin/materyals#index', materyaltur: 3, title: 'Yazılılar'
+	get '/admin/calismakagitlari' => 'admin/materyals#index', materyaltur: 4, title: 'Çalışma Kağıtları'
+	get '/admin/cikmissinavsorulari' => 'admin/materyals#index', materyaltur: 5, title: 'Çıkmış Sınav Soruları'
+	get '/admin/kazanimlar' => 'admin/materyals#index', materyaltur: 6, title: 'Kazanımlar'
+	get '/admin/yillikplan' => 'admin/materyals#index', materyaltur: 7, title: 'Yıllık Plan'
+	get '/admin/gunlukplan' => 'admin/materyals#index', materyaltur: 8, title: 'Günlük Plan'
+	get '/admin/bep' => 'admin/materyals#index', materyaltur: 9, title: 'BEP'
 
   namespace :admin do
     resources :projes

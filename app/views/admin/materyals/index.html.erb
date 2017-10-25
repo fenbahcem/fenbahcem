@@ -1,15 +1,17 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Admin Materyals</h1>
+<%= content_for :title do %>
+	<h4 style="margin:0px;"><%= params[:title] %></h4>
+<% end %>
 
 <table class="table table-striped">
   <thead>
     <tr>
       <th>Sınıf</th>
-      <th>Uniteadi</th>
-      <th>Materyaltur</th>
-      <th>Materyaladi</th>
-      <th>Materyalaciklama</th>
+      <th>Ünite Adı</th>
+      <th>Materyal Türü</th>
+      <th>Materyal Adı</th>
+      <th>Materyal Açıklama</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -31,5 +33,3 @@
 </table>
 
 <br>
-
-<%= link_to 'New Admin Materyal', new_admin_materyal_path %>

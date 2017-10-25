@@ -6,7 +6,7 @@ class Admin::MateryalsController < ApplicationController
   # GET /admin/materyals
   # GET /admin/materyals.json
   def index
-    @admin_materyals = Admin::Materyal.all
+    @admin_materyals = Admin::Materyal.where(materyaltur: params[:materyaltur])
   end
 
   # GET /admin/materyals/1
