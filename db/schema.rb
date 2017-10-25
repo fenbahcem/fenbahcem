@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 20171024094252) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "admin_konuanlatimis", force: :cascade do |t|
     t.integer "sinif"
     t.string "uniteadi"
