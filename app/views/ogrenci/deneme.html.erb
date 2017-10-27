@@ -10,44 +10,47 @@
 
 <div class="col-md-12">
 <h3 style="margin-top:0px"><%= @unitesinif %>. Sınıf Fen Bilimleri Üniteleri Deneme Sınavları</h3>
-<% @unite.each_with_index do |u, i|  %>
-<div class="well well-sm">
-	<div class="row">
-        <div class="col-xs-3 col-md-3 text-center">
-<!--					<img src="http://via.placeholder.com/180x114" alt="bootsnipp" class="img-rounded img-responsive" /> -->
-					<%= image_tag u.uniteresmi.url(:thumb), class: "img-rounded img-responsive" %>
-        </div>
-        <div class="col-xs-9 col-md-9 section-box">
-            <h4>
-                <%= u.uniteadi %>
-						</h4>
-						Ünite denemelerini görüntülemek için üzerine tıklayınız.
-						<table class="table table-striped">
-							<% @deneme.each do |d|  %>
-								<% if d.uniteadi == u.uniteadi %>
-									<tr>
-										<td><b><%= d.materyaladi %></b><%= d.materyalaciklama.html_safe %><br><%= link_to "Deneme Görüntüle", d.dosya.url, class: "btn btn-primary btn-block" %></td>
-									</tr>
-								<% end  %>
-							<% end %>
-						</table>
-            <hr />
-            <div class="row rating-desc">
-                <div class="col-md-12">
-                    <span class="glyphicon glyphicon-th-list"></span><%= Admin::Konuanlatimi.where(sinif: params[:sinif]).where(uniteadi: u.uniteadi).count %><span class="separator">|</span>
-                    <span class="glyphicon glyphicon-hourglass"></span><%= sayac(params[:sinif], 1, u.uniteadi) %><span class="separator">|</span>
-                    <span class="glyphicon glyphicon-check"></span><%= sayac(params[:sinif], 2, u.uniteadi) %><span class="separator">|</span>
-                    <span class="glyphicon glyphicon-pencil"></span><%= sayac(params[:sinif], 3, u.uniteadi) %><span class="separator">|</span>
-                    <span class="glyphicon glyphicon-file"></span><%= sayac(params[:sinif], 4, u.uniteadi) %><span class="separator">|</span>
-                    <span class="glyphicon glyphicon-book"></span><%= sayac(params[:sinif], 5, u.uniteadi) %><span class="separator">|</span>
-                    <span class="glyphicon glyphicon-road"></span><%= sayac(params[:sinif], 6, u.uniteadi) %><span class="separator">|</span>
-                    <span class="glyphicon glyphicon-equalizer"></span><%= sayac(params[:sinif], 7, u.uniteadi) %><span class="separator">|</span>
-                    <span class="glyphicon glyphicon-list-alt"></span><%= sayac(params[:sinif], 8, u.uniteadi) %><span class="separator">|</span>
-                    <span class="glyphicon glyphicon-star"></span><%= sayac(params[:sinif], 9, u.uniteadi) %>
-                </div>
-            </div>
+<% if @unite.count > 0 %>
+		<% @unite.each_with_index do |u, i|  %>
+		<div class="well well-sm">
+			<div class="row">
+						<div class="col-xs-3 col-md-3 text-center">
+							<%= image_tag u.uniteresmi.url(:thumb), class: "img-rounded img-responsive" %>
+						</div>
+						<div class="col-xs-9 col-md-9 section-box">
+								<h4>
+										<%= u.uniteadi %>
+								</h4>
+								Ünite denemelerini görüntülemek için üzerine tıklayınız.
+								<table class="table table-striped">
+									<% @deneme.each do |d|  %>
+										<% if d.uniteadi == u.uniteadi %>
+											<tr>
+												<td><b><%= d.materyaladi %></b><%= d.materyalaciklama.html_safe %><br><%= link_to "Deneme Görüntüle", d.dosya.url, class: "btn btn-primary btn-block" %></td>
+											</tr>
+										<% end  %>
+									<% end %>
+								</table>
+								<hr />
+								<div class="row rating-desc">
+										<div class="col-md-12">
+												<span class="glyphicon glyphicon-th-list"></span><%= Admin::Konuanlatimi.where(sinif: params[:sinif]).where(uniteadi: u.uniteadi).count %><span class="separator">|</span>
+												<span class="glyphicon glyphicon-hourglass"></span><%= sayac(params[:sinif], 1, u.uniteadi) %><span class="separator">|</span>
+												<span class="glyphicon glyphicon-check"></span><%= sayac(params[:sinif], 2, u.uniteadi) %><span class="separator">|</span>
+												<span class="glyphicon glyphicon-pencil"></span><%= sayac(params[:sinif], 3, u.uniteadi) %><span class="separator">|</span>
+												<span class="glyphicon glyphicon-file"></span><%= sayac(params[:sinif], 4, u.uniteadi) %><span class="separator">|</span>
+												<span class="glyphicon glyphicon-book"></span><%= sayac(params[:sinif], 5, u.uniteadi) %><span class="separator">|</span>
+												<span class="glyphicon glyphicon-road"></span><%= sayac(params[:sinif], 6, u.uniteadi) %><span class="separator">|</span>
+												<span class="glyphicon glyphicon-equalizer"></span><%= sayac(params[:sinif], 7, u.uniteadi) %><span class="separator">|</span>
+												<span class="glyphicon glyphicon-list-alt"></span><%= sayac(params[:sinif], 8, u.uniteadi) %><span class="separator">|</span>
+												<span class="glyphicon glyphicon-star"></span><%= sayac(params[:sinif], 9, u.uniteadi) %>
+										</div>
+								</div>
+						</div>
 				</div>
-    </div>
-</div>
-<% end %>
-</div>
+		</div>
+	<% end %>
+	<% else %>
+	<%= image_tag "notfound.jpg", style:"width:100%;" %>
+		<% end %>
+		</div>
