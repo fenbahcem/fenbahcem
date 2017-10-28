@@ -17,7 +17,7 @@ class Admin::MateryalsController < ApplicationController
   # GET /admin/materyals/new
   def new
     @admin_materyal = Admin::Materyal.new
-  end
+	end
 
   # GET /admin/materyals/1/edit
   def edit

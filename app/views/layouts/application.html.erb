@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Fenbahcem</title>
+    <title><%= yield :pagetitle %></title>
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
 		<%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="keywords" content="fen, fen bilgisi, fenbahçem, konu anlatımı, deneme, yazılı, çıkmış sınav soruları, çalışma kağıtları, bep, yıllık plan, günlük plan, kazanımlar, bilim fuarı, bilim insanı, deney, bulmaca, video, deney videoları, resim, resim galerisi, yaprak testler, ilginç bilgiler, resmi evraklar, rehberlik, motivasyon, sınav sistemi" />
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>    
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	  <% if Rails.env.production? %>
@@ -260,7 +261,7 @@
 															<table class="table">
 																	<tr>
 																			<td>
-																					<span class="glyphicon glyphicon-th-list text-primary"></span><a href="/ogrenci/sinif5konuanlatimi/uniteler">Konu Anlatımı</a>
+																					<span class="glyphicon glyphicon-th-list text-primary"></span><a href="/sinif5/konuanlatimi">Konu Anlatımı</a>
 																			</td>
 																	</tr>
 																	<tr>
@@ -324,7 +325,7 @@
 																	<table class="table">
 																					<tr>
 																							<td>
-																									<span class="glyphicon glyphicon-th-list text-primary"></span><a href="/ogrenci/sinif6konuanlatimi/uniteler">Konu Anlatımı</a>
+																									<span class="glyphicon glyphicon-th-list text-primary"></span><a href="/sinif6/konuanlatimi">Konu Anlatımı</a>
 																							</td>
 																					</tr>
 																					<tr>
@@ -388,7 +389,7 @@
 																	<table class="table">
 																					<tr>
 																							<td>
-																									<span class="glyphicon glyphicon-th-list text-primary"></span><a href="/ogrenci/sinif7konuanlatimi/uniteler">Konu Anlatımı</a>
+																									<span class="glyphicon glyphicon-th-list text-primary"></span><a href="/sinif7/konuanlatimi">Konu Anlatımı</a>
 																							</td>
 																					</tr>
 																					<tr>
@@ -452,7 +453,7 @@
 																	<table class="table">
 																					<tr>
 																							<td>
-																									<span class="glyphicon glyphicon-th-list text-primary"></span><a href="/ogrenci/sinif8konuanlatimi/uniteler">Konu Anlatımı</a>
+																									<span class="glyphicon glyphicon-th-list text-primary"></span><a href="/sinif8/konuanlatimi">Konu Anlatımı</a>
 																							</td>
 																					</tr>
 																					<tr>

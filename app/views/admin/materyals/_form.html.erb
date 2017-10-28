@@ -14,7 +14,7 @@
 	<table class="table table-striped">
 		<tr>
 			<td>Sınıf</td>
-			<td><%= form.select :sinif, options_for_select([["5. Sınıf", 5], ["6. Sınıf", 6], ["7. Sınıf", 7],["8. Sınıf", 8]]),{}, id: :admin_materyal_sinif, class: "form-control" %></td>	
+			<td><%= form.select :sinif, options_for_select([["5. Sınıf", 5], ["6. Sınıf", 6], ["7. Sınıf", 7],["8. Sınıf", 8]]),{include_blank: true},onchange: "unitesec();", id: :admin_materyal_sinif, class: "form-control" %></td>
 		</tr>
 		<tr>
 			<td>Ünite Adı</td>
