@@ -165,6 +165,12 @@
 		.design a {
 			color: #fff;
 		}
+
+		a.button {
+			font-size: 16px;
+			text-align: left;
+			font-weight: 500;
+		}
 		</style>
 
 		<!-- Fixed navbar -->
@@ -208,16 +214,17 @@
 											<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Rehberlik<span class="caret"></span></a>
 											<ul class="dropdown-menu">
 												<li><a href="#">Motivasyon</a></li>
-												<li><a href="#">Sınav Sİstemi</a></li>
+												<li><a href="#">Sınav Sistemi</a></li>
 											</ul>
 									</li>
-									<li><a href="#about">Gönderin Yayınlayalım</a></li>
+
 									<!--<li><a href="#about">Öneri ve Şikayet Kutusu</a></li>-->
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
 									<form class="navbar-form navbar-right">
-													<input type="text" class="form-control" placeholder="Search...">
-												</form>
+										<input type="text" class="form-control" placeholder="Search...">
+										<button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
+									</form>
 					</ul>
 
 				</div>
@@ -244,7 +251,7 @@
 									<div class="panel panel-default">
 											<div class="panel-heading">
 													<h4 class="panel-title">
-															<a data-toggle="collapse" data-parent="#accordion" href="#collapseOne"><span class="glyphicon glyphicon-education">
+															<a class="btn btn-block button"data-toggle="collapse" data-parent="#accordion" href="#collapseOne" style="box-shadow: none;"><span class="glyphicon glyphicon-education">
 															</span>5. Sınıf</a>
 													</h4>
 											</div>
@@ -308,7 +315,7 @@
 									<div class="panel panel-default">
 											<div class="panel-heading">
 													<h4 class="panel-title">
-															<a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><span class="glyphicon glyphicon-education">
+															<a class="btn btn-block button" style="box-shadow: none;" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo"><span class="glyphicon glyphicon-education">
 															</span>6. Sınıf</a>
 													</h4>
 											</div>
@@ -372,7 +379,7 @@
 									<div class="panel panel-default">
 											<div class="panel-heading">
 													<h4 class="panel-title">
-															<a data-toggle="collapse" data-parent="#accordion" href="#collapseThree"><span class="glyphicon glyphicon-education">
+															<a class="btn btn-block button" style="box-shadow: none;" data-toggle="collapse" data-parent="#accordion" href="#collapseThree"><span class="glyphicon glyphicon-education">
 															</span>7. Sınıf</a>
 													</h4>
 											</div>
@@ -436,7 +443,7 @@
 									<div class="panel panel-default">
 											<div class="panel-heading">
 													<h4 class="panel-title">
-															<a data-toggle="collapse" data-parent="#accordion" href="#collapseFour"><span class="glyphicon glyphicon-education">
+															<a class="btn btn-block button" style="box-shadow: none;" data-toggle="collapse" data-parent="#accordion" href="#collapseFour"><span class="glyphicon glyphicon-education">
 															</span>8. Sınıf</a>
 													</h4>
 											</div>
@@ -496,9 +503,24 @@
 																			</table>
 													</div>
 											</div>
+
 									</div>
+									
+									<div class="panel panel-default">
+											<div class="panel-heading">
+													<h4 class="panel-title"><a class="btn btn-block button" style="box-shadow: none; height:80px; line-height:4;"  href="#"><span class="glyphicon glyphicon-cloud-upload"></span>Gönderin Yayınlayalım</a></h4>
+											</div>
+									</div>
+									
+									<div class="panel panel-default">
+											<div class="panel-heading">
+													<h4 class="panel-title"><a class="btn btn-block button" style="box-shadow: none; height:80px; line-height:4;"  href="#"><span class="glyphicon glyphicon-thumbs-up"></span>Öneri ve Şikayet Kutusu</a></h4>
+											</div>
+									</div>
+
 							</div>
 					</div>
+
 					<div class="col-sm-9 col-md-9">
 						<%= yield %>
 					</div>
