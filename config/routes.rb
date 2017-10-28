@@ -46,58 +46,58 @@ Rails.application.routes.draw do
 	get '/ogrenci/sinif8konuanlatimi/uniteler/konu/:id' => 'ogrenci#konuanlatimi_incele', sinif:8
 
 	# Yaprak Testler 5-6-7-8 sinif
-	get '/ogrenci/sinif5yapraktest/uniteler' => 'ogrenci#yapraktest', sinif: 5, materyaltur: 1
-	get '/ogrenci/sinif6yapraktest/uniteler' => 'ogrenci#yapraktest', sinif: 6, materyaltur: 1	
-	get '/ogrenci/sinif7yapraktest/uniteler' => 'ogrenci#yapraktest', sinif: 7, materyaltur: 1
-	get '/ogrenci/sinif8yapraktest/uniteler' => 'ogrenci#yapraktest', sinif: 8, materyaltur: 1	
+	get '/sinif5/yapraktest' => 'ogrenci#yapraktest', sinif: 5, materyaltur: 1
+	get '/sinif6/yapraktest' => 'ogrenci#yapraktest', sinif: 6, materyaltur: 1	
+	get '/sinif7/yapraktest' => 'ogrenci#yapraktest', sinif: 7, materyaltur: 1
+	get '/sinif8/yapraktest' => 'ogrenci#yapraktest', sinif: 8, materyaltur: 1	
 	
 	# Deneme 5-6-7-8 sinif
-	get '/ogrenci/sinif5deneme/uniteler' => 'ogrenci#deneme', sinif: 5, materyaltur: 2
-	get '/ogrenci/sinif6deneme/uniteler' => 'ogrenci#deneme', sinif: 6, materyaltur: 2
-	get '/ogrenci/sinif7deneme/uniteler' => 'ogrenci#deneme', sinif: 7, materyaltur: 2	
-	get '/ogrenci/sinif8deneme/uniteler' => 'ogrenci#deneme', sinif: 8, materyaltur: 2	
+	get '/sinif5/deneme' => 'ogrenci#deneme', sinif: 5, materyaltur: 2
+	get '/sinif6/deneme' => 'ogrenci#deneme', sinif: 6, materyaltur: 2
+	get '/sinif7/deneme' => 'ogrenci#deneme', sinif: 7, materyaltur: 2	
+	get '/sinif8/deneme' => 'ogrenci#deneme', sinif: 8, materyaltur: 2	
 
 	# Yazililar 5-6-7-8 sinif
-	get '/ogrenci/sinif5yazili/uniteler' => 'ogrenci#yazili', sinif: 5, materyaltur: 3
-	get '/ogrenci/sinif6yazili/uniteler' => 'ogrenci#yazili', sinif: 6, materyaltur: 3	
-	get '/ogrenci/sinif7yazili/uniteler' => 'ogrenci#yazili', sinif: 7, materyaltur: 3
-	get '/ogrenci/sinif8yazili/uniteler' => 'ogrenci#yazili', sinif: 8, materyaltur: 3	
+	get '/sinif5/yazili' => 'ogrenci#yazili', sinif: 5, materyaltur: 3
+	get '/sinif6/yazili' => 'ogrenci#yazili', sinif: 6, materyaltur: 3	
+	get '/sinif7/yazili' => 'ogrenci#yazili', sinif: 7, materyaltur: 3
+	get '/sinif8/yazili' => 'ogrenci#yazili', sinif: 8, materyaltur: 3	
 	
 	# Calisma Kagitlari 5-6-7-8 sinif
-	get '/ogrenci/sinif5calismakagitlari/uniteler' => 'ogrenci#calismakagitlari', sinif: 5, materyaltur: 4
-	get '/ogrenci/sinif6calismakagitlari/uniteler' => 'ogrenci#calismakagitlari', sinif: 6, materyaltur: 4	
-	get '/ogrenci/sinif7calismakagitlari/uniteler' => 'ogrenci#calismakagitlari', sinif: 7, materyaltur: 4
-	get '/ogrenci/sinif8calismakagitlari/uniteler' => 'ogrenci#calismakagitlari', sinif: 8, materyaltur: 4	
+	get '/sinif5/calismakagitlari' => 'ogrenci#calismakagitlari', sinif: 5, materyaltur: 4
+	get '/sinif6/calismakagitlari' => 'ogrenci#calismakagitlari', sinif: 6, materyaltur: 4	
+	get '/sinif7/calismakagitlari' => 'ogrenci#calismakagitlari', sinif: 7, materyaltur: 4
+	get '/sinif8/calismakagitlari' => 'ogrenci#calismakagitlari', sinif: 8, materyaltur: 4	
 	
 	# Cikmis Sinav Sorulari 5-6-7-8 sinif
-	get '/ogrenci/sinif5cikmissinavsorulari/uniteler' => 'ogrenci#cikmissinavsorulari', sinif: 5, materyaltur: 5
-	get '/ogrenci/sinif6cikmissinavsorulari/uniteler' => 'ogrenci#cikmissinavsorulari', sinif: 6, materyaltur: 5	
-	get '/ogrenci/sinif7cikmissinavsorulari/uniteler' => 'ogrenci#cikmissinavsorulari', sinif: 7, materyaltur: 5
-	get '/ogrenci/sinif8cikmissinavsorulari/uniteler' => 'ogrenci#cikmissinavsorulari', sinif: 8, materyaltur: 5	
+	get '/sinif5/cikmissinavsorulari' => 'ogrenci#cikmissinavsorulari', sinif: 5, materyaltur: 5
+	get '/sinif6/cikmissinavsorulari' => 'ogrenci#cikmissinavsorulari', sinif: 6, materyaltur: 5	
+	get '/sinif7/cikmissinavsorulari' => 'ogrenci#cikmissinavsorulari', sinif: 7, materyaltur: 5
+	get '/sinif8/cikmissinavsorulari' => 'ogrenci#cikmissinavsorulari', sinif: 8, materyaltur: 5	
 	
 	# Kazanimlar 5-6-7-8 sinif
-	get '/ogrenci/sinif5kazanimlar/uniteler' => 'ogrenci#kazanimlar', sinif: 5, materyaltur: 6
-	get '/ogrenci/sinif6kazanimlar/uniteler' => 'ogrenci#kazanimlar', sinif: 6, materyaltur: 6	
-	get '/ogrenci/sinif7kazanimlar/uniteler' => 'ogrenci#kazanimlar', sinif: 7, materyaltur: 6
-	get '/ogrenci/sinif8kazanimlar/uniteler' => 'ogrenci#kazanimlar', sinif: 8, materyaltur: 6	
+	get '/sinif5/kazanimlar' => 'ogrenci#kazanimlar', sinif: 5, materyaltur: 6
+	get '/sinif6/kazanimlar' => 'ogrenci#kazanimlar', sinif: 6, materyaltur: 6	
+	get '/sinif7/kazanimlar' => 'ogrenci#kazanimlar', sinif: 7, materyaltur: 6
+	get '/sinif8/kazanimlar' => 'ogrenci#kazanimlar', sinif: 8, materyaltur: 6	
 	
 	# Yillik Plan 5-6-7-8 sinif
-	get '/ogrenci/sinif5yillikplan/uniteler' => 'ogrenci#yillikplan', sinif: 5, materyaltur: 7
-	get '/ogrenci/sinif6yillikplan/uniteler' => 'ogrenci#yillikplan', sinif: 6, materyaltur: 7	
-	get '/ogrenci/sinif7yillikplan/uniteler' => 'ogrenci#yillikplan', sinif: 7, materyaltur: 7
-	get '/ogrenci/sinif8yillikplan/uniteler' => 'ogrenci#yillikplan', sinif: 8, materyaltur: 7	
+	get '/sinif5/yillikplan' => 'ogrenci#yillikplan', sinif: 5, materyaltur: 7
+	get '/sinif6/yillikplan' => 'ogrenci#yillikplan', sinif: 6, materyaltur: 7	
+	get '/sinif7/yillikplan' => 'ogrenci#yillikplan', sinif: 7, materyaltur: 7
+	get '/sinif8/yillikplan' => 'ogrenci#yillikplan', sinif: 8, materyaltur: 7	
 	
 	# Gunluk Plan 5-6-7-8 sinif
-	get '/ogrenci/sinif5gunlukplan/uniteler' => 'ogrenci#gunlukplan', sinif: 5, materyaltur: 8
-	get '/ogrenci/sinif6gunlukplan/uniteler' => 'ogrenci#gunlukplan', sinif: 6, materyaltur: 8	
-	get '/ogrenci/sinif7gunlukplan/uniteler' => 'ogrenci#gunlukplan', sinif: 7, materyaltur: 8
-	get '/ogrenci/sinif8gunlukplan/uniteler' => 'ogrenci#gunlukplan', sinif: 8, materyaltur: 8	
+	get '/sinif5/gunlukplan' => 'ogrenci#gunlukplan', sinif: 5, materyaltur: 8
+	get '/sinif6/gunlukplan' => 'ogrenci#gunlukplan', sinif: 6, materyaltur: 8	
+	get '/sinif7/gunlukplan' => 'ogrenci#gunlukplan', sinif: 7, materyaltur: 8
+	get '/sinif8/gunlukplan' => 'ogrenci#gunlukplan', sinif: 8, materyaltur: 8	
 	
 	# BEP 5-6-7-8 sinif
-	get '/ogrenci/sinif5BEP/uniteler' => 'ogrenci#bep', sinif: 5, materyaltur: 9
-	get '/ogrenci/sinif6BEP/uniteler' => 'ogrenci#bep', sinif: 6, materyaltur: 9	
-	get '/ogrenci/sinif7BEP/uniteler' => 'ogrenci#bep', sinif: 7, materyaltur: 9
-	get '/ogrenci/sinif8BEP/uniteler' => 'ogrenci#bep', sinif: 8, materyaltur: 9	
+	get '/sinif5/BEP' => 'ogrenci#bep', sinif: 5, materyaltur: 9
+	get '/sinif6/BEP' => 'ogrenci#bep', sinif: 6, materyaltur: 9	
+	get '/sinif7/BEP' => 'ogrenci#bep', sinif: 7, materyaltur: 9
+	get '/sinif8/BEP' => 'ogrenci#bep', sinif: 8, materyaltur: 9	
 	
 	# Bilim Fuari
 	get '/bilimfuari' => 'ogrenci#bilimfuari'
