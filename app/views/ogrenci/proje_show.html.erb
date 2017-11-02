@@ -7,7 +7,7 @@
 .board{
     width: 75%;
 margin: 60px auto;
-height: 500px;
+height: 100%;
 background: #fff;
 /*box-shadow: 10px 10px #ccc,-10px 20px #ddd;*/
 }
@@ -238,7 +238,9 @@ left: 35%;
 $(function(){
     $('a[title]').tooltip();
     });
-</script>    
+</script>
+
+
 <section style="background:#efefe9;">
     <div class="row">
         <div class="board">
@@ -247,31 +249,31 @@ $(function(){
             <ul class="nav nav-tabs" id="myTab">
             <div class="liner"></div>
              <li class="active">
-             <a href="#home" data-toggle="tab" title="welcome">
+             <a href="#home" data-toggle="tab" title="Proje Özeti">
               <span class="round-tabs one">
                       <i class="glyphicon glyphicon-home"></i>
               </span> 
           </a></li>
 
-          <li><a href="#profile" data-toggle="tab" title="profile">
+          <li><a href="#profile" data-toggle="tab" title="Kişiler">
              <span class="round-tabs two">
                  <i class="glyphicon glyphicon-user"></i>
              </span> 
    </a>
          </li>
-         <li><a href="#messages" data-toggle="tab" title="bootsnipp goodies">
+         <li><a href="#messages" data-toggle="tab" title="Projenin Yapılışı">
              <span class="round-tabs three">
-                  <i class="glyphicon glyphicon-gift"></i>
+                  <i class="glyphicon glyphicon-comment"></i>
              </span> </a>
              </li>
 
-             <li><a href="#settings" data-toggle="tab" title="blah blah">
+             <li><a href="#settings" data-toggle="tab" title="Proje Ek Dosyaları">
                  <span class="round-tabs four">
-                      <i class="glyphicon glyphicon-comment"></i>
+                      <i class="glyphicon glyphicon-gift"></i>
                  </span> 
              </a></li>
 
-             <li><a href="#doner" data-toggle="tab" title="completed">
+             <li><a href="#doner" data-toggle="tab" title="Sonuç">
                  <span class="round-tabs five">
                       <i class="glyphicon glyphicon-ok"></i>
                  </span> </a>
@@ -283,58 +285,57 @@ $(function(){
               <div class="tab-pane fade in active" id="home">
 
                   <h3 class="head text-center"><%= @proje.projeadi %><sup></sup> <span style="color:#f48260;">♥</span></h3>
-                  <p class="narrow text-center">
+                  <p class="narrow text-center" style="margin-bottom:20px;">
 										<%= @proje.projeaciklama.html_safe %>
 									</p>
                   
-                  <p class="text-center">
-									<!--<a href="" class="btn btn-success btn-outline-rounded green"> start using bootsnipp <span style="margin-left:10px;" class="glyphicon glyphicon-send"></span></a>-->
-        </p>
+                  <!--<p class="text-center">
+									<a href="" class="btn btn-success btn-outline-rounded green"> start using bootsnipp <span style="margin-left:10px;" class="glyphicon glyphicon-send"></span></a>
+									</p>-->
               </div>
               <div class="tab-pane fade" id="profile">
-                  <h3 class="head text-center">Create a Bootsnipp<sup>™</sup> Profile</h3>
-                  <p class="narrow text-center">
-                      Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim facilis tincidunt ut, utinam saperet facilisi an vim.
-                  </p>
+                  <h3 class="head text-center">Projede Yer Alan Kİşİler</h3>
+                  <p class="narrow text-center" style="margin-bottom:20px;">
+										<%= @proje.kisi.html_safe %>
+									</p>
                   
-                  <p class="text-center">
-            <a href="" class="btn btn-success btn-outline-rounded green"> create your profile <span style="margin-left:10px;" class="glyphicon glyphicon-send"></span></a>
-        </p>
+                  <!--<p class="text-center">
+										<a href="" class="btn btn-success btn-outline-rounded green"> create your profile <span style="margin-left:10px;" class="glyphicon glyphicon-send"></span></a>
+									</p>-->
                   
               </div>
               <div class="tab-pane fade" id="messages">
-                  <h3 class="head text-center">Bootsnipp goodies</h3>
-                  <p class="narrow text-center">
-                      Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim facilis tincidunt ut, utinam saperet facilisi an vim.
-                  </p>
+                  <h3 class="head text-center">Projenİn Yapılışı</h3>
+                  <p class="narrow text-center" style="margin-bottom:20px;">
+										<%= @proje.nasil.html_safe %>
+									</p>
                   
-                  <p class="text-center">
-            <a href="" class="btn btn-success btn-outline-rounded green"> start using bootsnipp <span style="margin-left:10px;" class="glyphicon glyphicon-send"></span></a>
-        </p>
+                  <!--<p class="text-center">
+									<a href="" class="btn btn-success btn-outline-rounded green"> start using bootsnipp <span style="margin-left:10px;" class="glyphicon glyphicon-send"></span></a>
+									</p>-->
               </div>
               <div class="tab-pane fade" id="settings">
-                  <h3 class="head text-center">Drop comments!</h3>
-                  <p class="narrow text-center">
-                      Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim facilis tincidunt ut, utinam saperet facilisi an vim.
-                  </p>
+                  <h3 class="head text-center">Proje Ek Dosyaları</h3>
+                  <p class="narrow text-center" style="margin-bottom:20px;">
+										<%= link_to "Proje Dosyalarını İndir", @proje.ek.url %>
+									</p>
                   
-                  <p class="text-center">
-            <a href="" class="btn btn-success btn-outline-rounded green"> start using bootsnipp <span style="margin-left:10px;" class="glyphicon glyphicon-send"></span></a>
-        </p>
+                  <!--<p class="text-center">
+									<a href="" class="btn btn-success btn-outline-rounded green"> start using bootsnipp <span style="margin-left:10px;" class="glyphicon glyphicon-send"></span></a>
+									</p>-->
               </div>
               <div class="tab-pane fade" id="doner">
-<div class="text-center">
-<i class="img-intro icon-checkmark-circle"></i>
-</div>
-<h3 class="head text-center">thanks for staying tuned! <span style="color:#f48260;">♥</span> Bootstrap</h3>
-<p class="narrow text-center">
-Lorem ipsum dolor sit amet, his ea mollis fabellas principes. Quo mazim facilis tincidunt ut, utinam saperet facilisi an vim.
-</p>
-</div>
-<div class="clearfix"></div>
-</div>
-
-</div>
-</div>
+								<div class="text-center">
+									<i class="img-intro icon-checkmark-circle"></i>
+								</div>
+								<h3 class="head text-center">Sonuç</h3>
+								<p class="narrow text-center">
+									<%= @proje.sonuc.html_safe %>
+								</p>
+							</div>
+							<div class="clearfix"></div>
+							</div>
+					</div>
+		</div>
 </section>
            

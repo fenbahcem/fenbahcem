@@ -13,19 +13,19 @@
 
 	<table class="table table-striped">
 		<tr>
-			<td><%= form.label :sinif %></td>
+			<td><strong>Sınıf:</strong></td>
 			<td><%= form.select  :sinif, options_for_select([["5. Sınıf", 5], ["6. Sınıf", 6], ["7. Sınıf", 7],["8. Sınıf", 8]]),{}, id: :admin_unite_sinif, class: "form-control" %></td>
 		</tr>
 		<tr>
-			<td><%= form.label :uniteadi %></td>
+			<td><strong>Ünite Adı:</strong></td>
 			<td><%= form.text_field :uniteadi, id: :admin_unite_uniteadi, class: "form-control" %></td>
 		</tr>
 		<tr>
-			<td><%= form.label :aciklama %></td>
+			<td><strong>Açıklama:</strong></td>
 			<td><%= form.cktext_area :aciklama, id: :admin_unite_aciklama, ckeditor: { language: 'tr'} %></td>
 		</tr>
 		<tr>
-			<td><%= form.label :uniteresmi %></td>
+			<td><strong>Ünite Resmi:</td></strong>
 			<td><%= form.file_field :uniteresmi, id: :admin_unite_uniteresmi, class: "form-control" %></td>
 		</tr>
 		<tr>

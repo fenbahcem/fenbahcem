@@ -13,31 +13,27 @@
 	
 	<table class="table table-striped">
 		<tr>
-			<td>Sınıf</td>
+			<td><strong>Sınıf:</strong></td>
 			<td><%= form.select :sinif, options_for_select([["5. Sınıf", 5], ["6. Sınıf", 6], ["7. Sınıf", 7],["8. Sınıf", 8]]),{include_blank: true},onchange: "unitesec();", id: :admin_materyal_sinif, class: "form-control" %></td>
 		</tr>
 		<tr>
-			<td>Ünite ID</td>
+			<td><strong>Ünite Adı:</strong></td>
 			<td><%= form.select :unite_id, options_for_select(Admin::Unite.all.map { |u| [u.uniteadi, u.id] }),{include_blank: true}, id: :admin_materyal_sinif, class: "form-control" %></td>
 		</tr>
 		<tr>
-			<td>Ünite Adı</td>
-			<td><%= form.text_field :uniteadi, id: :admin_materyal_uniteadi, class: "form-control" %></td>
-		</tr>
-		<tr>
-			<td>Materyal Türü</td>
+			<td><strong>Materyal Türü:</strong></td>
 			<td><%= form.select :materyaltur, options_for_select([["Yaprak Testler", 1], ["Deneme Sınavları", 2], ["Yazılılar", 3],["Çalışma Kağıtları", 4], ["Çıkmış Sınav Soruları", 5],["Kazanımlar", 6],["Yıllık Plan", 7], ["Günlük Plan", 8], ["BEP", 9]]),{}, id: :admin_materyal_materyaltur, class: "form-control" %></td>	
 		</tr>
 		<tr>
-			<td>Materyal Adı</td>
+			<td><strong>Materyal Adı:</strong></td>
 			<td><%= form.text_field :materyaladi, id: :admin_materyal_materyaladi, class: "form-control" %></td>
 		</tr>
 		<tr>
-			<td>Materyal Açıklaması</td>
+			<td><strong>Materyal Açıklaması:</strong></td>
 			<td><%= form.cktext_area :materyalaciklama, id: :admin_materyal_materyalaciklama, class: "form-control", ckeditor: { language: 'tr'} %></td>
 		</tr>
 		<tr>
-			<td>Dosya</td>
+			<td><strong>Dosya:</strong></td>
 			<td><%= form.file_field :dosya, id: :admin_deneme_dosya, class: "form-control" %></td>
 		</tr>
 		<tr>

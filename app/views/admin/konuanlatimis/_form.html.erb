@@ -13,31 +13,27 @@
 
 	<table class="table table-striped">
 		<tr>
-			<td>Sınıf</td>
+			<td><strong>Sınıf:</strong></td>
 			<td><%= form.select  :sinif, options_for_select([["5. Sınıf", 5], ["6. Sınıf", 6], ["7. Sınıf", 7],["8. Sınıf", 8]]),{}, id: :admin_konuanlatimi_sinif, class: "form-control" %></td>
 		</tr>
 		<tr>
-			<td>Ünite ID</td>
+			<td><strong>Ünite Adı:</strong></td>
 			<td><%= form.select :unite_id, options_for_select(Admin::Unite.all.map { |u| [u.uniteadi, u.id]}),{}, id: :admin_konuanlatimi_sinif, class: "form-control" %></td>
 		</tr>
 		<tr>
-			<td>Ünite</td>
-			<td><%= form.text_field :uniteadi, id: :admin_konuanlatimi_uniteadi, class: "form-control"  %></td>
-		</tr>
-		<tr>
-			<td>Konu Adı</td>
+			<td><strong>Konu Adı:</strong></td>
 			<td><%= form.text_field :konuadi, id: :admin_konuanlatimi_konuadi, class: "form-control" %></td>
 		</tr>
 		<tr>
-			<td>Kavram</td>
+			<td><strong>Kavram</strong></td>
 			<td><%= form.text_field :kavram, id: :admin_konuanlatimi_kavram, class: "form-control" %></td>
 		</tr>
 		<tr>
-			<td>Metin</td>
+			<td><strong>Metin</strong></td>
 			<td><%= form.cktext_area :metin, id: :admin_konuanlatimi_metin, ckeditor: { language: 'tr'}	%></td>
 		</tr>
 		<tr>
-			<td>Dosya</td>
+			<td><strong>Dosya:</strong></td>
     	<td><%= form.file_field :dosya, id: :admin_konuanlatimi_dosya, class: "form-control" %></td>
 		</tr>
 		<tr>

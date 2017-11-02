@@ -19,7 +19,7 @@
     <% @admin_konuanlatimis.each do |admin_konuanlatimi| %>
       <tr>
         <td><%= admin_konuanlatimi.sinif %></td>
-        <td><%= admin_konuanlatimi.uniteadi %></td>
+        <td><%= Admin::Unite.find(admin_konuanlatimi.unite_id).uniteadi %></td>
         <td><%= admin_konuanlatimi.konuadi %></td>
         <td><%= admin_konuanlatimi.metin.truncate(500) %></td>
         <td><%= link_to 'Görüntüle', admin_konuanlatimi %></td>

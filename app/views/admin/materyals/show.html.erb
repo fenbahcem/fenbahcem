@@ -1,29 +1,33 @@
+<% @materyaltur = { 1 => "Yaprak Testler", 2 => "Deneme Sınavları", 3 => "Yazılılar", 4 =>  "Çalışma Kağıtları", 5 => "Çıkmış Sınav Soruları", 6 => "Kazanımlar", 7 => "Yıllık Plan", 8 => "Günlük Plan", 9 => "BEP" } %>	
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Sinif:</strong>
-  <%= @admin_materyal.sinif %>
-</p>
+<%= content_for :title do %>
+	<h4 style="margin:0px;">Materyal Görüntüle</h4>	
+<% end %>
 
-<p>
-  <strong>Uniteadi:</strong>
-  <%= @admin_materyal.uniteadi %>
-</p>
-
-<p>
-  <strong>Materyaltur:</strong>
-  <%= @admin_materyal.materyaltur %>
-</p>
-
-<p>
-  <strong>Materyaladi:</strong>
-  <%= @admin_materyal.materyaladi %>
-</p>
-
-<p>
-  <strong>Materyalaciklama:</strong>
-  <%= @admin_materyal.materyalaciklama %>
-</p>
-
-<%= link_to 'Edit', edit_admin_materyal_path(@admin_materyal) %> |
-<%= link_to 'Back', admin_materyals_path %>
+<table class="table table-striped">
+	<tr>
+		<td><strong>Sınıf:</strong></td>
+		<td><%= @admin_materyal.sinif %></td>
+	</tr>
+	<tr>
+		<td><strong>Ünite Adı:</strong></td>
+		<td><%= Admin::Unite.find(@admin_materyal.unite_id).uniteadi %></td>
+	</tr>
+	<tr>
+		<td><strong>Materyal Türü:</strong></td>
+		<td><%= @materyaltur[@admin_materyal.materyaltur] %></td>
+	</tr>
+	<tr>
+		<td><strong>Materyal Adı:</strong></td>
+		<td><%= @admin_materyal.materyaladi %></td>
+	</tr>
+	<tr>
+		<td><strong>Açıklama:</strong></td>
+		<td><%= @admin_materyal.materyalaciklama %></td>
+	</tr>
+	<tr>
+		<td><strong>Ek:</strong></td>
+		<td><%= link_to "Dosya Görüntüle", @admin_materyal.dosya.url %></td>
+	</tr>
+</table>

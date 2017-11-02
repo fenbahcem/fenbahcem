@@ -13,31 +13,31 @@
 
 	<table class="table table-striped">
 		<tr>
-			<td>Proje Adı:</td>
+			<td><strong>Proje Adı:</strong></td>
 			<td><%= form.text_field :projeadi, id: :admin_proje_projeadi, class: "form-control" %></td>
 		</tr>
 		<tr>
-			<td>Proje Açıklama</td>
+			<td><strong>Proje Özeti:</strong></td>
 			<td><%= form.cktext_area :projeaciklama, id: :admin_proje_projeaciklama, ckeditor: { language: 'tr'} %></td>
 		</tr>
 		<tr>
-			<td>Kişi Ekle</td>
+			<td><strong>Kişi Ekle:</strong></td>
 			<td><%= form.cktext_area :kisi, id: :admin_proje_kisi, ckeditor: { language: 'tr'} %> </td>
 		</tr>
 		<tr>
-			<td>Kavramlar</td>
+			<td><strong>Kavramlar:</strong></td>
 			<td><%= form.cktext_area :kavram, id: :admin_proje_kavram, ckeditor: { language: 'tr'} %></td>
 		</tr>
 		<tr>
-			<td>Projenin Yapılışı</td>
+			<td><strong>Projenin Yapılışı:</strong></td>
 			<td><%= form.cktext_area :nasil, id: :admin_proje_nasil, ckeditor: { language: 'tr'} %></td>
 		</tr>
 		<tr>
-			<td>Sonuç</td>
+			<td><strong>Sonuç:</strong></td>
 			<td><%= form.cktext_area :sonuc, id: :admin_proje_sonuc, ckeditor: { language: 'tr'} %></td>
 		</tr>
 		<tr>
-			<td>Ek Dosya</td>
+			<td><strong>Ek Dosya:</strong></td>
 			<td><%= form.file_field :ek, id: :admin_proje_ek, class: "form-control" %></td>
 		</tr>
 		<tr>

@@ -10,14 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171101200300) do
+ActiveRecord::Schema.define(version: 20171102163338) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "admin_konuanlatimis", force: :cascade do |t|
     t.integer "sinif"
-    t.string "uniteadi"
     t.string "kavram"
     t.text "metin"
     t.datetime "created_at", null: false
@@ -32,7 +31,6 @@ ActiveRecord::Schema.define(version: 20171101200300) do
 
   create_table "admin_materyals", force: :cascade do |t|
     t.integer "sinif"
-    t.string "uniteadi"
     t.integer "materyaltur"
     t.string "materyaladi"
     t.text "materyalaciklama"

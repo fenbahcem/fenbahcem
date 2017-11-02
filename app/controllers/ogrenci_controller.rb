@@ -10,13 +10,13 @@ class OgrenciController < ApplicationController
 	end
 	
 	def unite_konu
-		@konu = Admin::Konuanlatimi.where(sinif: params[:sinif]).where(uniteadi: params[:uniteadi]) 
+		@konu = Admin::Konuanlatimi.where(sinif: params[:sinif]).where(unite_id: params[:unite_id]) 
 		@unite_konu = params[:uniteadi]
 	end
 	
 	def konuanlatimi_incele
-		@konuanlatimi = Admin::Konuanlatimi.find(params[:id])
-		@unite_konu = params[:uniteadi]
+		@konuanlatimi = Admin::Konuanlatimi.find(params[:unite_id])
+		@unite_konu = Admin::Unite.find(params[:unite_id]).uniteadi
 	end
 	
 	def bilimfuari
@@ -81,8 +81,8 @@ class OgrenciController < ApplicationController
 		@unitesinif = params[:sinif]
 	end
 
-	def sayac(sinif, materyaltur, uniteadi)
-		return Admin::Materyal.where(sinif: sinif).where(materyaltur: materyaltur).where(uniteadi: uniteadi).count
+	def sayac(sinif, materyaltur, uniteid)
+		return Admin::Materyal.where(sinif: sinif).where(materyaltur: materyaltur).where(unite_id: uniteid).count
 	end
 
 end

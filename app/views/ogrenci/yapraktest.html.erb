@@ -16,7 +16,7 @@
 	<h3 style="margin-top:0px"><%= @unitesinif %>. Sınıf Fen Bilimleri Üniteleri Yaprak Testler</h3>
 
 	<% if @yapraktest.count > 0 %>
-		<% @unite.each_with_index do |u, i| %>
+		<% @unite.each do |u| %>
 			<% if u.materyal.where(materyaltur: 1).count > 0 %>
 				<div class="well well-sm">
 					<div class="row">
@@ -37,16 +37,16 @@
 							<hr />
 							<div class="row rating-desc">
 								<div class="col-md-12">
-									<span class="glyphicon glyphicon-th-list"></span><%= Admin::Konuanlatimi.where(sinif: params[:sinif]).where(uniteadi: u.uniteadi).count %><span class="separator">|</span>
-									<span class="glyphicon glyphicon-hourglass"></span><%= sayac(params[:sinif], 1, u.uniteadi) %><span class="separator">|</span>
-									<span class="glyphicon glyphicon-check"></span><%= sayac(params[:sinif], 2, u.uniteadi) %><span class="separator">|</span>
-									<span class="glyphicon glyphicon-pencil"></span><%= sayac(params[:sinif], 3, u.uniteadi) %><span class="separator">|</span>
-									<span class="glyphicon glyphicon-file"></span><%= sayac(params[:sinif], 4, u.uniteadi) %><span class="separator">|</span>
-									<span class="glyphicon glyphicon-book"></span><%= sayac(params[:sinif], 5, u.uniteadi) %><span class="separator">|</span>
-									<span class="glyphicon glyphicon-road"></span><%= sayac(params[:sinif], 6, u.uniteadi) %><span class="separator">|</span>
-									<span class="glyphicon glyphicon-equalizer"></span><%= sayac(params[:sinif], 7, u.uniteadi) %><span class="separator">|</span>
-									<span class="glyphicon glyphicon-list-alt"></span><%= sayac(params[:sinif], 8, u.uniteadi) %><span class="separator">|</span>
-									<span class="glyphicon glyphicon-star"></span><%= sayac(params[:sinif], 9, u.uniteadi) %>
+									<span class="glyphicon glyphicon-th-list"></span><%= Admin::Konuanlatimi.where(sinif: params[:sinif]).where(unite_id: u.id).count %><span class="separator">|</span>
+									<span class="glyphicon glyphicon-hourglass"></span><%= sayac(params[:sinif], 1, u.id) %><span class="separator">|</span>
+									<span class="glyphicon glyphicon-check"></span><%= sayac(params[:sinif], 2, u.id) %><span class="separator">|</span>
+									<span class="glyphicon glyphicon-pencil"></span><%= sayac(params[:sinif], 3, u.id) %><span class="separator">|</span>
+									<span class="glyphicon glyphicon-file"></span><%= sayac(params[:sinif], 4, u.id) %><span class="separator">|</span>
+									<span class="glyphicon glyphicon-book"></span><%= sayac(params[:sinif], 5, u.id) %><span class="separator">|</span>
+									<span class="glyphicon glyphicon-road"></span><%= sayac(params[:sinif], 6, u.id) %><span class="separator">|</span>
+									<span class="glyphicon glyphicon-equalizer"></span><%= sayac(params[:sinif], 7, u.id) %><span class="separator">|</span>
+									<span class="glyphicon glyphicon-list-alt"></span><%= sayac(params[:sinif], 8, u.id) %><span class="separator">|</span>
+									<span class="glyphicon glyphicon-star"></span><%= sayac(params[:sinif], 9, u.id) %>
 								</div>
 							</div>
 						</div>

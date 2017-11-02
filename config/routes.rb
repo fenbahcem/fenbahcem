@@ -30,20 +30,20 @@ Rails.application.routes.draw do
 	
 	# Konu Anlatimi 5-6-7-8 sinif
 	get '/sinif5/konuanlatimi' => 'ogrenci#uniteler', sinif: 5	
-	get '/sinif5/konuanlatimi/:id' => 'ogrenci#unite_konu', sinif: 5
-	get '/sinif5/konuanlatimi/konu/:id' => 'ogrenci#konuanlatimi_incele', sinif: 5
+	get '/sinif5/konuanlatimi/:unite_id' => 'ogrenci#unite_konu', sinif: 5
+	get '/sinif5/konuanlatimi/konu/:unite_id' => 'ogrenci#konuanlatimi_incele', sinif: 5
  	
 	get '/sinif6/konuanlatimi' => 'ogrenci#uniteler', sinif: 6	
-	get '/sinif6/konuanlatimi/:id' => 'ogrenci#unite_konu', sinif: 6
-	get '/sinif6/konuanlatimi/konu/:id' => 'ogrenci#konuanlatimi_incele', sinif:6
+	get '/sinif6/konuanlatimi/:unite_id' => 'ogrenci#unite_konu', sinif: 6
+	get '/sinif6/konuanlatimi/konu/:unite_id' => 'ogrenci#konuanlatimi_incele', sinif:6
 		
 	get '/sinif7/konuanlatimi' => 'ogrenci#uniteler', sinif: 7	
-	get '/sinif7/konuanlatimi/:id' => 'ogrenci#unite_konu', sinif: 7
-	get '/sinif7/konuanlatimi/konu/:id' => 'ogrenci#konuanlatimi_incele', sinif:7
+	get '/sinif7/konuanlatimi/:unite_id' => 'ogrenci#unite_konu', sinif: 7
+	get '/sinif7/konuanlatimi/konu/:unite_id' => 'ogrenci#konuanlatimi_incele', sinif:7
 	
 	get '/sinif8/konuanlatimi' => 'ogrenci#uniteler', sinif: 8	
-	get '/sinif8/konuanlatimi/:id' => 'ogrenci#unite_konu', sinif: 8
-	get '/sinif8/konuanlatimi/konu/:id' => 'ogrenci#konuanlatimi_incele', sinif:8
+	get '/sinif8/konuanlatimi/:unite_id' => 'ogrenci#unite_konu', sinif: 8
+	get '/sinif8/konuanlatimi/konu/:unite_id' => 'ogrenci#konuanlatimi_incele', sinif:8
 
 	# Yaprak Testler 5-6-7-8 sinif
 	get '/sinif5/yapraktest' => 'ogrenci#yapraktest', sinif: 5, materyaltur: 1
