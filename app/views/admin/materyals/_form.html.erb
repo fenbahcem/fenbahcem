@@ -17,6 +17,10 @@
 			<td><%= form.select :sinif, options_for_select([["5. Sınıf", 5], ["6. Sınıf", 6], ["7. Sınıf", 7],["8. Sınıf", 8]]),{include_blank: true},onchange: "unitesec();", id: :admin_materyal_sinif, class: "form-control" %></td>
 		</tr>
 		<tr>
+			<td>Ünite ID</td>
+			<td><%= form.select :unite_id, options_for_select(Admin::Unite.all.map { |u| [u.uniteadi, u.id] }),{include_blank: true}, id: :admin_materyal_sinif, class: "form-control" %></td>
+		</tr>
+		<tr>
 			<td>Ünite Adı</td>
 			<td><%= form.text_field :uniteadi, id: :admin_materyal_uniteadi, class: "form-control" %></td>
 		</tr>

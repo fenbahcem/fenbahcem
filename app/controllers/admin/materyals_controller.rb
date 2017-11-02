@@ -71,6 +71,6 @@ class Admin::MateryalsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_materyal_params
-      params.require(:admin_materyal).permit(:sinif, :uniteadi, :materyaltur, :materyaladi, :materyalaciklama, :dosya)
+      params.require(:admin_materyal).permit(:sinif, :uniteadi, :materyaltur, :materyaladi, :materyalaciklama, :dosya, :unite_id)
     end
 end
