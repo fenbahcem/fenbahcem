@@ -1,0 +1,26 @@
+<%= form_with(model: admin_duyuru, local: true) do |form| %>
+  <% if admin_duyuru.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(admin_duyuru.errors.count, "error") %> prohibited this admin_duyuru from being saved:</h2>
+
+      <ul>
+      <% admin_duyuru.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+	<table class="table table-striped">
+		<tr>
+			<td><strong>Açıklama Türü</strong></td>
+			<td><%= form.select :tur, options_for_select([["Duyuru",0],["Haber",1]]), {}, id: :admin_duyuru_tur, class:"form-control" %></td>
+		</tr>
+		<tr>
+			<td><strong>Açıklama</strong></td>
+			<td><%= form.cktext_area :aciklama, id: :admin_duyuru_aciklama, ckeditor: { language: 'tr'} %></td>
+		</tr>
+		<tr>
+			<td colspan=2><%= form.submit :Kaydet,  class: "btn btn-primary btn-block" %></td>
+		</tr>
+	</table>
+<% end %>

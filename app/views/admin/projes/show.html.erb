@@ -1,4 +1,6 @@
-<p id="notice"><%= notice %></p>
+<% if notice %>
+	<p class="alert alert-success" id="notice"><%= notice %></p>
+<% end %>
 
 <%= content_for :title do %>
 	<h4 style="margin: 0px;">Proje Görüntüle</h4>

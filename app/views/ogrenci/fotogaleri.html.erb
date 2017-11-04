@@ -1,0 +1,46 @@
+<%= content_for :pagetitle do %>
+	FenBahçem Fotogaleri
+<% end %>
+
+<style>
+.modal-dialog {width:80%;
+text-align: -webkit-center;}
+
+</style>
+
+<% @fotogaleri.each do |f| %>
+
+	<!--	<div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 1" data-toggle="modal" data-target="#myModal" href="#"><%= image_tag f.resim.url, class:"thumbnail img-responsive", style: "width: 262px; height: 157px" %></a></div> -->
+	<div class="col-lg-3 col-sm-4 col-xs-6" style="height: 350px;"><a title= <%= f.baslik  %> data-toggle="modal" data-target="#myModal" href="#"><%= image_tag f.resim.url, class:"thumbnail img-responsive" %></a></div>
+
+<% end %>
+<!-- Modal -->
+<div tabindex="-1" class="modal fade" id="myModal" role="dialog">
+<div class="modal-dialog">
+<div class="modal-content">
+  <div class="modal-header">
+	  <button class="close" type="button" data-dismiss="modal">×</button>
+	  <h3 class="modal-title">Heading</h3>
+  </div>
+  <div class="modal-body" style="position:relative;">
+	  
+  </div>
+	<div class="modal-footer">
+	  <button class="btn btn-default" data-dismiss="modal">Kapat</button>
+  </div>
+ </div>
+</div>
+</div>
+
+<script>
+$(document).ready(function() {
+	$('.thumbnail').click(function(){
+		  $('.modal-body').empty();
+		  var title = $(this).parent('a').attr("title");
+		  var aciklama = $(this).parent('a').attr("comment");
+		  $('.modal-title').html(title);
+		  $($(this).parents('div').html()).appendTo('.modal-body');
+		  $('#myModal').modal({show:false});
+	});
+	});
+</script>

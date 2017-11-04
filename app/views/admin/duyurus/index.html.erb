@@ -1,0 +1,29 @@
+<% if notice %>
+	<p class="alert alert-success" id="notice"><%= notice %></p>
+<% end %>
+
+<%= content_for :title do %>
+	<h4 style="margin:0px;">Duyuru/Haber Listele</h4>
+<% end %>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Açıklama Türü</th>
+      <th>Açıklama</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_duyurus.each do |admin_duyuru| %>
+      <tr>
+        <td><%= admin_duyuru.aciklama %></td>
+        <td><%= admin_duyuru.tur %></td>
+        <td><%= link_to 'Görüntüle', admin_duyuru %></td>
+        <td><%= link_to 'Düzenle', edit_admin_duyuru_path(admin_duyuru) %></td>
+        <td><%= link_to 'Sil', admin_duyuru, method: :delete, data: { confirm: 'Silmek istediğinize eminmisiniz?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

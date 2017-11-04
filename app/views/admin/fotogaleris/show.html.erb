@@ -1,0 +1,22 @@
+<% if notice %>
+	<p class="alert alert-success" id="notice"><%= notice %></p>
+<% end %>
+
+<%= content_for :title do %>
+	<h4 style="margin:0px;">Resim Görüntüle</h4>
+<% end %>
+
+<table class="table table-striped">
+	<tr>
+		<td><strong>Resim Başlığı:</strong></td>
+		<td><%= @admin_fotogaleri.baslik %></td>
+	</tr>
+	<tr>
+		<td><strong>Resim Açıklaması:</strong></td>
+		<td><%= @admin_fotogaleri.aciklama.html_safe %></td>
+	</tr>
+	<tr>
+		<td><strong>Resim:</strong></td>
+		<td><%= image_tag @admin_fotogaleri.resim.url(:thumb) %></td>
+	</tr>
+</table>

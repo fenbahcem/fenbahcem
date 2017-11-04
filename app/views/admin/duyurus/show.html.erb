@@ -1,0 +1,18 @@
+<% if notice %>
+	<p class="alert alert-success" id="notice"><%= notice %></p>
+<% end %>
+
+<%= content_for :title do %>
+	<h4 style="margin:0px;">Duyuru/Haber Görüntüle</h4>
+<% end %>
+
+<table class="table table-striped">
+	<tr>
+		<td><strong>Açıklama Türü:</strong></td>
+		<td><%= @admin_duyuru.tur %></td>
+	</tr>
+	<tr>
+		<td><strong>Açıklama:</strong></td>
+		<td><%= @admin_duyuru.aciklama %></td>
+	</tr>
+</table>

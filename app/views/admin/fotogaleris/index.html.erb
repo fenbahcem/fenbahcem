@@ -1,0 +1,29 @@
+<% if notice %>
+	<p class="alert alert-success" id="notice"><%= notice %></p>
+<% end %>
+
+<%= content_for :title do %>
+	<h4 style="margin:0px;">Resim Görüntüle</h4>
+<% end %>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Resim Başlığı</th>
+      <th>Resim Açıklaması</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_fotogaleris.each do |admin_fotogaleri| %>
+      <tr>
+        <td><%= admin_fotogaleri.baslik %></td>
+        <td><%= admin_fotogaleri.aciklama.html_safe %></td>
+        <td><%= link_to 'Görüntüle', admin_fotogaleri %></td>
+        <td><%= link_to 'Düzenle', edit_admin_fotogaleri_path(admin_fotogaleri) %></td>
+        <td><%= link_to 'Sil', admin_fotogaleri, method: :delete, data: { confirm: 'Silmek istediğinize eminmisiniz?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

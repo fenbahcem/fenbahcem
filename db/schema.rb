@@ -10,10 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171102163338) do
+ActiveRecord::Schema.define(version: 20171103192734) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "admin_duyurus", force: :cascade do |t|
+    t.text "aciklama"
+    t.integer "tur"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "admin_fotogaleris", force: :cascade do |t|
+    t.string "baslik"
+    t.text "aciklama"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "resim_file_name"
+    t.string "resim_content_type"
+    t.integer "resim_file_size"
+    t.datetime "resim_updated_at"
+  end
 
   create_table "admin_konuanlatimis", force: :cascade do |t|
     t.integer "sinif"

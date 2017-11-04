@@ -30,7 +30,7 @@ class Admin::ProjesController < ApplicationController
 
     respond_to do |format|
       if @admin_proje.save
-        format.html { redirect_to @admin_proje, notice: 'Proje was successfully created.' }
+				format.html { redirect_to @admin_proje, notice: 'Proje başarılı bir şekilde oluşturuldu.' }
         format.json { render :show, status: :created, location: @admin_proje }
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class Admin::ProjesController < ApplicationController
   def update
     respond_to do |format|
       if @admin_proje.update(admin_proje_params)
-        format.html { redirect_to @admin_proje, notice: 'Proje was successfully updated.' }
+				format.html { redirect_to @admin_proje, notice: 'Proje başarılı bir şekilde güncellendi.' }
         format.json { render :show, status: :ok, location: @admin_proje }
       else
         format.html { render :edit }
@@ -58,7 +58,7 @@ class Admin::ProjesController < ApplicationController
   def destroy
     @admin_proje.destroy
     respond_to do |format|
-      format.html { redirect_to admin_projes_url, notice: 'Proje was successfully destroyed.' }
+			format.html { redirect_to admin_projes_url, notice: 'Proje başarılı bir şekilde silindi.' }
       format.json { head :no_content }
     end
   end

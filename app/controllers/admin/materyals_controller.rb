@@ -30,7 +30,7 @@ class Admin::MateryalsController < ApplicationController
 
     respond_to do |format|
       if @admin_materyal.save
-				format.html { redirect_to @admin_materyal, notice: 'Materyal başarılı bir şekilde oluşturulmuştur.' }
+				format.html { redirect_to @admin_materyal, notice: 'Materyal başarılı bir şekilde oluşturuldu.' }
         format.json { render :show, status: :created, location: @admin_materyal }
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class Admin::MateryalsController < ApplicationController
   def update
     respond_to do |format|
       if @admin_materyal.update(admin_materyal_params)
-				format.html { redirect_to @admin_materyal, notice: 'Materyal başarılı bir şekilde güncellenmiştir.' }
+				format.html { redirect_to @admin_materyal, notice: 'Materyal başarılı bir şekilde güncellendi.' }
         format.json { render :show, status: :ok, location: @admin_materyal }
       else
         format.html { render :edit }
@@ -58,7 +58,7 @@ class Admin::MateryalsController < ApplicationController
   def destroy
     @admin_materyal.destroy
     respond_to do |format|
-			format.html { redirect_to admin_materyals_url, notice: 'Materyal başarılı bir şekilde silinmiştir.' }
+			format.html { redirect_to admin_materyals_url, notice: 'Materyal başarılı bir şekilde silindi.' }
       format.json { head :no_content }
     end
   end

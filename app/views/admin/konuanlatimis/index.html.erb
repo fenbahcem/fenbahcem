@@ -1,4 +1,6 @@
-<p id="notice"><%= notice %></p>
+<% if notice %>
+	<p class="alert alert-success" id="notice"><%= notice %></p>
+<% end %>
 
 <% content_for :title do %>
 	<h4 style="margin:0px;">Konu Anlatımı Liste</h4>
@@ -24,7 +26,7 @@
         <td><%= admin_konuanlatimi.metin.truncate(500) %></td>
         <td><%= link_to 'Görüntüle', admin_konuanlatimi %></td>
         <td><%= link_to 'Düzenle', edit_admin_konuanlatimi_path(admin_konuanlatimi) %></td>
-        <td><%= link_to 'Sil', admin_konuanlatimi, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Sil', admin_konuanlatimi, method: :delete, data: { confirm: 'Silmek istediğinize eminmisiniz?' } %></td>
       </tr>
     <% end %>
   </tbody>

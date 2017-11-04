@@ -1,4 +1,10 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :fotogaleris
+  end
+  namespace :admin do
+    resources :duyurus
+  end
 	mount Ckeditor::Engine => '/ckeditor'
   
 	get '/admin' => 'admin#index'
@@ -102,6 +108,10 @@ Rails.application.routes.draw do
 	# Bilim Fuari
 	get '/bilimfuari' => 'ogrenci#bilimfuari'
 	get '/bilimfuari/proje/:id' => 'ogrenci#proje_show'	
+
+	# Fotogaleri
+	get '/fotogaleri' => 'ogrenci#fotogaleri'
+
 	namespace :admin do
     resources :konuanlatimis
   end

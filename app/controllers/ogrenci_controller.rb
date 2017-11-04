@@ -1,7 +1,9 @@
 class OgrenciController < ApplicationController
-	layout "app-other", only: [:bilimfuari, :proje_show]  
+	layout "app-other", only: [:bilimfuari, :proje_show, :fotogaleri]  
 	helper_method :sayac
 	def index
+		@duyuru = Admin::Duyuru.where(tur:0)
+		@haber = Admin::Duyuru.where(tur:1)
   end
 	
 	def uniteler
@@ -15,12 +17,16 @@ class OgrenciController < ApplicationController
 	end
 	
 	def konuanlatimi_incele
-		@konuanlatimi = Admin::Konuanlatimi.find(params[:unite_id])
+		@konuanlatimi = Admin::Konuanlatimi.find(params[:konuanlatimi_id])
 		@unite_konu = Admin::Unite.find(params[:unite_id]).uniteadi
 	end
 	
 	def bilimfuari
 		@proje = Admin::Proje.all
+	end
+	
+	def fotogaleri
+		@fotogaleri = Admin::Fotogaleri.all		
 	end
 
 	def proje_show

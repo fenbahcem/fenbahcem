@@ -30,7 +30,7 @@ class Admin::UnitesController < ApplicationController
 
     respond_to do |format|
       if @admin_unite.save
-        format.html { redirect_to @admin_unite, notice: 'Unite was successfully created.' }
+				format.html { redirect_to @admin_unite, notice: 'Ünite başarılı bir şekilde oluşturuldu.' }
         format.json { render :show, status: :created, location: @admin_unite }
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class Admin::UnitesController < ApplicationController
   def update
     respond_to do |format|
       if @admin_unite.update(admin_unite_params)
-        format.html { redirect_to @admin_unite, notice: 'Unite was successfully updated.' }
+        format.html { redirect_to @admin_unite, notice: 'Ünite başarılı bir şekilde güncellendi.' }
         format.json { render :show, status: :ok, location: @admin_unite }
       else
         format.html { render :edit }
@@ -58,7 +58,7 @@ class Admin::UnitesController < ApplicationController
   def destroy
     @admin_unite.destroy
     respond_to do |format|
-      format.html { redirect_to admin_unites_url, notice: 'Unite was successfully destroyed.' }
+			format.html { redirect_to admin_unites_url, notice: 'Ünite başarılı bir şekilde silindi.' }
       format.json { head :no_content }
     end
   end

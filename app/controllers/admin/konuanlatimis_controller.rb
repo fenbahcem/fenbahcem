@@ -30,7 +30,7 @@ class Admin::KonuanlatimisController < ApplicationController
 
     respond_to do |format|
       if @admin_konuanlatimi.save
-        format.html { redirect_to @admin_konuanlatimi, notice: 'Konuanlatimi was successfully created.' }
+				format.html { redirect_to @admin_konuanlatimi, notice: 'Konu anlatımı başarılı bir şekilde oluşturuldu.' }
         format.json { render :show, status: :created, location: @admin_konuanlatimi }
       else
         format.html { render :new }
@@ -44,7 +44,7 @@ class Admin::KonuanlatimisController < ApplicationController
   def update
     respond_to do |format|
       if @admin_konuanlatimi.update(admin_konuanlatimi_params)
-        format.html { redirect_to @admin_konuanlatimi, notice: 'Konuanlatimi was successfully updated.' }
+				format.html { redirect_to @admin_konuanlatimi, notice: 'Konu anlatımı başarılı bir şekilde güncellendi.' }
         format.json { render :show, status: :ok, location: @admin_konuanlatimi }
       else
         format.html { render :edit }
@@ -58,7 +58,7 @@ class Admin::KonuanlatimisController < ApplicationController
   def destroy
     @admin_konuanlatimi.destroy
     respond_to do |format|
-      format.html { redirect_to admin_konuanlatimis_url, notice: 'Konuanlatimi was successfully destroyed.' }
+			format.html { redirect_to admin_konuanlatimis_url, notice: 'Konu anlatımı başarılı bir şekilde silindi.' }
       format.json { head :no_content }
     end
   end

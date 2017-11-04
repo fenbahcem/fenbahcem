@@ -36,6 +36,20 @@
   <span class="sr-only">Next</span>
 </a>
 </div>
-<h1 style="margin-top:0px; margin-bottom:10px;">Duyuru</h1>
-<p>Sitemiz yapım aşamasındadır. En kısa sürede sitemizi tamamlayıp hizmetinize sunacağız. Sayfalar tamamlandıkça siz değerli konuklarımıza bilgilendirme yapılacaktır.</p>
 
+<div class="col-sm-6 col-md-6">
+	<h2 style="margin-top:10px; margin-bottom:10px;">Duyuru</h2>
+		<marquee direction = "up" scrolldelay = "500">
+			<% @duyuru.each do |d|  %>
+				<span class="glyphicon glyphicon-asterisk"></span><%= d.aciklama %>
+			<% end %>
+		</marquee>
+</div>
+<div class="col-sm-6 col-md-6">
+	<h2 style="margin-top:10px; margin-bottom:10px;">Haberler</h2>
+		<marquee direction = "up" scrolldelay = "500">
+			<% @haber.each do |h|  %>
+				<span class="glyphicon glyphicon-asterisk"></span><%= h.aciklama %>
+			<% end %>
+		</marquee>
+</div>

@@ -1,0 +1,2 @@
+module Admin::DuyurusHelper
+end
