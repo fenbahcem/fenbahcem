@@ -37,19 +37,28 @@
 </a>
 </div>
 
-<div class="col-sm-6 col-md-6">
-	<h2 style="margin-top:10px; margin-bottom:10px;">Duyuru</h2>
-		<marquee direction = "up" scrolldelay = "500">
+<div class="col-sm-6 col-md-6" style="padding:0px; margin-top:10px;">
+	<div class="panel panel-info text-center">
+		<div class="panel-heading" style="margin:0px;">
+			<h3 style="margin-top:5px; margin-bottom:5px;">Duyuru</h3>
+		</div>
+		<marquee direction = "up" scrolldelay = "500" style="height:250px">
 			<% @duyuru.each do |d|  %>
-				<span class="glyphicon glyphicon-asterisk"></span><%= d.aciklama %>
+				<span class="glyphicon glyphicon-asterisk" style="margin-left:5px;"></span><%= d.aciklama.html_safe %>
 			<% end %>
 		</marquee>
-</div>
-<div class="col-sm-6 col-md-6">
-	<h2 style="margin-top:10px; margin-bottom:10px;">Haberler</h2>
-		<marquee direction = "up" scrolldelay = "500">
+	
+	</div>
+</div>	
+<div class="col-sm-6 col-md-6" style="padding:0px; margin-top:10px;">
+	<div class="panel panel-success text-center" style="margin-left:5px">
+		<div class="panel-heading" style="margin:0px;">
+			<h3 style="margin-top:5px; margin-bottom:5px;">Haberler</h3>
+		</div>
+		<marquee direction = "up" scrolldelay = "500" style="height:250px">
 			<% @haber.each do |h|  %>
 				<span class="glyphicon glyphicon-asterisk"></span><%= h.aciklama %>
 			<% end %>
 		</marquee>
+	</div>
 </div>
