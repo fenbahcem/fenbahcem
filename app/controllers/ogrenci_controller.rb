@@ -1,6 +1,7 @@
 class OgrenciController < ApplicationController
-	layout "app-other", only: [:bilimfuari, :proje_show, :fotogaleri]  
+	layout "app-other", only: [:bilimfuari, :proje_show, :fotogaleri, :video]  
 	helper_method :sayac
+	
 	def index
 		@duyuru = Admin::Duyuru.where(tur:0)
 		@haber = Admin::Duyuru.where(tur:1)
@@ -27,6 +28,10 @@ class OgrenciController < ApplicationController
 	
 	def fotogaleri
 		@fotogaleri = Admin::Fotogaleri.paginate(page: params[:page])		
+	end
+
+	def video
+		@video = Admin::Video.where(tur: params[:tur]).paginate(page: params[:page])
 	end
 
 	def proje_show

@@ -1,0 +1,33 @@
+<%= form_with(model: admin_video, local: true) do |form| %>
+  <% if admin_video.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(admin_video.errors.count, "error") %> prohibited this admin_video from being saved:</h2>
+
+      <ul>
+      <% admin_video.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+	
+	<table class="table table-striped">
+		<tr>
+			<td><strong>Video Başlığı:</strong></td>
+			<td><%= form.text_field :baslik, id: :admin_video_baslik, class:"form-control" %></td>
+		</tr>
+		<tr>
+			<td><strong>Video Linki(Bağlantısı):</strong></td>
+			<td><%= form.text_field :videolink, id: :admin_video_videolink, class: "form-control" %></td>
+		</tr>
+		<tr>
+			<td><strong>Video Türü:</strong></td>
+			<td><%= form.select :tur, options_for_select([["Deney Videoları", 0],["Diğer Videolar", 1]]), {}, id: :admin_video_tur, class: "form-control" %></td>
+		</tr>
+		<tr>
+		<tr>
+			<td colspan=2><%= form.submit :Kaydet,  class: "btn btn-primary btn-block" %></td>
+		</tr>	
+		</tr>
+	</table>
+<% end %>

@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   namespace :admin do
+    resources :videos
+  end
+  namespace :admin do
     resources :fotogaleris
   end
   namespace :admin do
@@ -111,6 +114,10 @@ Rails.application.routes.draw do
 
 	# Fotogaleri
 	get '/fotogaleri' => 'ogrenci#fotogaleri'
+
+	# Video
+	get '/deneyvideolari' => 'ogrenci#video', tur: 0
+	get '/digervideolar' => 'ogrenci#video', tur: 1
 
 	namespace :admin do
     resources :konuanlatimis

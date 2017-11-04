@@ -1,0 +1,25 @@
+<% @videotur = { 0 => "Deney Videosu", 1 => "Diğer Videolar" } %>	
+
+<% if notice %>
+	<p class="alert alert-success" id="notice"><%= notice %></p>
+<% end %>
+
+<%= content_for :title do %>
+	<h4 style="margin:0px;">Video Bilgisi Görüntüle</h4>
+<% end %>
+
+<table class="table table-striped">
+	<tr>
+		<td><strong>Başlık:</strong></td>
+		<td><%= @admin_video.baslik %></td>
+	</tr>
+	<tr>
+		<td><strong>Video Linki(Bağlantısı):</strong></td>
+		<td><%= @admin_video.videolink %></td>
+	</tr>
+	<tr>
+		<td><strong>Video Türü:</strong></td>
+		<td><%= @videotur[@admin_video.tur] %></td>
+	</tr>
+</table>
+<%= link_to "Video Listesi Geri Git", admin_videos_path %>

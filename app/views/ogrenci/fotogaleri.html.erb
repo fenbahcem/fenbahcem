@@ -3,7 +3,7 @@
 <% end %>
 
 <style>
-.modal-dialog {width:80%;
+.modal-dialog {width:60%;
 text-align: -webkit-center;}
 
 .thumbnail {
@@ -15,10 +15,13 @@ text-align: -webkit-center;}
 
 
 <% @fotogaleri.each do |f| %>
-
-	<div class="col-lg-3 col-sm-4 col-xs-6" style=" height:157px; margin-bottom:15px;"><a title= <%= f.baslik  %> data-toggle="modal" data-target="#myModal" href="#"><%= image_tag f.resim.url, class:"thumbnail img-responsive" %></a></div>
-
+	<div class="col-lg-3 col-sm-4 col-xs-6" style="height:157px; margin-bottom:30px;">
+		<a title= <%= f.baslik  %> data-toggle="modal" data-target="#myModal" href="#">
+			<%= image_tag f.resim.url, class:"thumbnail img-responsive" %>
+		</a>
+	</div>
 <% end %>
+
 <!-- Modal -->
 <div tabindex="-1" class="modal fade" id="myModal" role="dialog">
 <div class="modal-dialog">
@@ -36,9 +39,9 @@ text-align: -webkit-center;}
  </div>
 </div>
 </div>
-
-<%= will_paginate @fotogaleri, :renderer => BootstrapPaginationHelper::LinkRenderer, class:"text-center", previous_label: "Önceki Sayfa", next_label: "Sonraki Sayfa" %>
-
+<div class="col-lg-12 col-sm-12 col-xs-12">
+	<%= will_paginate @fotogaleri, :renderer => BootstrapPaginationHelper::LinkRenderer, class:"text-center", previous_label: "Önceki Sayfa", next_label: "Sonraki Sayfa" %>
+</div>
 <script>
 $(document).ready(function() {
 	$('.thumbnail').click(function(){

@@ -1,0 +1,124 @@
+<%= content_for :pagetitle do %>
+	FenBahçem <%= params[:title] %>
+<% end %>
+
+
+
+<% @video.each do |v|  %>
+	<% @videoinfo = VideoInfo.new(v.videolink) %>
+	<div class="col-lg-3 col-sm-4 col-xs-6" style="height:157px; margin-bottom: 40px;">
+        <a href="#" class="video" data-video=<%= @videoinfo.embed_url %> data-toggle="modal" data-target="#videoModal">
+            <%= image_tag @videoinfo.thumbnail_medium, id:"myImg" %>
+        </a>
+        <div class="text-center" style="margin-top:1px;">
+            <p><strong><%= v.baslik %></strong></p>
+        </div>
+	</div>
+<% end %>
+
+<div class="col-lg-12 col-sm-12 col-xs-12">
+    <%= will_paginate @video, :renderer => BootstrapPaginationHelper::LinkRenderer, class:"text-center", previous_label: "Önceki Sayfa", next_label: "Sonraki Sayfa" %>
+</div>
+
+<div class="modal fade" id="videoModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+	<div class="modal-content">
+	  <div class="modal-body">
+		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		<iframe width="100%" height="350" src="" frameborder="0" allowfullscreen></iframe>
+	  </div>
+	</div>
+  </div>
+</div>
+
+
+<script>
+$(function() {
+  $(".video").click(function () {
+	var theModal = $(this).data("target"),
+	videoSRC = $(this).attr("data-video"),
+	videoSRCauto = videoSRC + "?modestbranding=1&rel=0&controls=1&showinfo=0&html5=1&autoplay=1";
+	$(theModal + ' iframe').attr('src', videoSRCauto);
+	$(theModal + ' button.close').click(function () {
+	  $(theModal + ' iframe').attr('src', videoSRC);
+	});
+  });
+});
+</script>
+
+<style>
+
+
+#myImg {
+	width: 100%;
+	height: 100%;
+}
+#myImg:hover {opacity: 0.7;}
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+}
+
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+/* Add Animation */
+.modal-content, #caption {    
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)} 
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+
+/* The Close Button */
+.close {
+    position: absolute;
+    top: -50px;
+    right: 0px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px){
+    .modal-content {
+        width: 100%;
+    }
+}
+</style>

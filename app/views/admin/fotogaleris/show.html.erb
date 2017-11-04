@@ -12,11 +12,8 @@
 		<td><%= @admin_fotogaleri.baslik %></td>
 	</tr>
 	<tr>
-		<td><strong>Resim Açıklaması:</strong></td>
-		<td><%= @admin_fotogaleri.aciklama.html_safe %></td>
-	</tr>
-	<tr>
 		<td><strong>Resim:</strong></td>
 		<td><%= image_tag @admin_fotogaleri.resim.url(:thumb) %></td>
 	</tr>
 </table>
+<%= link_to "Resim Listesine Geri Git", admin_fotogaleris_path %>

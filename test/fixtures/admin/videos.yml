@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  baslik: MyString
+  videolink: MyString
+  tur: 1
+
+two:
+  baslik: MyString
+  videolink: MyString
+  tur: 1

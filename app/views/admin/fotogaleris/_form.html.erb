@@ -17,12 +17,12 @@
 			<td><%= form.text_field :baslik, id: :admin_fotogaleri_baslik, class:"form-control" %></td>
 		</tr>
 		<tr>
-			<td><strong>Resim Açıklaması:</strong></td>
-			<td><%= form.cktext_area :aciklama, id: :admin_fotogaleri_aciklama, ckeditor: { language: 'tr'} %></td>
-		</tr>
-		<tr>
 			<td><strong>Resim:</strong></td>
-			<td><%= form.file_field :resim, id: :admin_deneme_resim, class: "form-control" %></td>
+			<% if @admin_fotogaleri.resim.exists? %>
+				<td><%= image_tag @admin_fotogaleri.resim.url(:thumb) %><br/>
+			<% else %>			
+				<td><%= form.file_field :resim, id: :admin_deneme_resim, class: "form-control" %></td>
+			<% end %>
 		</tr>
 		<tr>
 			<td colspan=2><%= form.submit :Kaydet,  class: "btn btn-primary btn-block" %></td>
