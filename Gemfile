@@ -35,6 +35,9 @@ gem 'jbuilder', '~> 2.5'
 # file upload
 gem "paperclip", "~> 5.0.0"
 
+# paginate
+gem 'will_paginate', '~> 3.1.0'
+
 # text editor
 gem 'ckeditor', github: 'galetahub/ckeditor'
 

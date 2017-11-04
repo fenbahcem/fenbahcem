@@ -6,12 +6,17 @@
 .modal-dialog {width:80%;
 text-align: -webkit-center;}
 
+.thumbnail {
+	width: 100%;
+	height: 100%;
+}
+
 </style>
+
 
 <% @fotogaleri.each do |f| %>
 
-	<!--	<div class="col-lg-3 col-sm-4 col-xs-6"><a title="Image 1" data-toggle="modal" data-target="#myModal" href="#"><%= image_tag f.resim.url, class:"thumbnail img-responsive", style: "width: 262px; height: 157px" %></a></div> -->
-	<div class="col-lg-3 col-sm-4 col-xs-6" style="height: 350px;"><a title= <%= f.baslik  %> data-toggle="modal" data-target="#myModal" href="#"><%= image_tag f.resim.url, class:"thumbnail img-responsive" %></a></div>
+	<div class="col-lg-3 col-sm-4 col-xs-6" style=" height:157px; margin-bottom:15px;"><a title= <%= f.baslik  %> data-toggle="modal" data-target="#myModal" href="#"><%= image_tag f.resim.url, class:"thumbnail img-responsive" %></a></div>
 
 <% end %>
 <!-- Modal -->
@@ -31,6 +36,8 @@ text-align: -webkit-center;}
  </div>
 </div>
 </div>
+
+<%= will_paginate @fotogaleri, :renderer => BootstrapPaginationHelper::LinkRenderer, class:"text-center", previous_label: "Önceki Sayfa", next_label: "Sonraki Sayfa" %>
 
 <script>
 $(document).ready(function() {

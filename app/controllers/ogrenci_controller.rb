@@ -26,7 +26,7 @@ class OgrenciController < ApplicationController
 	end
 	
 	def fotogaleri
-		@fotogaleri = Admin::Fotogaleri.all		
+		@fotogaleri = Admin::Fotogaleri.paginate(page: params[:page])		
 	end
 
 	def proje_show
