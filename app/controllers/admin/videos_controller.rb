@@ -6,7 +6,7 @@ class Admin::VideosController < ApplicationController
   # GET /admin/videos
   # GET /admin/videos.json
   def index
-    @admin_videos = Admin::Video.paginate(page: params[:page])
+		@admin_videos = Admin::Video.paginate(page: params[:page]).order('created_at DESC')
   end
 
   # GET /admin/videos/1
@@ -26,10 +26,12 @@ class Admin::VideosController < ApplicationController
   # POST /admin/videos
   # POST /admin/videos.json
   def create
+		@videotur = { 0 => ["deney videosu","deneyvideolari"], 1 => ["diğer video","digervideolar"]}
     @admin_video = Admin::Video.new(admin_video_params)
 
     respond_to do |format|
       if @admin_video.save
+				Admin::Duyuru.create(aciklama: @admin_video.created_at.to_s.split(" ")[0] + " " + "Yeni " + @videotur[@admin_video.tur][0] + " eklenmiştir.<a href='/" + @videotur[@admin_video.tur][1] + "/'> Videoyu görüntülemek için tıklayınız. </a>" , tur: 0)
 				format.html { redirect_to @admin_video, notice: 'Video başarılı bir şekilde oluşturuldu.' }
         format.json { render :show, status: :created, location: @admin_video }
       else

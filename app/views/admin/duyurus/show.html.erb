@@ -1,3 +1,5 @@
+<% @tur = {0 => "Duyuru", 1 => "Haber"} %>
+
 <% if notice %>
 	<p class="alert alert-success" id="notice"><%= notice %></p>
 <% end %>
@@ -9,10 +11,11 @@
 <table class="table table-striped">
 	<tr>
 		<td><strong>Açıklama Türü:</strong></td>
-		<td><%= @admin_duyuru.tur %></td>
+		<td><%= @tur[@admin_duyuru.tur] %></td>
 	</tr>
 	<tr>
 		<td><strong>Açıklama:</strong></td>
-		<td><%= @admin_duyuru.aciklama %></td>
+		<td><%= @admin_duyuru.aciklama.html_safe %></td>
 	</tr>
 </table>
+<%= link_to "Duyuru/Haber Listesine Geri Git", admin_duyurus_path %>

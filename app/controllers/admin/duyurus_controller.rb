@@ -6,7 +6,7 @@ class Admin::DuyurusController < ApplicationController
   # GET /admin/duyurus
   # GET /admin/duyurus.json
   def index
-    @admin_duyurus = Admin::Duyuru.all
+		@admin_duyurus = Admin::Duyuru.paginate(page: params[:page]).order('created_at DESC')
   end
 
   # GET /admin/duyurus/1

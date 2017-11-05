@@ -6,7 +6,7 @@ class Admin::ProjesController < ApplicationController
   # GET /admin/projes
   # GET /admin/projes.json
   def index
-    @admin_projes = Admin::Proje.all
+		@admin_projes = Admin::Proje.all.order('created_at DESC')
   end
 
   # GET /admin/projes/1
@@ -30,6 +30,7 @@ class Admin::ProjesController < ApplicationController
 
     respond_to do |format|
       if @admin_proje.save
+				Admin::Duyuru.create(aciklama: @admin_proje.created_at.to_s.split(" ")[0] + " " +  @admin_proje.projeadi + " projesi eklenmiştir.<a href='/bilimfuari/proje/" + @admin_proje.id.to_s + "'> Projeyi görüntülemek için tıklayınız. </a>" , tur: 0)
 				format.html { redirect_to @admin_proje, notice: 'Proje başarılı bir şekilde oluşturuldu.' }
         format.json { render :show, status: :created, location: @admin_proje }
       else

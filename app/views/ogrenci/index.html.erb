@@ -42,9 +42,10 @@
 		<div class="panel-heading" style="margin:0px;">
 			<h3 style="margin-top:5px; margin-bottom:5px;">Duyuru</h3>
 		</div>
-		<marquee direction = "up" scrolldelay = "500" style="height:250px">
+		<marquee direction = "up" scrolldelay = "500" onmouseover="this.stop();" onmouseout="this.start();" style="height:250px">
 			<% @duyuru.each do |d|  %>
 				<span class="glyphicon glyphicon-asterisk" style="margin-left:5px;"></span><%= d.aciklama.html_safe %>
+				<br />
 			<% end %>
 		</marquee>
 	
@@ -55,9 +56,10 @@
 		<div class="panel-heading" style="margin:0px;">
 			<h3 style="margin-top:5px; margin-bottom:5px;">Haberler</h3>
 		</div>
-		<marquee direction = "up" scrolldelay = "500" style="height:250px">
+		<marquee direction = "up" scrolldelay = "500" onmouseover="this.stop();" onmouseout="this.start();" style="height:250px">
 			<% @haber.each do |h|  %>
-				<span class="glyphicon glyphicon-asterisk"></span><%= h.aciklama %>
+				<span class="glyphicon glyphicon-asterisk" style="margin-left:5px;"></span><%= h.aciklama.html_safe %>
+				<br />
 			<% end %>
 		</marquee>
 	</div>

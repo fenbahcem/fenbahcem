@@ -30,6 +30,8 @@ class Admin::MateryalsController < ApplicationController
 
     respond_to do |format|
       if @admin_materyal.save
+				
+				Admin::Duyuru.create(aciklama: @admin_materyal.created_at.to_s.split(" ")[0] + " " + @admin_materyal.sinif.to_s + ". Sınıf " + @admin_materyal.materyaladi + " materyali eklenmiştir.<a href=" + @admin_materyal.dosya.url + "> İndirmek için tıklayınız. </a>" , tur: 0)
 				format.html { redirect_to @admin_materyal, notice: 'Materyal başarılı bir şekilde oluşturuldu.' }
         format.json { render :show, status: :created, location: @admin_materyal }
       else
@@ -44,6 +46,7 @@ class Admin::MateryalsController < ApplicationController
   def update
     respond_to do |format|
       if @admin_materyal.update(admin_materyal_params)
+				
 				format.html { redirect_to @admin_materyal, notice: 'Materyal başarılı bir şekilde güncellendi.' }
         format.json { render :show, status: :ok, location: @admin_materyal }
       else
@@ -56,9 +59,11 @@ class Admin::MateryalsController < ApplicationController
   # DELETE /admin/materyals/1
   # DELETE /admin/materyals/1.json
   def destroy
+		@tur = @admin_materyal.materyaltur
     @admin_materyal.destroy
+		@materyaltur = { 1 => "yapraktest", 2 => "denemesinavlari", 3 => "yazililar", 4 =>  "calismakagitlari", 5 => "cikmissinavsorulari", 6 => "kazanimlar", 7 => "yillikplan", 8 => "gunlukplan", 9 => "bep" }
     respond_to do |format|
-			format.html { redirect_to admin_materyals_url, notice: 'Materyal başarılı bir şekilde silindi.' }
+			format.html { redirect_to "/admin/" + @materyaltur[@tur], notice: 'Materyal başarılı bir şekilde silindi.' }
       format.json { head :no_content }
     end
   end

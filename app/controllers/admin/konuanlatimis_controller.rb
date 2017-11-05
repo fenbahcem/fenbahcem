@@ -30,6 +30,7 @@ class Admin::KonuanlatimisController < ApplicationController
 
     respond_to do |format|
       if @admin_konuanlatimi.save
+				Admin::Duyuru.create(aciklama: @admin_konuanlatimi.created_at.to_s.split(" ")[0] + " " + @admin_konuanlatimi.sinif.to_s + ". Sınıf " + @admin_konuanlatimi.konuadi + " konusu eklenmiştir.<a href='/sinif" + @admin_konuanlatimi.sinif.to_s + "/konuanlatimi/konu/" + @admin_konuanlatimi.unite_id.to_s + "?konuanlatimi_id=" + @admin_konuanlatimi.id.to_s + "'> Konu anlatımına ulaşmak için tıklayınız. </a>" ,tur: 0)
 				format.html { redirect_to @admin_konuanlatimi, notice: 'Konu anlatımı başarılı bir şekilde oluşturuldu.' }
         format.json { render :show, status: :created, location: @admin_konuanlatimi }
       else

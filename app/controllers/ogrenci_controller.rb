@@ -3,8 +3,8 @@ class OgrenciController < ApplicationController
 	helper_method :sayac
 	
 	def index
-		@duyuru = Admin::Duyuru.where(tur:0)
-		@haber = Admin::Duyuru.where(tur:1)
+		@duyuru = Admin::Duyuru.where(tur:0).order('created_at DESC')
+		@haber = Admin::Duyuru.where(tur:1).order('created_at DESC')
   end
 	
 	def uniteler
@@ -23,15 +23,15 @@ class OgrenciController < ApplicationController
 	end
 	
 	def bilimfuari
-		@proje = Admin::Proje.all
+		@proje = Admin::Proje.all.order('created_at DESC')
 	end
 	
 	def fotogaleri
-		@fotogaleri = Admin::Fotogaleri.paginate(page: params[:page])		
+		@fotogaleri = Admin::Fotogaleri.paginate(page: params[:page]).order('created_at DESC')		
 	end
 
 	def video
-		@video = Admin::Video.where(tur: params[:tur]).paginate(page: params[:page])
+		@video = Admin::Video.where(tur: params[:tur]).paginate(page: params[:page]).order('created_at DESC')
 	end
 
 	def proje_show

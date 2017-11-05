@@ -6,7 +6,7 @@ class Admin::FotogalerisController < ApplicationController
   # GET /admin/fotogaleris
   # GET /admin/fotogaleris.json
   def index
-    @admin_fotogaleris = Admin::Fotogaleri.paginate(page: params[:page])
+		@admin_fotogaleris = Admin::Fotogaleri.paginate(page: params[:page]).order('created_at DESC')
   end
 
   # GET /admin/fotogaleris/1
@@ -30,6 +30,7 @@ class Admin::FotogalerisController < ApplicationController
 
     respond_to do |format|
       if @admin_fotogaleri.save
+				Admin::Duyuru.create(aciklama: @admin_fotogaleri.created_at.to_s.split(" ")[0] + " " + "Yeni resim eklenmiştir.<a href='/fotogaleri/'> Fotogaleriyi görüntülemek için tıklayınız. </a>" , tur: 0)
 				format.html { redirect_to @admin_fotogaleri, notice: 'Resim başarılı bir şekilde oluşturuldu.' }
         format.json { render :show, status: :created, location: @admin_fotogaleri }
       else
