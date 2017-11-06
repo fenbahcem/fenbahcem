@@ -1,3 +1,9 @@
+<% @sinif5unite = Admin::Unite.where(sinif: 5).map { |u| [u.uniteadi, u.id]} %>
+<% @sinif6unite = Admin::Unite.where(sinif: 6).map { |u| [u.uniteadi, u.id]} %>
+<% @sinif7unite = Admin::Unite.where(sinif: 7).map { |u| [u.uniteadi, u.id]} %>
+<% @sinif8unite = Admin::Unite.where(sinif: 8).map { |u| [u.uniteadi, u.id]} %>
+
+
 <%= form_with(model: admin_konuanlatimi, local: true, html: {multipart: true}) do |form| %>
   <% if admin_konuanlatimi.errors.any? %>
     <div id="error_explanation">
@@ -11,14 +17,45 @@
     </div>
   <% end %>
 
+<script>
+function unitegetir5() {
+	var tds = document.getElementById("unite");
+	tds.innerHTML = ('<%= escape_javascript(form.select :unite_id , options_for_select(@sinif5unite),{:include_blank => "Ünite Seçiniz"}, id: :admin_konuanlatimi_unite_id, class:"form-control") %>');
+}
+</script>
+<script>
+function unitegetir6() {
+	var tds = document.getElementById("unite");
+	tds.innerHTML = ('<%= escape_javascript(form.select :unite_id , options_for_select(@sinif6unite),{:include_blank => "Ünite Seçiniz"}, id: :admin_konuanlatimi_unite_id, class:"form-control") %>');
+}
+</script>
+<script>
+function unitegetir7() {
+	var tds = document.getElementById("unite");
+	tds.innerHTML = ('<%= escape_javascript(form.select :unite_id , options_for_select(@sinif7unite),{:include_blank => "Ünite Seçiniz"}, id: :admin_konuanlatimi_unite_id, class:"form-control") %>');
+}
+</script>
+<script>
+function unitegetir8() {
+	var tds = document.getElementById("unite");
+	tds.innerHTML = ('<%= escape_javascript(form.select :unite_id , options_for_select(@sinif8unite),{:include_blank => "Ünite Seçiniz"}, id: :admin_konuanlatimi_unite_id, class:"form-control") %>');
+}
+</script>
 	<table class="table table-striped">
 		<tr>
 			<td><strong>Sınıf:</strong></td>
-			<td><%= form.select  :sinif, options_for_select([["5. Sınıf", 5], ["6. Sınıf", 6], ["7. Sınıf", 7],["8. Sınıf", 8]]),{}, id: :admin_konuanlatimi_sinif, class: "form-control" %></td>
+			<td><%= form.select  :sinif, options_for_select([["5. Sınıf", 5], ["6. Sınıf", 6], ["7. Sınıf", 7],["8. Sınıf", 8]]),{include_blank: true}, onchange: 
+				"
+				if (this.options[selectedIndex].value == 5) {unitegetir5();}
+				else if (this.options[selectedIndex].value == 6) {unitegetir6();}
+				else if (this.options[selectedIndex].value == 7) {unitegetir7();}
+				else if (this.options[selectedIndex].value == 8) {unitegetir8();}
+				", id: :admin_konuanlatimi_sinif, class: "form-control" %></td>
 		</tr>
 		<tr>
 			<td><strong>Ünite Adı:</strong></td>
-			<td><%= form.select :unite_id, options_for_select(Admin::Unite.all.map { |u| [u.uniteadi, u.id]}),{}, id: :admin_konuanlatimi_sinif, class: "form-control" %></td>
+			<!--<td><%= form.select :unite_id, options_for_select(Admin::Unite.all.map { |u| [u.uniteadi, u.id]}),{}, id: :admin_konuanlatimi_unite_id, class: "form-control" %></td>-->
+			<td id="unite"></td>
 		</tr>
 		<tr>
 			<td><strong>Konu Adı:</strong></td>
