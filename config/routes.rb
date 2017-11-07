@@ -1,21 +1,19 @@
 Rails.application.routes.draw do
-  namespace :admin do
-    resources :videos
-  end
-  namespace :admin do
-    resources :fotogaleris
-  end
-  namespace :admin do
-    resources :duyurus
-  end
 	mount Ckeditor::Engine => '/ckeditor'
   
 	get '/admin' => 'admin#index'
   
 	namespace :admin do
  		resources :materyals #, except: :index
+    resources :konuanlatimis
+    resources :duyurus
+    resources :fotogaleris
+    resources :videos
+    resources :projes
+    resources :unites
   end
 	
+	get '/admin/ogrencicalisma'	=> 'admin#ogrencicalisma'
 	get '/admin/yapraktest' => 'admin/materyals#index', materyaltur: 1, title: 'Yaprak Test'
 	get '/admin/denemesinavlari' => 'admin/materyals#index', materyaltur: 2, title: 'Deneme Sınavları'
 	get '/admin/yazililar' => 'admin/materyals#index', materyaltur: 3, title: 'Yazılılar'
@@ -25,14 +23,6 @@ Rails.application.routes.draw do
 	get '/admin/yillikplan' => 'admin/materyals#index', materyaltur: 7, title: 'Yıllık Plan'
 	get '/admin/gunlukplan' => 'admin/materyals#index', materyaltur: 8, title: 'Günlük Plan'
 	get '/admin/bep' => 'admin/materyals#index', materyaltur: 9, title: 'BEP'
-
-  namespace :admin do
-    resources :projes
-  end
-  
-	namespace :admin do
-    resources :unites
-  end
 
 	# Anasayfa
   root to: 'ogrenci#index'
@@ -118,10 +108,17 @@ Rails.application.routes.draw do
 	# Video
 	get '/deneyvideolari' => 'ogrenci#video', tur: 0
 	get '/digervideolar' => 'ogrenci#video', tur: 1
+	
+	# Diger Sayfalar
+	match '/gonderinyayinlayalim' => 'ogrenci#ogrencicalisma', via: :post
+	get '/gonderinyayinlayalim' => 'ogrenci#gonderinyayinlayalim'
+	get '/onerivesikayet' => 'ogrenci#onerivesikayet'
+	get '/biliminsanlari' => 'ogrenci#biliminsanlari'
+	get '/resmievraklar' => 'ogrenci#resmievraklar'
+	get '/ilgincbilgiler' => 'ogrenci#ilgincbilgiler'
+	get '/motivasyon' => 'ogrenci#motivasyon'
+	get '/sinavsistemi' => 'ogrenci#sinavsistemi'
 
-	namespace :admin do
-    resources :konuanlatimis
-  end
-  devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+	devise_for :users 
 end

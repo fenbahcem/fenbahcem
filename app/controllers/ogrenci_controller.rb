@@ -27,7 +27,18 @@ class OgrenciController < ApplicationController
 	end
 		
 	def gonderinyayinlayalim
-	end	
+		@ogrencicalisma = Ogrencicalisma.new	
+	end
+	
+	def ogrencicalisma
+		@ogrencicalisma = Ogrencicalisma.new(ogrenci_params)	
+		if @ogrencicalisma.save
+			redirect_to "/gonderinyayinlayalim", notice: "<div class='container'><div class='jumbotron' style='color: #3c763d; background-color: #dff0d8; border-color: #d6e9c6'><h1>Tebrikler!</h1>Çalışmanız başarılı bir şekilde sisteme kaydedilmiştir. Uzman ekibimiz çalışmanızı inceleyip, onaylandıktan sonra çalışmanız en kısa sürede yayınlanacaktır. İyi günler ve iyi çalışmalar dileriz.</div></div>"
+		else
+			redirect_to "/gonderinyayinlayalim", notice: "<div class='container'><div class='jumbotron' style='color: #a94442; background-color: #f2dede; border-color: #ebccd1'><h1>Üzgünüz!</h1>Formda bulunan adı, soyadı, e-posta ve çalışma açıklama sekmelerinin doldurulması zorunludur. </div></div>"
+		end
+	end
+
 
 	def onerivesikayet
 	end
@@ -116,5 +127,10 @@ class OgrenciController < ApplicationController
 	def sayac(sinif, materyaltur, uniteid)
 		return Admin::Materyal.where(sinif: sinif).where(materyaltur: materyaltur).where(unite_id: uniteid).count
 	end
+	
+	private	
+    def ogrenci_params
+      params.require(:ogrencicalisma).permit(:ad, :soyad, :email, :aciklama, :dosya)
+    end
 
 end

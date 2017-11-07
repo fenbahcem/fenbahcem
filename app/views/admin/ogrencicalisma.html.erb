@@ -1,0 +1,33 @@
+<%= content_for :title do %>
+	<h4 style="margin:0px;">Öğrenci Çalışmaları</h4>
+<% end %>
+
+<% @ogrencicalisma.each_with_index do |o,i| %>
+<table class="table table-striped">
+	<tr>
+		<td><strong>Öğrenci Adı:</strong></td>
+		<td><%= o.ad %></td>
+	</tr>
+	<tr>
+		<td><strong>Öğrenci Soyadı:</strong></td>
+		<td><%= o.soyad %></td>
+	</tr>
+	<tr>
+		<td><strong>Öğrenci Eposta:</strong></td>
+		<td><%= o.email%></td>
+	</tr>
+	<tr>
+		<td><strong>Çalışma Açıklaması:</strong></td>
+		<% if o.aciklama != nil %>
+			<td><%= o.aciklama.html_safe %></td>
+		<% else %>
+			<td><%= o.aciklama%></td>	
+		<% end %>
+
+	</tr>
+	<tr>
+		<td><strong>Dosya:</strong></td>
+		<td><%= link_to "Dosya Görüntüle", o.dosya.url %></td>
+	</tr>
+</table>
+	<% end %>

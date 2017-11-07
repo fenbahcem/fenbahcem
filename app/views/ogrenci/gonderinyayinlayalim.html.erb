@@ -77,15 +77,15 @@ $(document).ready(function() {
     </div>
 </div>	
 
-<!-- <form class="container"> -->
 
-<%= form_for @ogrencicalisma, url: {controller: "ogrenci", action: "gonderinyayinlayalim"}, html: {class: "container"} do |f|  %>
+<% unless notice  %>
+
+<%= form_for @ogrencicalisma, url: { controller: "ogrenci", action: "ogrencicalisma"},  method: :post, html: {class: "container"} do |f|  %>
 
 <div class="row setup-content" id="step-1">
     <div class="col-xs-12">
         <div class="col-md-12 well text-center">
 
-<!-- <form> -->               
             
 <div class="container col-xs-12">
     <div class="row clearfix">
@@ -93,31 +93,24 @@ $(document).ready(function() {
             <table class="table table-bordered table-hover" id="tab_logic">
 							<tr>
 								<td style="vertical-align:middle;"><strong>Adınız</strong></td>
-								<td><input type="text" class="form-control" id="usr"></td>
+								<td><%= f.text_field :ad, class:"form-control", id: :ogrenci_ad, onchange: "bilgi()" %></td>
 							</tr>
 							<tr >
 								<td style="vertical-align:middle;"><strong>Soyadınız</strong></td>
-								<td><input type="text" class="form-control" id="usr"></td>
+								<td><%= f.text_field :soyad, class:"form-control", id: :ogrenci_soyad, onchange: "bilgi()" %></td>
 							</tr>
 							<tr>
 								<td style="vertical-align:middle;"><strong>E-Posta Adresiniz</strong></td>
-								<td><input type="email" class="form-control" id="email"></td>
+								<td><%= f.text_field :email, class:"form-control", type:"email", id: :ogrenci_email, onchange: "bilgi()" %></td>
 							</tr>
             </table>
         </div>
     </div>
 </div>
-            
-<!-- </form> -->
-            
             <button id="activate-step-2" class="btn btn-primary btn-md">İkinci Adıma Geç</button>
         </div>
     </div>
 </div>
-
-</form>
-
-<form class="container">
 
 <div class="row setup-content" id="step-2">
     <div class="col-xs-12">
@@ -125,47 +118,88 @@ $(document).ready(function() {
 					<h4 class="text-center">Yaptığınız Çalışma Hakkında Kısa Açıklama Yazısı Yazınız</h4>
 					<table class="table table-bordered">
 						<tr>
-							<td><textarea class="form-control" rows="10" id="comment"></textarea></td>
+							<td><%= f.cktext_area :aciklama, class:"form-control", rows:10, id: :ogrenci_aciklama, ckeditor: {language: "tr", toolbar:"mini", onchange: "bilgi()"} %></textarea></td>
 						</tr>
 					</table>
-            
-<!--<form></form> --> 
-            
             <button id="activate-step-3" class="btn btn-primary btn-md">Üçüncü Adıma Geç</button>
         </div>
     </div>
 </div>
 
-</form>
-
-<form class="container">
-
 <div class="row setup-content" id="step-3">
     <div class="col-xs-12">
         <div class="col-md-12 well text-center">
-            <h4 class="text-center">Çalışmanızı Ekleyin</h4>
-
-            
-<!--<form></form> --> 
-            
-            <button id="activate-step-4" class="btn btn-primary btn-md">Activate Step 4</button>
+					<h4 class="text-center">Çalışmanızı Ekleyin</h4>
+					<table class="table table-bordered">
+						<tr>
+							<td><%= f.file_field :dosya, class:"form-control", id: "ogrenci_dosya", onchange: "bilgi()" %></td>
+						</tr>
+					</table>
+            <button id="activate-step-4" class="btn btn-primary btn-md">Dördüncü Adıma Geç</button>
         </div>
     </div>
 </div>
-
-</form>
-
-<form class="container">
 
 <div class="row setup-content" id="step-4">
     <div class="col-xs-12">
         <div class="col-md-12 well text-center">
-            <h1 class="text-center"> STEP 4</h1>
-            
-<!--<form></form> -->                
+            <h4 class="text-center">Bilgilerinizi Kontrol Ediniz</h4>
+					<table class="table table-bordered">
+						<tr>
+							<td><strong>Adı:</strong></td>
+							<td id="ad" ></td>
+						</tr>
+						<tr>
+							<td><strong>Soyadı:</strong></td>
+							<td id="soyad"></td>
+						</tr>
+						<tr>
+							<td><strong>E-posta Adresi:</strong></td>
+							<td id="email"></td>
+						</tr>
+						<tr>
+							<td><strong>Çalışma Özeti:</strong></td>
+							<td id="aciklama"></td>
+						</tr>
+						<tr>
+							<td><strong>Çalışma Dosyası:</strong></td>
+							<td id="dosya"></td>
+						</tr>
+						<tr>
+							<td colspan=2><%= f.submit :Kaydet,  class: "btn btn-primary btn-block" %></td>
+						</tr>
+					</table>	
             
         </div>
     </div>
 </div>
 
-</form>
+<% end %>         
+<script charset="utf-8">
+	var tds_aciklama = document.getElementById("aciklama");
+	CKEDITOR.instances.ogrenci_aciklama.on('change', function () {
+			tds_aciklama.innerHTML = CKEDITOR.instances.ogrenci_aciklama.getData();;
+        });;
+</script>
+
+
+<script charset="utf-8">
+function bilgi() {
+	var tds_ad = document.getElementById("ad");
+	var tds_soyad = document.getElementById("soyad");
+	var tds_email = document.getElementById("email");
+	var tds_dosya = document.getElementById("dosya");
+	var ad = document.getElementById("ogrenci_ad").value;
+	var soyad = document.getElementById("ogrenci_soyad").value;
+	var email = document.getElementById("ogrenci_email").value;
+	var dosya = document.getElementById("ogrenci_dosya").value;
+	tds_ad.innerHTML = (ad);
+	tds_soyad.innerHTML = (soyad);
+	tds_email.innerHTML = (email);
+	tds_dosya.innerHTML = (dosya);
+}	
+</script>
+
+<% else %>
+			<p><%= notice.html_safe %></p>
+<% end %>
