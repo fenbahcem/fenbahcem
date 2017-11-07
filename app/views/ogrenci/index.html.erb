@@ -7,12 +7,15 @@
 <ol class="carousel-indicators">
   <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
   <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+  <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+  <li data-target="#carousel-example-generic" data-slide-to="3"></li>
+  <li data-target="#carousel-example-generic" data-slide-to="4"></li>
 </ol>
 
 <!-- Wrapper for slides -->
 <div class="carousel-inner" role="listbox">
   <div class="item active">
-		<%= image_tag("img1.png") %>
+		<%= image_tag "img1.png" %>
 		<div class="carousel-caption">
 
     </div>
@@ -24,6 +27,26 @@
     </div>
   </div>
 
+  <div class="item">
+    <%= image_tag "img3.jpg", style:"width:847px; height:424px;" %>
+    <div class="carousel-caption">
+
+    </div>
+	</div>
+
+  <div class="item">
+    <%= image_tag "img4.jpg", style:"width:847px; height:424px;" %>
+    <div class="carousel-caption">
+
+    </div>
+	</div>
+
+  <div class="item">
+    <%= image_tag "img5.jpg", style:"width:847px; height:424px;" %>
+    <div class="carousel-caption">
+
+    </div>
+  </div>
 </div>
 
 <!-- Controls -->
