@@ -1,0 +1,171 @@
+<script>
+
+// Activate Next Step
+
+$(document).ready(function() {
+    
+    var navListItems = $('ul.setup-panel li a'),
+        allWells = $('.setup-content');
+
+    allWells.hide();
+
+    navListItems.click(function(e)
+    {
+        e.preventDefault();
+        var $target = $($(this).attr('href')),
+            $item = $(this).closest('li');
+        
+        if (!$item.hasClass('disabled')) {
+            navListItems.closest('li').removeClass('active');
+            $item.addClass('active');
+            allWells.hide();
+            $target.show();
+        }
+    });
+    
+    $('ul.setup-panel li.active a').trigger('click');
+    
+    // DEMO ONLY //
+    $('#activate-step-2').on('click', function(e) {
+        $('ul.setup-panel li:eq(1)').removeClass('disabled');
+        $('ul.setup-panel li a[href="#step-2"]').trigger('click');
+        $(this).remove();
+    })
+    
+    $('#activate-step-3').on('click', function(e) {
+        $('ul.setup-panel li:eq(2)').removeClass('disabled');
+        $('ul.setup-panel li a[href="#step-3"]').trigger('click');
+        $(this).remove();
+    })
+    
+    $('#activate-step-4').on('click', function(e) {
+        $('ul.setup-panel li:eq(3)').removeClass('disabled');
+        $('ul.setup-panel li a[href="#step-4"]').trigger('click');
+        $(this).remove();
+    })
+    
+    $('#activate-step-3').on('click', function(e) {
+        $('ul.setup-panel li:eq(2)').removeClass('disabled');
+        $('ul.setup-panel li a[href="#step-3"]').trigger('click');
+        $(this).remove();
+    })
+});
+</script>
+
+<div class="container">
+    <div class="row form-group">
+        <div class="col-xs-12">
+            <ul class="nav nav-pills nav-justified thumbnail setup-panel">
+                <li class="active"><a href="#step-1">
+                    <h4 class="list-group-item-heading">Adım 1</h4>
+                    <p class="list-group-item-text">Kişisel Bilgileriniz</p>
+                </a></li>
+                <li class="disabled"><a href="#step-2">
+                    <h4 class="list-group-iogrencicalismading">Adım 2</h4>
+                    <p class="list-group-item-text">Yaptığınız Çalışmanın Kısa Açıklaması</p>
+                </a></li>
+                <li class="disabled"><a href="#step-3">
+                    <h4 class="list-group-item-heading">Adım 3</h4>
+                    <p class="list-group-item-text">Çalışmanızı Ekleyin</p>
+                </a></li>
+                <li class="disabled"><a href="#step-4">
+                    <h4 class="list-group-item-heading">Adım 4</h4>
+                    <p class="list-group-item-text">Kontrol Edin ve Bize Gönderin</p>
+                </a></li>    
+            </ul>
+        </div>
+    </div>
+</div>	
+
+<!-- <form class="container"> -->
+
+<%= form_for @ogrencicalisma, url: {controller: "ogrenci", action: "gonderinyayinlayalim"}, html: {class: "container"} do |f|  %>
+
+<div class="row setup-content" id="step-1">
+    <div class="col-xs-12">
+        <div class="col-md-12 well text-center">
+
+<!-- <form> -->               
+            
+<div class="container col-xs-12">
+    <div class="row clearfix">
+        <div class="col-md-12 column">
+            <table class="table table-bordered table-hover" id="tab_logic">
+							<tr>
+								<td style="vertical-align:middle;"><strong>Adınız</strong></td>
+								<td><input type="text" class="form-control" id="usr"></td>
+							</tr>
+							<tr >
+								<td style="vertical-align:middle;"><strong>Soyadınız</strong></td>
+								<td><input type="text" class="form-control" id="usr"></td>
+							</tr>
+							<tr>
+								<td style="vertical-align:middle;"><strong>E-Posta Adresiniz</strong></td>
+								<td><input type="email" class="form-control" id="email"></td>
+							</tr>
+            </table>
+        </div>
+    </div>
+</div>
+            
+<!-- </form> -->
+            
+            <button id="activate-step-2" class="btn btn-primary btn-md">İkinci Adıma Geç</button>
+        </div>
+    </div>
+</div>
+
+</form>
+
+<form class="container">
+
+<div class="row setup-content" id="step-2">
+    <div class="col-xs-12">
+        <div class="col-md-12 well text-center">
+					<h4 class="text-center">Yaptığınız Çalışma Hakkında Kısa Açıklama Yazısı Yazınız</h4>
+					<table class="table table-bordered">
+						<tr>
+							<td><textarea class="form-control" rows="10" id="comment"></textarea></td>
+						</tr>
+					</table>
+            
+<!--<form></form> --> 
+            
+            <button id="activate-step-3" class="btn btn-primary btn-md">Üçüncü Adıma Geç</button>
+        </div>
+    </div>
+</div>
+
+</form>
+
+<form class="container">
+
+<div class="row setup-content" id="step-3">
+    <div class="col-xs-12">
+        <div class="col-md-12 well text-center">
+            <h4 class="text-center">Çalışmanızı Ekleyin</h4>
+
+            
+<!--<form></form> --> 
+            
+            <button id="activate-step-4" class="btn btn-primary btn-md">Activate Step 4</button>
+        </div>
+    </div>
+</div>
+
+</form>
+
+<form class="container">
+
+<div class="row setup-content" id="step-4">
+    <div class="col-xs-12">
+        <div class="col-md-12 well text-center">
+            <h1 class="text-center"> STEP 4</h1>
+            
+<!--<form></form> -->                
+            
+        </div>
+    </div>
+</div>
+
+</form>

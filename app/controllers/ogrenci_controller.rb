@@ -1,5 +1,5 @@
 class OgrenciController < ApplicationController
-	layout "app-other", only: [:bilimfuari, :proje_show, :fotogaleri, :video]  
+	layout "app-other", only: [:bilimfuari, :proje_show, :fotogaleri, :video, :gonderinyayinlayalim, :onerivesikayet, :biliminsanlari, :resmievraklar, :motivasyon, :sinavsistemi, :ilgincbilgiler]  
 	helper_method :sayac
 	
 	def index
@@ -25,7 +25,28 @@ class OgrenciController < ApplicationController
 	def bilimfuari
 		@proje = Admin::Proje.all.order('created_at DESC')
 	end
-	
+		
+	def gonderinyayinlayalim
+	end	
+
+	def onerivesikayet
+	end
+
+	def biliminsanlari
+	end
+
+	def resmievraklar
+	end
+
+	def ilgincbilgiler
+	end
+
+	def motivasyon
+	end
+
+	def sinavsistemi
+	end
+
 	def fotogaleri
 		@fotogaleri = Admin::Fotogaleri.paginate(page: params[:page]).order('created_at DESC')		
 	end
