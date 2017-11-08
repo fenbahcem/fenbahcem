@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  namespace :admin do
+    resources :digersayas
+  end
 	mount Ckeditor::Engine => '/ckeditor'
   
 	get '/admin' => 'admin#index'

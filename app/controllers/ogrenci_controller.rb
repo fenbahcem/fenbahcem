@@ -41,6 +41,11 @@ class OgrenciController < ApplicationController
 
 
 	def onerivesikayet
+		@adisoyadi = params[:adisoyadi]
+		@email = params[:email]
+		@konu = params[:konu]
+		@aciklama = params[:aciklama]
+		KullaniciMailer.onerivesikayet_email(@adisoyadi, @email, @konu, @aciklama).deliver_later
 	end
 
 	def biliminsanlari
