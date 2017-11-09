@@ -1,0 +1,30 @@
+<% @tur = { 0 => "Bilim İnsanları", 1 => "Resmi Evraklar", 2 => "İlginç Bilgiler", 3 => "Motivasyon", 4 => "Sınav Sistemi"} %>
+<% if notice %>
+	<p class="alert alert-success" id="notice"><%= notice %></p>
+<% end %>
+
+
+<%= content_for :title do %>
+	<h4 style="margin:0px;">Diğer Sayfa Görüntüle</h4>
+<% end %>
+
+<table class="table table-striped">
+	<tr>
+		<td><strong>Tür:</strong></td>
+		<td><%= @tur[@admin_digersayfa.tur] %></td>
+	</tr>
+	<tr>
+		<td><strong>Başlık:</strong></td>
+		<td><%= @admin_digersayfa.baslik %></td>
+	</tr>
+	<tr>
+		<td><strong>Netin:</strong></td>
+		<td><%= @admin_digersayfa.metin %></td>
+	</tr>
+	<tr>
+		<td><strong>Dosya:</strong></td>
+		<td><%= link_to "Dosya Görüntüle", @admin_digersayfa.dosya.url %></td>
+	</tr>
+</table>
+
+<%= link_to 'Diğer Sayfa Listesine Geri Git', admin_digersayfas_path %>

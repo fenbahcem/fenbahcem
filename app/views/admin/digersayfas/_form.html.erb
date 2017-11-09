@@ -1,0 +1,35 @@
+<%= form_with(model: admin_digersayfa, local: true) do |form| %>
+  <% if admin_digersayfa.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(admin_digersayfa.errors.count, "error") %> prohibited this admin_digersayfa from being saved:</h2>
+
+      <ul>
+      <% admin_digersayfa.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+	<table class="table table-striped">
+		<tr>
+			<td><strong>Tür:</strong></td>
+			<td><%= form.select :tur, options_for_select([["Bilim İnsanları", 0],["Resmi Evraklar", 1],["İlginç Bilgiler", 2],["Motivasyon", 3],["Sınav Sistemi", 4]]), {include_blank: true}, class:"form-control", id: :admin_digersayfas_tur %></td>
+		</tr>
+		<tr>
+			<td><strong>Başlık:</strong></td>
+			<td><%= form.text_field :baslik, id: :admin_digersayfa_baslik, class:"form-control" %> </td>
+		</tr>
+		<tr>
+			<td><strong>Metin:</strong></td>
+			<td><%= form.cktext_area :metin, id: :admin_digersayfa_metin, ckeditor: { language: 'tr'} %></td>
+		</tr>
+		<tr>
+			<td><strong>Dosya:</strong></td>
+			<td><%= form.file_field :dosya, class: "form-control" %></td>
+		</tr>
+		<tr>
+			<td colspan=2><%= form.submit :Kaydet,  class: "btn btn-primary btn-block" %></td>
+		</tr>	
+	</table>
+
+<% end %>

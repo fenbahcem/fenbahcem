@@ -1,0 +1,33 @@
+<% @tur = { 0 => "Bilim İnsanları", 1 => "Resmi Evraklar", 2 => "İlginç Bilgiler", 3 => "Motivasyon", 4 => "Sınav Sistemi"} %>
+
+<% if notice %>
+	<p class="alert alert-success" id="notice"><%= notice %></p>
+<% end %>
+
+<%= content_for :title do %>
+	<h4 style="margin:0px;">Diğer Sayfalar</h4>
+<% end %>
+	
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Tür</th>
+      <th>Başlık</th>
+      <th>Metin</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_digersayfas.each do |admin_digersayfa| %>
+      <tr>
+        <td><%= @tur[admin_digersayfa.tur] %></td>
+        <td><%= admin_digersayfa.baslik %></td>
+        <td><%= admin_digersayfa.metin %></td>
+        <td><%= link_to 'Görüntüle', admin_digersayfa %></td>
+        <td><%= link_to 'Düzenle', edit_admin_digersayfa_path(admin_digersayfa) %></td>
+        <td><%= link_to 'Sil', admin_digersayfa, method: :delete, data: { confirm: 'Silmek istediğinize eminmisiniz?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -10,10 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171107092343) do
+ActiveRecord::Schema.define(version: 20171108124013) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "admin_digersayfas", force: :cascade do |t|
+    t.string "baslik"
+    t.text "metin"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "tur"
+    t.string "dosya_file_name"
+    t.string "dosya_content_type"
+    t.integer "dosya_file_size"
+    t.datetime "dosya_updated_at"
+  end
 
   create_table "admin_duyurus", force: :cascade do |t|
     t.text "aciklama"

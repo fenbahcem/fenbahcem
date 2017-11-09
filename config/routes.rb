@@ -1,7 +1,4 @@
 Rails.application.routes.draw do
-  namespace :admin do
-    resources :digersayas
-  end
 	mount Ckeditor::Engine => '/ckeditor'
   
 	get '/admin' => 'admin#index'
@@ -14,6 +11,7 @@ Rails.application.routes.draw do
     resources :videos
     resources :projes
     resources :unites
+    resources :digersayfas
   end
 	
 	get '/admin/ogrencicalisma'	=> 'admin#ogrencicalisma'
@@ -115,13 +113,13 @@ Rails.application.routes.draw do
 	# Diger Sayfalar
 	match '/gonderinyayinlayalim' => 'ogrenci#ogrencicalisma', via: :post
 	get '/gonderinyayinlayalim' => 'ogrenci#gonderinyayinlayalim'
+	
 	get '/onerivesikayet' => 'ogrenci#onerivesikayet'
 	get '/biliminsanlari' => 'ogrenci#biliminsanlari'
 	get '/resmievraklar' => 'ogrenci#resmievraklar'
 	get '/ilgincbilgiler' => 'ogrenci#ilgincbilgiler'
 	get '/motivasyon' => 'ogrenci#motivasyon'
 	get '/sinavsistemi' => 'ogrenci#sinavsistemi'
-
 
 	devise_for :users 
 end

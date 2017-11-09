@@ -1,0 +1,105 @@
+<% @tur = { 0 => "Bilim İnsanları", 1 => "Resmi Evraklar" , 2 => "İlginç Bilgiler" , 3 => "Motivasyon" , 4 => "Sınav Sistemi" } %>
+<% @turlink = { 0 => "biliminsanlari", 1 => "resmievraklar" , 2 => "ilgincbilgiler" , 3 => "motivasyon" , 4 => "sinavsistemi" } %>
+
+
+<style>
+.wrapper{
+	margin:3em 0;
+  }
+  a.sixth,a.sixth:visited,a.sixth:hover,a.sixth:active{
+	-webkit-backface-visibility:hidden;
+			backface-visibility:hidden;
+	  position:relative;
+	transition:0.5s color ease;
+	  text-decoration:none;
+	  color:#81b3d2;
+	  font-size:1.5em;
+  }
+  a.sixth:hover{
+	  color:#d73444;
+  }
+  a.sixth.before:before,a.sixth.after:after{
+	content: "";
+	transition:0.5s all ease;
+	-webkit-backface-visibility:hidden;
+			backface-visibility:hidden;
+	position:absolute;
+  }
+  a.sixth.before:before{
+	top:-0.25em;
+  }
+  a.sixth.after:after{
+	bottom:-0.25em;
+  }
+  a.sixth.before:before,a.sixth.after:after{
+	height:5px;
+	height:0.35rem;
+	width:0;
+	background:#d73444;
+  }
+  a.third:after,a.sixth:before,a.sixth:after{
+	left:50%;
+	-webkit-transform:translateX(-50%);
+			transform:translateX(-50%);
+  }
+  a.sixth.before:hover:before,a.sixth.after:hover:after{
+	width:100%;
+  }
+  </style>
+
+  <div class="container">	
+		<div class="col-md-8">
+			<% @sinavsistemi.each do |b| %>
+    			<h1><%= b.baslik %></h1>
+				<%= b.metin.html_safe %><br />
+				<br />				
+				<span class="badge"><%= b.created_at.to_s.split(" ")[0] %> tarihinde oluşturuldu.</span>
+                    <% if b.dosya.exists? %>
+                        <div class="wrapper text-center">
+                            <%= link_to "Dosyayı İndirmek İçin Tıklayınız", b.dosya.url, class:"sixth before after" %>
+                        </div>
+                    <% end %>
+	  			<hr>
+	  		<% end %>
+		</div>
+
+		<div class="col-md-4">
+        <div class="panel panel-info">
+        
+			<div class="panel-heading">
+				<h3 class="panel-title">
+					<span class="glyphicon glyphicon-list-alt"></span>Son Yazılar
+				</h3>
+            </div>
+            <!-- panel-body -->
+			<div class="panel-body" style="padding:10px;">
+                <ul class="media-list">
+                
+					<% @digersayfa.each_with_index do |d, i| %>
+						<li class="media">
+							<div class="media-body">
+								<h4 class="media-heading">
+									<a href="#" class="text-info"><%= d.baslik %></a></h4>
+								<p class="margin-top-10 margin-bottom-20"><%= d.metin.truncate(100).html_safe %></p>
+								<% if d.dosya.exists? %>
+                                    <div class="text-center">
+                                        <%= link_to "Dosya Mevcuttur.", "/" + @turlink[d.tur] , class:"sixth before after", style:"font-size:1.2em;" %>								
+                                    </div>
+							    <% end %>
+							</div>
+							<span class="label label-success"><%= @tur[d.tur] %></span>
+						</li>
+                    <% end %>
+                    
+				</ul>
+            </div>
+            <!-- end panel body -->
+
+		</div>
+	</div>
+
+
+    <div class="col-lg-12 col-sm-12 col-xs-12">
+        <%= will_paginate @sinavsistemi, :renderer => BootstrapPaginationHelper::LinkRenderer, class:"text-center", previous_label: "Önceki Sayfa", next_label: "Sonraki Sayfa" %>
+    </div>
+</div>
