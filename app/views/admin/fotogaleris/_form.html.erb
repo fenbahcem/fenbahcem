@@ -25,6 +25,10 @@
 			<% end %>
 		</tr>
 		<tr>
+			<td><strong>Anasayfa Bağlantısı:</strong></td>
+      <td><%= form.check_box :anasayfabaglantisi, { type: "form-control"}, true, false %></td>
+		</tr>
+		<tr>
 			<td colspan=2><%= form.submit :Kaydet,  class: "btn btn-primary btn-block" %></td>
 		</tr>	
 	</table>

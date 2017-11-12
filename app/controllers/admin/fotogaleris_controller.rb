@@ -72,6 +72,6 @@ class Admin::FotogalerisController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_fotogaleri_params
-      params.require(:admin_fotogaleri).permit(:baslik, :aciklama, :resim)
+      params.require(:admin_fotogaleri).permit(:baslik, :aciklama, :resim, :anasayfabaglantisi)
     end
 end

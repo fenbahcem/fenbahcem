@@ -5,6 +5,7 @@ class OgrenciController < ApplicationController
 	def index
 		@duyuru = Admin::Duyuru.where(tur:0).order('created_at DESC')
 		@haber = Admin::Duyuru.where(tur:1).order('created_at DESC')
+    @resim = Admin::Fotogaleri.where(anasayfabaglantisi: true).order('created_at DESC')
   end
 	
 	def uniteler

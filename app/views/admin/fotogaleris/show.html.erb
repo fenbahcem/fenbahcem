@@ -15,5 +15,15 @@
 		<td><strong>Resim:</strong></td>
 		<td><%= image_tag @admin_fotogaleri.resim.url(:thumb) %></td>
 	</tr>
+	<tr>
+		<td><strong>Anasayfa Bağlantısı Var mı?</strong></td>
+    <td>
+      <% if @admin_fotogaleri.anasayfabaglantisi %>
+        Var
+      <% else %>
+        Yok
+      <% end %>
+    </td>
+  </tr>
 </table>
 <%= link_to "Resim Listesine Geri Git", admin_fotogaleris_path %>
