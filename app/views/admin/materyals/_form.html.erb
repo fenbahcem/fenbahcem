@@ -18,25 +18,25 @@
 <script>
 function unitegetir5() {
 	var tds = document.getElementById("unite");
-	tds.innerHTML = ('<%= escape_javascript(form.select :unite_id , options_for_select(@sinif5unite),{:include_blank => "Ünite Seçiniz"}, id: :admin_materyal_unite_id, class:"form-control") %>');
+	tds.innerHTML = ('<%= escape_javascript(form.select :unite_id , options_for_select(@sinif5unite, selected:@admin_materyal.unite_id),{:include_blank => "Ünite Seçiniz"}, id: :admin_materyal_unite_id, class:"form-control") %>');
 }
 </script>
 <script>
 function unitegetir6() {
 	var tds = document.getElementById("unite");
-	tds.innerHTML = ('<%= escape_javascript(form.select :unite_id , options_for_select(@sinif6unite),{:include_blank => "Ünite Seçiniz"}, id: :admin_materyal_unite_id, class:"form-control") %>');
+	tds.innerHTML = ('<%= escape_javascript(form.select :unite_id , options_for_select(@sinif6unite, selected:@admin_materyal.unite_id),{:include_blank => "Ünite Seçiniz"}, id: :admin_materyal_unite_id, class:"form-control") %>');
 }
 </script>
 <script>
 function unitegetir7() {
 	var tds = document.getElementById("unite");
-	tds.innerHTML = ('<%= escape_javascript(form.select :unite_id , options_for_select(@sinif7unite),{:include_blank => "Ünite Seçiniz"}, id: :admin_materyal_unite_id, class:"form-control") %>');
+	tds.innerHTML = ('<%= escape_javascript(form.select :unite_id , options_for_select(@sinif7unite, selected:@admin_materyal.unite_id),{:include_blank => "Ünite Seçiniz"}, id: :admin_materyal_unite_id, class:"form-control") %>');
 }
 </script>
 <script>
 function unitegetir8() {
 	var tds = document.getElementById("unite");
-	tds.innerHTML = ('<%= escape_javascript(form.select :unite_id , options_for_select(@sinif8unite),{:include_blank => "Ünite Seçiniz"}, id: :admin_materyal_unite_id, class:"form-control") %>');
+	tds.innerHTML = ('<%= escape_javascript(form.select :unite_id , options_for_select(@sinif8unite, selected:@admin_materyal.unite_id),{:include_blank => "Ünite Seçiniz"}, id: :admin_materyal_unite_id, class:"form-control") %>');
 }
 </script>
 	
@@ -58,7 +58,7 @@ function unitegetir8() {
 		</tr>
 		<tr>
 			<td><strong>Materyal Türü:</strong></td>
-			<td><%= form.select :materyaltur, options_for_select([["Yaprak Testler", 1], ["Deneme Sınavları", 2], ["Yazılılar", 3],["Çalışma Kağıtları", 4], ["Çıkmış Sınav Soruları", 5],["Kazanımlar", 6],["Yıllık Plan", 7], ["Günlük Plan", 8], ["BEP", 9]]),{}, id: :admin_materyal_materyaltur, class: "form-control" %></td>	
+			<td><%= form.select :materyaltur, options_for_select([["Yaprak Testler", 1], ["Deneme Sınavları", 2], ["Yazılılar", 3],["Çalışma Kağıtları", 4], ["Çıkmış Sınav Soruları", 5],["Kazanımlar", 6],["Yıllık Plan", 7], ["Günlük Plan", 8], ["BEP", 9]], selected: @admin_materyal.materyaltur),{include_blank: true}, id: :admin_materyal_materyaltur, class: "form-control" %></td>	
 		</tr>
 		<tr>
 			<td><strong>Materyal Adı:</strong></td>
@@ -69,8 +69,15 @@ function unitegetir8() {
 			<td><%= form.cktext_area :materyalaciklama, id: :admin_materyal_materyalaciklama, class: "form-control", ckeditor: { language: 'tr'} %></td>
 		</tr>
 		<tr>
-			<td><strong>Dosya:</strong></td>
-			<td><%= form.file_field :dosya, id: :admin_deneme_dosya, class: "form-control" %></td>
+      <td><strong>Dosya:</strong></td>
+      <% if @admin_materyal.dosya.exists? %>
+        <td>
+          Ekli Dosya Adı: <%= @admin_materyal.dosya_file_name %><br /><br />
+          <%= form.file_field :dosya, id: :admin_deneme_dosya, class: "form-control" %>
+        </td>
+      <% else %>
+			  <td><%= form.file_field :dosya, id: :admin_deneme_dosya, class: "form-control" %></td>  
+     <% end %>
 		</tr>
 		<tr>
 			<td colspan=2><%= form.submit :Kaydet,  class: "btn btn-primary btn-block" %></td>

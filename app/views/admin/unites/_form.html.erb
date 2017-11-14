@@ -14,7 +14,7 @@
 	<table class="table table-striped">
 		<tr>
 			<td><strong>Sınıf:</strong></td>
-			<td><%= form.select  :sinif, options_for_select([["5. Sınıf", 5], ["6. Sınıf", 6], ["7. Sınıf", 7],["8. Sınıf", 8]]),{}, id: :admin_unite_sinif, class: "form-control" %></td>
+			<td><%= form.select  :sinif, options_for_select([["5. Sınıf", 5], ["6. Sınıf", 6], ["7. Sınıf", 7],["8. Sınıf", 8]], selected: @admin_unite.sinif),{include_blank: true}, id: :admin_unite_sinif, class: "form-control" %></td>
 		</tr>
 		<tr>
 			<td><strong>Ünite Adı:</strong></td>
@@ -25,8 +25,13 @@
 			<td><%= form.cktext_area :aciklama, id: :admin_unite_aciklama, ckeditor: { language: 'tr'} %></td>
 		</tr>
 		<tr>
-			<td><strong>Ünite Resmi:</td></strong>
-			<td><%= form.file_field :uniteresmi, id: :admin_unite_uniteresmi, class: "form-control" %></td>
+      <td><strong>Ünite Resmi:</td></strong>
+        <% if @admin_unite.uniteresmi.exists? %>
+          <td><%= image_tag @admin_unite.uniteresmi.url(:thumb) %><br><br>
+         <%= form.file_field :uniteresmi, id: :admin_unite_uniteresmi, class: "form-control" %></td>
+        <% else %>    
+          <td><%= form.file_field :uniteresmi, id: :admin_unite_uniteresmi, class: "form-control" %></td>
+        <% end %>
 		</tr>
 		<tr>
 			<td colspan=2><%= form.submit :Kaydet,  class: "btn btn-primary btn-block" %></td>

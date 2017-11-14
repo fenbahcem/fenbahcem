@@ -10,6 +10,7 @@
   <thead>
     <tr>
       <th>Resim Başlığı</th>
+      <th>Anasayfa Bağlantısı</th>
       <th>Resim</th>
       <th colspan="3"></th>
     </tr>
@@ -19,6 +20,13 @@
     <% @admin_fotogaleris.each do |admin_fotogaleri| %>
       <tr>
         <td><%= admin_fotogaleri.baslik %></td>
+        <td>
+          <% if admin_fotogaleri.anasayfabaglantisi %>
+            Var
+          <% else %>
+            Yok
+          <% end %>    
+        </td>
         <td><%= image_tag admin_fotogaleri.resim.url(:thumb) %></td>
         <td><%= link_to 'Görüntüle', admin_fotogaleri %></td>
         <td><%= link_to 'Düzenle', edit_admin_fotogaleri_path(admin_fotogaleri) %></td>

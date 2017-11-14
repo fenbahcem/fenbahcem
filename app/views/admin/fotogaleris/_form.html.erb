@@ -19,7 +19,8 @@
 		<tr>
 			<td><strong>Resim:</strong></td>
 			<% if @admin_fotogaleri.resim.exists? %>
-				<td><%= image_tag @admin_fotogaleri.resim.url(:thumb) %><br/>
+				<td><%= image_tag @admin_fotogaleri.resim.url(:thumb) %><br><br>
+				<%= form.file_field :resim, id: :admin_deneme_resim, class: "form-control" %></td>
 			<% else %>			
 				<td><%= form.file_field :resim, id: :admin_deneme_resim, class: "form-control" %></td>
 			<% end %>

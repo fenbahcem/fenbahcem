@@ -36,9 +36,16 @@
 			<td><strong>Sonuç:</strong></td>
 			<td><%= form.cktext_area :sonuc, id: :admin_proje_sonuc, ckeditor: { language: 'tr'} %></td>
 		</tr>
-		<tr>
-			<td><strong>Ek Dosya:</strong></td>
-			<td><%= form.file_field :ek, id: :admin_proje_ek, class: "form-control" %></td>
+    <tr>
+      <td><strong>Ek Dosya:</strong></td>
+      <% if @admin_proje.ek.exists? %>
+        <td>
+          Ekli Dosya Adı: <%= @admin_proje.ek_file_name %><br /><br />
+          <%= form.file_field :ek, id: :admin_proje_ek, class: "form-control" %>
+        </td> 
+      <% else %>
+			  <td><%= form.file_field :ek, id: :admin_proje_ek, class: "form-control" %></td>  
+      <% end %>
 		</tr>
 		<tr>
 			<td colspan=2><%= form.submit :Kaydet,  class: "btn btn-primary btn-block" %></td>

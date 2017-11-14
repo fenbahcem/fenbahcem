@@ -13,7 +13,7 @@
 	<table class="table table-striped">
 		<tr>
 			<td><strong>Açıklama Türü</strong></td>
-			<td><%= form.select :tur, options_for_select([["Duyuru",0],["Haber",1]]), {}, id: :admin_duyuru_tur, class:"form-control" %></td>
+			<td><%= form.select :tur, options_for_select([["Duyuru",0],["Haber",1]], selected: @admin_duyuru.tur), {include_blank: true}, id: :admin_duyuru_tur, class:"form-control" %></td>
 		</tr>
 		<tr>
 			<td><strong>Açıklama</strong></td>

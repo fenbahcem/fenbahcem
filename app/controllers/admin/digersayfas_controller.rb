@@ -27,10 +27,13 @@ class Admin::DigersayfasController < ApplicationController
   # POST /admin/digersayfas.json
   def create
     @admin_digersayfa = Admin::Digersayfa.new(admin_digersayfa_params)
+    @turad = { 0 => "Bilim İnsanları", 1 => "Resmi Evraklar", 2 => "İlginç Bilgiler", 3 => "Motivasyon", 4 => "Sınav Sistemi"}
+    @tur = { 0 => "biliminsanlari", 1 => "resmievraklar", 2 => "ilgincbilgiler", 3 => "motivasyon", 4 => "sinavsistemi"}
 
     respond_to do |format|
       if @admin_digersayfa.save
-        format.html { redirect_to @admin_digersayfa, notice: 'Digersayfa was successfully created.' }
+        Admin::Duyuru.create(aciklama: @admin_digersayfa.created_at.to_s.split(" ")[0] + " " + @turad[@admin_digersayfa.tur] + " " + @admin_digersayfa.baslik + " yazısı eklenmiştir.<a href=/" + @tur[@admin_digersayfa.tur] + "> Yazıya ulaşmak için tıklayınız. </a>", tur: 0)
+        format.html { redirect_to @admin_digersayfa, notice: 'Yazı başarılı bir şekilde oluşturuldu.' }
         format.json { render :show, status: :created, location: @admin_digersayfa }
       else
         format.html { render :new }

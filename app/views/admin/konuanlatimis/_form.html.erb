@@ -20,25 +20,25 @@
 <script>
 function unitegetir5() {
 	var tds = document.getElementById("unite");
-	tds.innerHTML = ('<%= escape_javascript(form.select :unite_id , options_for_select(@sinif5unite),{:include_blank => "Ünite Seçiniz"}, id: :admin_konuanlatimi_unite_id, class:"form-control") %>');
+	tds.innerHTML = ('<%= escape_javascript(form.select :unite_id , options_for_select(@sinif5unite, selected: @admin_konuanlatimi.unite_id),{:include_blank => "Ünite Seçiniz"}, id: :admin_konuanlatimi_unite_id, class:"form-control") %>');
 }
 </script>
 <script>
 function unitegetir6() {
 	var tds = document.getElementById("unite");
-	tds.innerHTML = ('<%= escape_javascript(form.select :unite_id , options_for_select(@sinif6unite),{:include_blank => "Ünite Seçiniz"}, id: :admin_konuanlatimi_unite_id, class:"form-control") %>');
+	tds.innerHTML = ('<%= escape_javascript(form.select :unite_id , options_for_select(@sinif6unite, selected: @admin_konuanlatimi.unite_id),{:include_blank => "Ünite Seçiniz"}, id: :admin_konuanlatimi_unite_id, class:"form-control") %>');
 }
 </script>
 <script>
 function unitegetir7() {
 	var tds = document.getElementById("unite");
-	tds.innerHTML = ('<%= escape_javascript(form.select :unite_id , options_for_select(@sinif7unite),{:include_blank => "Ünite Seçiniz"}, id: :admin_konuanlatimi_unite_id, class:"form-control") %>');
+	tds.innerHTML = ('<%= escape_javascript(form.select :unite_id , options_for_select(@sinif7unite, selected: @admin_konuanlatimi.unite_id),{:include_blank => "Ünite Seçiniz"}, id: :admin_konuanlatimi_unite_id, class:"form-control") %>');
 }
 </script>
 <script>
 function unitegetir8() {
 	var tds = document.getElementById("unite");
-	tds.innerHTML = ('<%= escape_javascript(form.select :unite_id , options_for_select(@sinif8unite),{:include_blank => "Ünite Seçiniz"}, id: :admin_konuanlatimi_unite_id, class:"form-control") %>');
+	tds.innerHTML = ('<%= escape_javascript(form.select :unite_id , options_for_select(@sinif8unite, selected: @admin_konuanlatimi.unite_id),{:include_blank => "Ünite Seçiniz"}, id: :admin_konuanlatimi_unite_id, class:"form-control") %>');
 }
 </script>
 	<table class="table table-striped">
@@ -70,8 +70,13 @@ function unitegetir8() {
 			<td><%= form.cktext_area :metin, id: :admin_konuanlatimi_metin, ckeditor: { language: 'tr'}	%></td>
 		</tr>
 		<tr>
-			<td><strong>Dosya:</strong></td>
-    	<td><%= form.file_field :dosya, id: :admin_konuanlatimi_dosya, class: "form-control" %></td>
+      <td><strong>Dosya:</strong></td>
+      <% if @admin_konuanlatimi.dosya.exists? %>
+        <td>Ekli Dosya Adı: <%= @admin_konuanlatimi.dosya_file_name %><br><br>
+          <%= form.file_field :dosya, id: :admin_konuanlatimi_dosya, class: "form-control" %></td>
+      <% else %>
+    	  <td><%= form.file_field :dosya, id: :admin_konuanlatimi_dosya, class: "form-control" %></td>  
+      <% end %>
 		</tr>
 		<tr>
 			<td colspan=2><%= form.submit :Kaydet,  class: "btn btn-primary btn-block" %></td>

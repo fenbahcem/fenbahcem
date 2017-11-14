@@ -13,7 +13,7 @@
 	<table class="table table-striped">
 		<tr>
 			<td><strong>Tür:</strong></td>
-			<td><%= form.select :tur, options_for_select([["Bilim İnsanları", 0],["Resmi Evraklar", 1],["İlginç Bilgiler", 2],["Motivasyon", 3],["Sınav Sistemi", 4]]), {include_blank: true}, class:"form-control", id: :admin_digersayfas_tur %></td>
+			<td><%= form.select :tur, options_for_select([["Bilim İnsanları", 0],["Resmi Evraklar", 1],["İlginç Bilgiler", 2],["Motivasyon", 3],["Sınav Sistemi", 4]], selected: @admin_digersayfa.tur), {include_blank: true}, class:"form-control", id: :admin_digersayfas_tur %></td>
 		</tr>
 		<tr>
 			<td><strong>Başlık:</strong></td>
@@ -24,8 +24,13 @@
 			<td><%= form.cktext_area :metin, id: :admin_digersayfa_metin, ckeditor: { language: 'tr'} %></td>
 		</tr>
 		<tr>
-			<td><strong>Dosya:</strong></td>
-			<td><%= form.file_field :dosya, class: "form-control" %></td>
+      <td><strong>Dosya:</strong></td>
+      <% if @admin_digersayfa.dosya.exists? %>
+        <td>Ekli Dosya Adı: <%= @admin_digersayfa.dosya_file_name %><br><br>
+          <%= form.file_field :dosya, class: "form-control" %></td>
+      <% else %>
+			  <td><%= form.file_field :dosya, class: "form-control" %></td>  
+      <% end %>
 		</tr>
 		<tr>
 			<td colspan=2><%= form.submit :Kaydet,  class: "btn btn-primary btn-block" %></td>
