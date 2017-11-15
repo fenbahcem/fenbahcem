@@ -1,0 +1,39 @@
+<h4 style="margin-top: 0px; margin-bottom:10px;"><%= Admin::Unite.find(params[:unite_id]).uniteadi %> Denemeleri</h4>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout-key="-ff+65+3r-j9+lw"
+     data-ad-client="ca-pub-2249671089197790"
+     data-ad-slot="1687828958"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<% @materyal.each_with_index do |m,i| %>
+<table class="table table-striped">
+  <tr style="border-bottom:1pt solid #dddddd;">
+    <td rowspan=4 style="vertical-align: middle; text-align: center;width: 25%"><%= m.materyaladi %></td>
+    <td><%= m.sinif %>. Sınıf</td>
+  </tr>
+  <tr>
+    <td><%= Admin::Unite.find(m.unite_id).uniteadi %></td>
+  </tr>
+  <tr>
+    <td><%= m.materyalaciklama %></td>
+  </tr>
+  <tr style="border-bottom:1pt solid #dddddd;">
+    <td>
+    <%= link_to "Denemeyi Görüntüle", controller: "ogrenci", action:"deneme_incele", id: m.id, unite_id: m.unite_id %></td>
+  </tr>
+</table>
+<% end %>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout-key="-ff+65+3r-j9+lw"
+     data-ad-client="ca-pub-2249671089197790"
+     data-ad-slot="1687828958"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>

@@ -1,6 +1,7 @@
 class OgrenciController < ApplicationController
 	layout "app-other", only: [:bilimfuari, :proje_show, :fotogaleri, :video, :gonderinyayinlayalim, :onerivesikayet, :biliminsanlari, :resmievraklar, :motivasyon, :sinavsistemi, :ilgincbilgiler]  
 	helper_method :sayac
+	helper_method :toplamgoruntuleme
 	
 	def index
 		@duyuru = Admin::Duyuru.where(tur:0).order('created_at DESC')
@@ -86,12 +87,52 @@ class OgrenciController < ApplicationController
 		@proje = Admin::Proje.find(params[:id])
 	end
 
+  # --------Denemeler--------
 	def deneme
 		@unite = Admin::Unite.where(sinif: params[:sinif])
 		@deneme =  Admin::Materyal.where(sinif: params[:sinif]).where(materyaltur: params[:materyaltur])
 		@unitesinif = params[:sinif]
 	end
-
+  def deneme_goruntule
+    @materyal = Admin::Materyal.where(sinif: params[:sinif]).where(materyaltur: params[:materyaltur]).where(unite_id: params[:unite_id])  
+		@unite = params[:uniteadi]
+  end
+  def deneme_incele
+    @materyal = Admin::Materyal.find(params[:id])
+    file = @materyal.dosya_file_name
+    unless File.exists?(File.dirname(@materyal.dosya.path) + "/" + File.basename(file, File.extname(file)) + "_1.png")
+      if ["application/zip","application/x-zip","application/x-zip-compressed"].include?@materyal.dosya.content_type
+        Zip::File.open(@materyal.dosya.path) do |zip|
+          zip.each do |file|
+            unless File.exists?(File.dirname(file.zipfile) + "/" + file.name)
+              zip.extract(file, File.dirname(@materyal.dosya.path) + "/" + file.name)
+            end
+          end
+        end 
+        Dir[File.dirname(@materyal.dosya.path)+ "/*"].each do |i|
+          unless Dir[File.dirname(@materyal.dosya.path) + "/*"].include?(File.dirname(i) + "/" + File.basename(i, File.extname(i)) + ".png")
+            unless [".zip", ".rar"].include?(File.extname(i))
+              unless File.directory?(i)
+                Docsplit.extract_images(i, output: File.dirname(@materyal.dosya.path))
+              end
+            end
+          end
+        end
+        
+       
+      
+      else
+        Docsplit.extract_images(@materyal.dosya.path, output: File.dirname(@materyal.dosya.path))
+      end
+    end 
+    
+    
+    @imagelist = []
+    Dir[File.dirname(@materyal.dosya.path)+"/*.png"].each do |i|
+      @imagelist.append(File.basename(i))
+    end
+  end
+  # -------------------------
 	def yapraktest
 		@unite = Admin::Unite.where(sinif: params[:sinif])
 		@yapraktest =  Admin::Materyal.where(sinif: params[:sinif]).where(materyaltur: params[:materyaltur])
@@ -144,6 +185,11 @@ class OgrenciController < ApplicationController
 		return Admin::Materyal.where(sinif: sinif).where(materyaltur: materyaltur).where(unite_id: uniteid).count
 	end
 	
+  def toplamgoruntuleme(materyal)
+    @materyal = materyal
+    @materyal.increment!(:sayac)
+  end
+
 	private	
     def ogrenci_params
       params.require(:ogrencicalisma).permit(:ad, :soyad, :email, :aciklama, :dosya)

@@ -53,9 +53,20 @@ Rails.application.routes.draw do
 	
 	# Deneme 5-6-7-8 sinif
 	get '/sinif5/deneme' => 'ogrenci#deneme', sinif: 5, materyaltur: 2
-	get '/sinif6/deneme' => 'ogrenci#deneme', sinif: 6, materyaltur: 2
-	get '/sinif7/deneme' => 'ogrenci#deneme', sinif: 7, materyaltur: 2	
-	get '/sinif8/deneme' => 'ogrenci#deneme', sinif: 8, materyaltur: 2	
+	get '/sinif5/deneme/:unite_id' => 'ogrenci#deneme_goruntule', sinif: 5, materyaltur: 2
+	get '/sinif5/deneme/:unite_id/:id' => 'ogrenci#deneme_incele', sinif: 5, materyaltur: 2
+	
+  get '/sinif6/deneme' => 'ogrenci#deneme', sinif: 6, materyaltur: 2
+  get '/sinif6/deneme/:unite_id' => 'ogrenci#deneme_goruntule', sinif: 6, materyaltur: 2
+  get '/sinif6/deneme/:unite_id/:id' => 'ogrenci#deneme_incele', sinif: 6, materyaltur: 2
+	
+  get '/sinif7/deneme' => 'ogrenci#deneme', sinif: 7, materyaltur: 2	
+  get '/sinif7/deneme/:unite_id' => 'ogrenci#deneme_goruntule', sinif: 7, materyaltur: 2	
+  get '/sinif7/deneme/:unite_id/:id' => 'ogrenci#deneme_incele', sinif: 7, materyaltur: 2	
+	
+  get '/sinif8/deneme' => 'ogrenci#deneme', sinif: 8, materyaltur: 2	
+  get '/sinif8/deneme/:unite_id' => 'ogrenci#deneme_goruntule', sinif: 8, materyaltur: 2	
+  get '/sinif8/deneme/:unite_id/:id' => 'ogrenci#deneme_incele', sinif: 8, materyaltur: 2	
 
 	# Yazililar 5-6-7-8 sinif
 	get '/sinif5/yazili' => 'ogrenci#yazili', sinif: 5, materyaltur: 3

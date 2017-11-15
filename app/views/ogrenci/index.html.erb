@@ -58,7 +58,7 @@
 		</div>
 		<marquee direction = "up" scrolldelay = "500" onmouseover="this.stop();" onmouseout="this.start();" style="height:250px">
 			<% @haber.each do |h|  %>
-				<span class="glyphicon glyphicon-asterisk" style="margin-left:5px;"></span><%= h.aciklama.html_safe %>
+        <span class="glyphicon glyphicon-asterisk" style="margin-left:5px;"></span><%= h.aciklama.html_safe %>
 				<br />
 			<% end %>
 		</marquee>

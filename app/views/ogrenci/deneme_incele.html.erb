@@ -1,0 +1,125 @@
+<style type="text/css">
+.lightbox-wrapper {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  z-index: 1004; /*This is appended before the actual lightbox is faded in so that elements with
+                    high z-index values (e.g. navbar) don't cover lightbox during fadein*/
+}
+
+.lightbox-photo:hover { cursor: pointer; }
+
+.expanded {
+  overflow: auto;
+  position: fixed;
+  height: 90%;
+  width: 60%;
+  top: 55%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1002;
+}
+.overlay {
+  overflow: auto;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  background-color: black;
+  height: 100%;
+  width: 100%;
+  opacity: 0.85;
+  z-index: 1001;
+}
+</style>
+
+<script charset="utf-8">
+function goruntuleme() {
+ <% toplamgoruntuleme(@materyal) %> 
+}
+function zoom(e){
+  var zoomer = e.currentTarget;
+  e.offsetX ? offsetX = e.offsetX : offsetX = e.touches[0].pageX
+  e.offsetY ? offsetY = e.offsetY : offsetX = e.touches[0].pageX
+  x = offsetX/zoomer.offsetWidth*100
+  y = offsetY/zoomer.offsetHeight*100
+  zoomer.style.backgroundPosition = x + '% ' + y + '%';
+}
+</script>
+<table class="table table-striped">
+  <tr>
+    <td><strong>Sınıf:</strong></td>
+    <td><%= @materyal.sinif %></td>
+  </tr>
+  <tr>
+    <td><strong>Ünite:</strong></td>
+    <td><%= Admin::Unite.find(@materyal.unite_id).uniteadi %></td>
+  </tr>
+  <tr>
+    <td><strong>Deneme Adı:</strong></td>
+    <td><%= @materyal.materyaladi %></td>
+  </tr>
+  <tr>
+    <td><strong>Açıklama:</strong></td>
+    <td><%= @materyal.materyalaciklama %></td>
+  </tr>
+  <tr>
+    <td><strong>Deneme Görüntüleme Sayısı:</strong></td>
+    <td><%= @materyal.sayac %></td>
+  </tr>
+  <tr>
+    <td colspan=2>
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <ins class="adsbygoogle"
+          style="display:block"
+          data-ad-format="fluid"
+          data-ad-layout-key="-fg+5s+5d-ec+6s"
+          data-ad-client="ca-pub-2249671089197790"
+          data-ad-slot="6946289830"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </td>
+  </tr>
+  <tr>
+    <td><strong>Deneme Resimleri:</strong></td>
+    <td>Resim büyültmek için üzerine tıklayınız.</td>
+  </tr>
+  <tr>
+    <td colspan=2>
+      <% @imagelist.each do |i| %>
+        <div class="col-md-6">  
+          <%= image_tag File.dirname(@materyal.dosya.url) + "/" + i, width: "100%", class:"thumb lightbox-photo" %>
+        </div>
+      <% end %>
+    </td>
+  </tr>
+  <tr>
+    <td><strong>Deneme Resimlerini İndirin:</strong></td>
+    <td>
+      <% @imagelist.each_with_index do |r, i| %>
+        <%= link_to "| Resim-" + (i + 1).to_s + " |", File.dirname(@materyal.dosya.url) + "/" + r %>
+      <% end %>
+    </td>
+  </tr>
+  <tr>
+    <td colspan=2>
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <ins class="adsbygoogle"
+          style="display:block"
+          data-ad-format="fluid"
+          data-ad-layout-key="-fg+5s+5d-ec+6s"
+          data-ad-client="ca-pub-2249671089197790"
+          data-ad-slot="6946289830"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </td>
+  </tr>
+  <tr>
+    <td><strong>Denemenin Orjinal Halini İndirin:</strong></td>
+    <td><%= link_to "Deneme Dosyasını İndir", @materyal.dosya.url %></td>
+  </tr>
+  <tr>
+    <td colspan=2><br><br><%= render 'disqus' %></td>
+  </tr>  
+</table>

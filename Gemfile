@@ -13,6 +13,7 @@ gem 'rails', '~> 5.1.4'
 gem 'pg'
 #gem 'sqlite3'
 # Use Puma as the app server
+
 gem 'puma', '~> 3.7'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
@@ -36,7 +37,8 @@ gem 'video_info'
 
 # file upload
 gem "paperclip", "~> 5.0.0"
-
+gem 'docsplit', require: 'docsplit'
+gem 'rubyzip'
 # paginate
 gem 'will_paginate', '~> 3.1.0'
 
