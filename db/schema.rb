@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171112141242) do
+ActiveRecord::Schema.define(version: 20171115141952) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,6 +71,7 @@ ActiveRecord::Schema.define(version: 20171112141242) do
     t.integer "dosya_file_size"
     t.datetime "dosya_updated_at"
     t.integer "unite_id"
+    t.integer "sayac"
   end
 
   create_table "admin_projes", force: :cascade do |t|
