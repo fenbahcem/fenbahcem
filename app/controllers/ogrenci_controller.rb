@@ -101,8 +101,8 @@ class OgrenciController < ApplicationController
   end
 
   def materyal_incele
-    @randommateryal = Admin::Materyal.order("RANDOM()").first(5)
-    @randommateryal2 = Admin::Materyal.order("RANDOM()").last(5)
+    @randommateryal = Admin::Materyal.order("RANDOM()").first(4)
+    @randommateryal2 = Admin::Materyal.order("RANDOM()").last(4)
 
     @materyal = Admin::Materyal.find(params[:id])
     file = @materyal.dosya_file_name

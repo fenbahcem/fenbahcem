@@ -21,19 +21,19 @@ lightGallery(document.getElementById('animated-thumbnials'), {
     <td class="text-center">
         <%= r.materyaladi %><br>
       <% if r.dosya.content_type == "application/pdf" %>
-        <%= image_tag "pdf", width: "75%" %>
-      <% elsif r.dosya.content_type == "application/vnd.openxmlformats-officedocument.wordprocessingml.document"%>
-        <%= image_tag "word", width: "75%" %>
+        <%= image_tag "pdf.png", width: "75%" %>
+      <% elsif ["application/vnd.openxmlformats-officedocument.wordprocessingml.document", "application/msword"].include?r.dosya.content_type %>
+        <%= image_tag "word.png", width: "75%" %>
       <% elsif r.dosya.content_type == "application/zip" %> 
-        <%= image_tag "rar", width: "75%" %>
+        <%= image_tag "rar.png", width: "75%" %>
       <% elsif r.dosya.content_type == "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" %> 
-        <%= image_tag "excel", width: "75%" %>
+        <%= image_tag "excel.png", width: "75%" %>
       <% elsif r.dosya.content_type == "application/vnd.openxmlformats-officedocument.presentationml.presentation" %> 
-        <%= image_tag "powerpoint", width: "75%" %>
+        <%= image_tag "powerpoint.png", width: "75%" %>
       <% elsif ["image/png", "image/jpg", "image/jpeg", "image/gif"].include?r.dosya.content_type %> 
-        <%= image_tag "picture", width: "75%" %>
+        <%= image_tag "picture.png", width: "75%" %>
       <% elsif ["text/html", "text/plain"].include?r.dosya.content_type %> 
-        <%= image_tag "html", width: "75%" %>
+        <%= image_tag "html.png", width: "75%" %>
       <% end %>
       <br>
       <%= link_to @materyaltur[r.materyaltur] + " Görüntüle", "/" + "sinif" + r.sinif.to_s + "/" + @materyalturlink[r.materyaltur] + "/" + r.unite_id.to_s + "/" + r.id.to_s  %>
@@ -145,19 +145,19 @@ lightGallery(document.getElementById('animated-thumbnials'), {
     <td class="text-center">
         <%= r.materyaladi %><br>
       <% if r.dosya.content_type == "application/pdf" %>
-        <%= image_tag "pdf", width: "75%" %>
-      <% elsif r.dosya.content_type == "application/vnd.openxmlformats-officedocument.wordprocessingml.document"%>
-        <%= image_tag "word", width: "75%" %>
+        <%= image_tag "pdf.png", width: "75%" %>
+      <% elsif ["application/vnd.openxmlformats-officedocument.wordprocessingml.document", "application/msword"].include?r.dosya.content_type %>
+        <%= image_tag "word.png", width: "75%" %>
       <% elsif r.dosya.content_type == "application/zip" %> 
-        <%= image_tag "rar", width: "75%" %>
+        <%= image_tag "rar.png", width: "75%" %>
       <% elsif r.dosya.content_type == "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" %> 
-        <%= image_tag "excel", width: "75%" %>
+        <%= image_tag "excel.png", width: "75%" %>
       <% elsif r.dosya.content_type == "application/vnd.openxmlformats-officedocument.presentationml.presentation" %> 
-        <%= image_tag "powerpoint", width: "75%" %>
+        <%= image_tag "powerpoint.png", width: "75%" %>
       <% elsif ["image/png", "image/jpg", "image/jpeg", "image/gif"].include?r.dosya.content_type %> 
-        <%= image_tag "picture", width: "75%" %>
+        <%= image_tag "picture.png", width: "75%" %>
       <% elsif ["text/html", "text/plain"].include?r.dosya.content_type %> 
-        <%= image_tag "html", width: "75%" %>
+        <%= image_tag "html.png", width: "75%" %>
       <% end %>
       <br>
       <%= link_to @materyaltur[r.materyaltur] + " Görüntüle", "/" + "sinif" + r.sinif.to_s + "/" + @materyalturlink[r.materyaltur] + "/" + r.unite_id.to_s + "/" + r.id.to_s  %>
