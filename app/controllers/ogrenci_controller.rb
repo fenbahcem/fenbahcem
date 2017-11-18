@@ -94,7 +94,7 @@ class OgrenciController < ApplicationController
 		@unitesinif = params[:sinif]
 	end
   def deneme_goruntule
-    @materyal = Admin::Materyal.where(sinif: params[:sinif]).where(materyaltur: params[:materyaltur]).where(unite_id: params[:unite_id])  
+    @materyal = Admin::Materyal.where(sinif: params[:sinif]).where(materyaltur: params[:materyaltur]).where(unite_id: params[:unite_id]).order('created_at DESC')  
 		@unite = params[:uniteadi]
   end
   def deneme_incele
