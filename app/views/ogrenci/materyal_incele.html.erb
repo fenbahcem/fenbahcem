@@ -1,0 +1,168 @@
+<script charset="utf-8">
+function goruntuleme() {
+ <% toplamgoruntuleme(@materyal) %> 
+}
+</script>
+<script charset="utf-8">
+lightGallery(document.getElementById('animated-thumbnials'), {
+    thumbnail:true,
+    animateThumb: false,
+    showThumbByDefault: false
+}); 
+</script>
+<table class="table table-striped">
+  <tr style="background-color: aliceblue">
+    <td colspan=5><strong>Bunlar İlginizi Çekebilir</strong></td>
+  </tr>
+  <tr>
+    <%	@materyalturlink = { 1 => "yapraktest", 2 => "deneme", 3 => "yazili", 4 =>  "calismakagitlari", 5 => "cikmissinavsorulari", 6 => "kazanimlar", 7 => "yillikplan", 8 => "gunlukplan", 9 => "bep" } %>
+    <%	@materyaltur = { 1 => "Yaprak Test", 2 => "Deneme", 3 => "Yazılı", 4 =>  "Çalışma Kağıtları", 5 => "Çıkmış Sınav Sorulari", 6 => "Kazanımlar", 7 => "Yıllık Plan", 8 => "Günlük Plan", 9 => "BEP" } %>
+    <% @randommateryal.each do |r| %>
+    <td class="text-center">
+        <%= r.materyaladi %><br>
+      <% if r.dosya.content_type == "application/pdf" %>
+        <%= image_tag "pdf", width: "75%" %>
+      <% elsif r.dosya.content_type == "application/vnd.openxmlformats-officedocument.wordprocessingml.document"%>
+        <%= image_tag "word", width: "75%" %>
+      <% elsif r.dosya.content_type == "application/zip" %> 
+        <%= image_tag "rar", width: "75%" %>
+      <% elsif r.dosya.content_type == "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" %> 
+        <%= image_tag "excel", width: "75%" %>
+      <% elsif r.dosya.content_type == "application/vnd.openxmlformats-officedocument.presentationml.presentation" %> 
+        <%= image_tag "powerpoint", width: "75%" %>
+      <% elsif ["image/png", "image/jpg", "image/jpeg", "image/gif"].include?r.dosya.content_type %> 
+        <%= image_tag "picture", width: "75%" %>
+      <% elsif ["text/html", "text/plain"].include?r.dosya.content_type %> 
+        <%= image_tag "html", width: "75%" %>
+      <% end %>
+      <br>
+      <%= link_to @materyaltur[r.materyaltur] + " Görüntüle", "/" + "sinif" + r.sinif.to_s + "/" + @materyalturlink[r.materyaltur] + "/" + r.unite_id.to_s + "/" + r.id.to_s  %>
+    </td>
+      <% end %>
+
+  </tr>
+</table>
+<table class="table table-striped" id="materyal">
+  <tr style="background-color: aliceblue;">
+    <td><strong>Sınıf:</strong></td>
+    <td><%= @materyal.sinif %></td>
+  </tr>
+  <tr>
+    <td><strong>Ünite:</strong></td>
+    <td><%= Admin::Unite.find(@materyal.unite_id).uniteadi %></td>
+  </tr>
+  <tr style="background-color: aliceblue;">
+    <td><strong><%= @materyaltur[@materyal.materyaltur] %> Adı:</strong></td>
+    <td><%= @materyal.materyaladi %></td>
+  </tr>
+  <tr>
+    <td><strong>Açıklama:</strong></td>
+    <td><%= @materyal.materyalaciklama.html_safe %></td>
+  </tr>
+  <tr style="background-color: aliceblue;">
+    <td><strong><%= @materyaltur[@materyal.materyaltur] %> Görüntüleme Sayısı:</strong></td>
+    <td><%= @materyal.sayac %></td>
+  </tr>
+  <tr>
+    <td colspan=2>
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <ins class="adsbygoogle"
+          style="display:block"
+          data-ad-format="fluid"
+          data-ad-layout-key="-fg+5s+5d-ec+6s"
+          data-ad-client="ca-pub-2249671089197790"
+          data-ad-slot="6946289830"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </td>
+  </tr>
+  <tr style="background-color: aliceblue;">
+    <td><strong><%= @materyaltur[@materyal.materyaltur] %> Resimleri:</strong></td>
+    <td>Resim büyütmek için üzerine tıklayınız.</td>
+  </tr>
+  <tr>
+    <td colspan=2>
+      <% @imagelist.first(4).each_with_index do |i, y| %>
+        <div class="col-md-6" id="animated-thumbnials">
+          <% if y >= 2 %>
+            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-format="fluid"
+                data-ad-layout-key="-fg+5s+5d-ec+6s"
+                data-ad-client="ca-pub-2249671089197790"
+                data-ad-slot="6946289830"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script> 
+          <% end %>
+        <%= link_to File.dirname(@materyal.dosya.url) + "/" + i do %>
+          <%= image_tag File.dirname(@materyal.dosya.url) + "/" + i, width: "100%"%>
+        <% end %>
+        </div>
+      <% end %>
+    </td>
+  </tr>
+  <tr style="background-color: aliceblue;">
+    <td><strong><%= @materyaltur[@materyal.materyaltur] %> Resimlerini İndirin:</strong></td>
+    <td>
+      <% @imagelist.each_with_index do |r, i| %>
+        <%= link_to "| Resim-" + (i + 1).to_s + " |", File.dirname(@materyal.dosya.url) + "/" + r %>
+      <% end %>
+    </td>
+  </tr>
+  <tr>
+    <td colspan=2>
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <ins class="adsbygoogle"
+          style="display:block"
+          data-ad-format="fluid"
+          data-ad-layout-key="-fg+5s+5d-ec+6s"
+          data-ad-client="ca-pub-2249671089197790"
+          data-ad-slot="6946289830"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </td>
+  </tr>
+  <tr style="background-color: aliceblue;">
+    <td><strong><%= @materyaltur[@materyal.materyaltur] %> Orjinal Halini İndirin:</strong></td>
+    <td><%= link_to "Deneme Dosyasını İndir", @materyal.dosya.url %></td>
+  </tr>
+  <tr>
+    <td colspan=2><br><br><%= render 'disqus' %></td>
+  </tr>
+</table>
+<table class="table table-striped">
+  <tr style="background-color: aliceblue">
+    <td colspan=5><strong>Bunlar İlginizi Çekebilir</strong></td>
+  </tr>
+  <tr>
+    <%	@materyalturlink = { 1 => "yapraktest", 2 => "deneme", 3 => "yazili", 4 =>  "calismakagitlari", 5 => "cikmissinavsorulari", 6 => "kazanimlar", 7 => "yillikplan", 8 => "gunlukplan", 9 => "bep" } %>
+    <%	@materyaltur = { 1 => "Yaprak Test", 2 => "Deneme", 3 => "Yazılı", 4 =>  "Çalışma Kağıtları", 5 => "Çıkmış Sınav Sorulari", 6 => "Kazanımlar", 7 => "Yıllık Plan", 8 => "Günlük Plan", 9 => "BEP" } %>
+    <% @randommateryal2.each do |r| %>
+    <td class="text-center">
+        <%= r.materyaladi %><br>
+      <% if r.dosya.content_type == "application/pdf" %>
+        <%= image_tag "pdf", width: "75%" %>
+      <% elsif r.dosya.content_type == "application/vnd.openxmlformats-officedocument.wordprocessingml.document"%>
+        <%= image_tag "word", width: "75%" %>
+      <% elsif r.dosya.content_type == "application/zip" %> 
+        <%= image_tag "rar", width: "75%" %>
+      <% elsif r.dosya.content_type == "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" %> 
+        <%= image_tag "excel", width: "75%" %>
+      <% elsif r.dosya.content_type == "application/vnd.openxmlformats-officedocument.presentationml.presentation" %> 
+        <%= image_tag "powerpoint", width: "75%" %>
+      <% elsif ["image/png", "image/jpg", "image/jpeg", "image/gif"].include?r.dosya.content_type %> 
+        <%= image_tag "picture", width: "75%" %>
+      <% elsif ["text/html", "text/plain"].include?r.dosya.content_type %> 
+        <%= image_tag "html", width: "75%" %>
+      <% end %>
+      <br>
+      <%= link_to @materyaltur[r.materyaltur] + " Görüntüle", "/" + "sinif" + r.sinif.to_s + "/" + @materyalturlink[r.materyaltur] + "/" + r.unite_id.to_s + "/" + r.id.to_s  %>
+    </td>
+      <% end %>
+
+  </tr>
+</table>

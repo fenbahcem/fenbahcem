@@ -1,0 +1,76 @@
+<%	@materyaltur = { 1 => "Yaprak Test", 2 => "Deneme", 3 => "Yazılı", 4 =>  "Çalışma Kağıtları", 5 => "Çıkmış Sınav Sorulari", 6 => "Kazanımlar", 7 => "Yıllık Plan", 8 => "Günlük Plan", 9 => "BEP" } %>
+<%	@materyalturlink = { 1 => "yapraktest", 2 => "deneme", 3 => "yazili", 4 =>  "calismakagitlari", 5 => "cikmissinavsorulari", 6 => "kazanimlar", 7 => "yillikplan", 8 => "gunlukplan", 9 => "bep" } %>
+<%	@materyalturyazi = { 1 => "Yaprak Testlerini", 2 => "Denemelerini", 3 => "Yazılılarını", 4 =>  "Çalışma Kağıtlarını", 5 => "Çıkmış Sınav Sorularını", 6 => "Kazanımlarını", 7 => "Yıllık Planlarını", 8 => "Günlük Planlarını", 9 => "BEP" } %>
+<%	@materyalturyazi1 = { 1 => "Yaprak Testleri", 2 => "Deneme Sınavları", 3 => "Yazılıları", 4 =>  "Çalışma Kağıtları", 5 => "Çıkmış Sınav Soruları", 6 => "Kazanımları", 7 => "Yıllık Planları", 8 => "Günlük Planları", 9 => "BEP" } %>
+
+<%= content_for :pagetitle do %>
+	FenBahçem <%= @unitesinif %>. Sınıf Fen Bilimleri Üniteleri <%= @materyaltur[params[:materyaltur]] %> Sınavları
+<% end %>
+
+<style>
+    .glyphicon { margin-right:10px;}
+    .section-box h2 { margin-top:0px;}
+    .section-box h2 a { font-size:15px; }
+    .glyphicon-heart { color:#e74c3c;}
+    .glyphicon-comment { color:#27ae60;}
+    .separator { padding-right:5px;padding-left:5px; }
+    .section-box hr {margin-top: 0;margin-bottom: 5px;border: 0;border-top: 1px solid rgb(199, 199, 199);}
+</style>
+
+<div class="col-md-12" id="materyal">
+  <h3 style="margin-top:0px"><%= @unitesinif %>. Sınıf Fen Bilimleri Üniteleri <%= @materyalturyazi1[params[:materyaltur]] %></h3>
+
+<% if @materyal.count > 0 %>
+<% @unite.each_with_index do |u, i| %>
+	<% if u.materyal.where(materyaltur: params[:materyaltur]).count > 0 %>
+		<div class="well well-sm">
+			<div class="row">
+				<div class="col-xs-3 col-md-3 text-center">
+					<%= image_tag u.uniteresmi.url(:thumb), class: "img-rounded img-responsive" %>
+				</div>
+				<div class="col-xs-9 col-md-9 section-box">
+					<h4>
+						<%= u.uniteadi %>
+          </h4>
+          <p><%= u.aciklama.html_safe %></p>
+          <% if u.materyal.where(materyaltur: params[:materyaltur]).count > 0 %>
+            <p>
+            <%= link_to "Ünite " + @materyalturyazi[params[:materyaltur]] + " Görüntüle", {controller:"ogrenci", action:"materyal_goruntule", sinif: u.sinif, unite_id: u.id, materyaltur: params[:materyaltur]}, class:"btn btn-primary btn-block", style:"line-height:30px;vertical-align: middle;height: 43px;" %>
+            </p>
+          <% else %>
+            <p>Eklenmiş <%= @materyaltur[params[:materyaltur]].downcase %> bulunmamaktadır. Bu üniteye <%= @materyaltur[params[:materyaltur]].downcase %> eklendiği vakit duyurular kısmından duyrulacaktır.</p>    
+          <% end %>
+					<hr />
+					<div class="row rating-desc">
+						<div class="col-md-12">
+							<span class="glyphicon glyphicon-th-list"></span><%= Admin::Konuanlatimi.where(sinif: params[:sinif]).where(unite_id: u.id).count %><span class="separator">|</span>
+							<span class="glyphicon glyphicon-hourglass"></span><%= sayac(params[:sinif], 1, u.id) %><span class="separator">|</span>
+							<span class="glyphicon glyphicon-check"></span><%= sayac(params[:sinif], 2, u.id) %><span class="separator">|</span>
+							<span class="glyphicon glyphicon-pencil"></span><%= sayac(params[:sinif], 3, u.id) %><span class="separator">|</span>
+							<span class="glyphicon glyphicon-file"></span><%= sayac(params[:sinif], 4, u.id) %><span class="separator">|</span>
+							<span class="glyphicon glyphicon-book"></span><%= sayac(params[:sinif], 5, u.id) %><span class="separator">|</span>
+							<span class="glyphicon glyphicon-road"></span><%= sayac(params[:sinif], 6, u.id) %><span class="separator">|</span>
+							<span class="glyphicon glyphicon-equalizer"></span><%= sayac(params[:sinif], 7, u.id) %><span class="separator">|</span>
+							<span class="glyphicon glyphicon-list-alt"></span><%= sayac(params[:sinif], 8, u.id) %><span class="separator">|</span>
+							<span class="glyphicon glyphicon-star"></span><%= sayac(params[:sinif], 9, u.id) %>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <ins class="adsbygoogle"
+         style="display:block"
+         data-ad-format="fluid"
+         data-ad-layout-key="-ff+65+3r-j9+lw"
+         data-ad-client="ca-pub-2249671089197790"
+         data-ad-slot="1687828958"></ins>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+	<% end  %>
+<% end %>
+<% else %>
+<%= image_tag "notfound.jpg", style:"width:100%;" %>
+<% end %>
+</div>

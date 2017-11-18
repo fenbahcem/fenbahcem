@@ -28,7 +28,11 @@ class OgrenciController < ApplicationController
 		@proje = Admin::Proje.all.order('created_at DESC')
 	end
 		
-	def gonderinyayinlayalim
+	def proje_show
+		@proje = Admin::Proje.find(params[:id])
+	end
+	
+  def gonderinyayinlayalim
 		@ogrencicalisma = Ogrencicalisma.new	
 	end
 	
@@ -83,21 +87,23 @@ class OgrenciController < ApplicationController
 		@video = Admin::Video.where(tur: params[:tur]).paginate(page: params[:page]).order('created_at DESC')
 	end
 
-	def proje_show
-		@proje = Admin::Proje.find(params[:id])
-	end
-
-  # --------Denemeler--------
-	def deneme
+  # -----Materyal-----
+	
+  def materyal
 		@unite = Admin::Unite.where(sinif: params[:sinif])
-		@deneme =  Admin::Materyal.where(sinif: params[:sinif]).where(materyaltur: params[:materyaltur])
+		@materyal =  Admin::Materyal.where(sinif: params[:sinif]).where(materyaltur: params[:materyaltur])
 		@unitesinif = params[:sinif]
 	end
-  def deneme_goruntule
+
+  def materyal_goruntule
     @materyal = Admin::Materyal.where(sinif: params[:sinif]).where(materyaltur: params[:materyaltur]).where(unite_id: params[:unite_id]).order('created_at DESC')  
 		@unite = params[:uniteadi]
   end
-  def deneme_incele
+
+  def materyal_incele
+    @randommateryal = Admin::Materyal.order("RANDOM()").first(5)
+    @randommateryal2 = Admin::Materyal.order("RANDOM()").last(5)
+
     @materyal = Admin::Materyal.find(params[:id])
     file = @materyal.dosya_file_name
     unless File.exists?(File.dirname(@materyal.dosya.path) + "/" + File.basename(file, File.extname(file)) + "_1.png")
@@ -132,54 +138,7 @@ class OgrenciController < ApplicationController
       @imagelist.append(File.basename(i))
     end
   end
-  # -------------------------
-	def yapraktest
-		@unite = Admin::Unite.where(sinif: params[:sinif])
-		@yapraktest =  Admin::Materyal.where(sinif: params[:sinif]).where(materyaltur: params[:materyaltur])
-		@unitesinif = params[:sinif]
-	end
-
-	def yazili
-		@unite = Admin::Unite.where(sinif: params[:sinif])
-		@yazili =  Admin::Materyal.where(sinif: params[:sinif]).where(materyaltur: params[:materyaltur])
-		@unitesinif = params[:sinif]
-	end
-
-	def calismakagitlari
-		@unite = Admin::Unite.where(sinif: params[:sinif])
-		@calismakagitlari =  Admin::Materyal.where(sinif: params[:sinif]).where(materyaltur: params[:materyaltur])
-		@unitesinif = params[:sinif]
-	end
-
-	def cikmissinavsorulari
-		@unite = Admin::Unite.where(sinif: params[:sinif])
-		@cikmissinavsorulari =  Admin::Materyal.where(sinif: params[:sinif]).where(materyaltur: params[:materyaltur])
-		@unitesinif = params[:sinif]
-	end
-
-	def kazanimlar
-		@unite = Admin::Unite.where(sinif: params[:sinif])
-		@kazanimlar =  Admin::Materyal.where(sinif: params[:sinif]).where(materyaltur: params[:materyaltur])
-		@unitesinif = params[:sinif]
-	end
-
-	def yillikplan
-		@unite = Admin::Unite.where(sinif: params[:sinif])
-		@yillikplan =  Admin::Materyal.where(sinif: params[:sinif]).where(materyaltur: params[:materyaltur])
-		@unitesinif = params[:sinif]
-	end
-
-	def gunlukplan
-		@unite = Admin::Unite.where(sinif: params[:sinif])
-		@gunlukplan =  Admin::Materyal.where(sinif: params[:sinif]).where(materyaltur: params[:materyaltur])
-		@unitesinif = params[:sinif]
-	end
-
-	def bep
-		@unite = Admin::Unite.where(sinif: params[:sinif])
-		@bep =  Admin::Materyal.where(sinif: params[:sinif]).where(materyaltur: params[:materyaltur])
-		@unitesinif = params[:sinif]
-	end
+  # -----Materyal-----
 
 	def sayac(sinif, materyaltur, uniteid)
 		return Admin::Materyal.where(sinif: sinif).where(materyaltur: materyaltur).where(unite_id: uniteid).count

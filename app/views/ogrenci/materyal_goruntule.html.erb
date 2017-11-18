@@ -1,0 +1,35 @@
+<h4 id="materyal" style="margin-top: 0px; margin-bottom:10px;"><%= Admin::Unite.find(params[:unite_id]).uniteadi %> Denemeleri</h4>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout-key="-ff+65+3r-j9+lw"
+     data-ad-client="ca-pub-2249671089197790"
+     data-ad-slot="1687828958"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+<br>	
+<%	@materyaltur = { 1 => "Yaprak Test", 2 => "Deneme", 3 => "Yazılı", 4 =>  "Çalışma Kağıtları", 5 => "Çıkmış Sınav Sorulari", 6 => "Kazanımlar", 7 => "Yıllık Plan", 8 => "Günlük Plan", 9 => "BEP" } %>
+<%	@materyalturlink = { 1 => "yapraktest", 2 => "deneme", 3 => "yazili", 4 =>  "calismakagitlari", 5 => "cikmissinavsorulari", 6 => "kazanimlar", 7 => "yillikplan", 8 => "gunlukplan", 9 => "bep" } %>
+<% @materyal.each_with_index do |m,i| %>
+<table class="table table-striped">
+  <tr style="border-bottom:1px solid #dddddd; border-left:1px solid #dddddd; border-right:1px solid #dddddd; background-color: aliceblue">
+    <td rowspan= 5 style="vertical-align: middle; text-align: center;width: 25%"><%= m.materyaladi %></td>
+    <td><%= m.sinif %>. Sınıf</td>
+  </tr>
+  <tr style="border-right:1px solid #dddddd; background-color: lavender;">
+    <td><%= m.created_at.to_s.split(" ")[0].split("-")[2] + "-" + m.created_at.to_s.split(" ")[0].split("-")[1] + "-" + m.created_at.to_s.split(" ")[0].split("-")[0] %></td>
+  </tr>
+  <tr style="border-right:1px solid #dddddd; background-color: aliceblue;">
+    <td><%= Admin::Unite.find(m.unite_id).uniteadi %></td>
+  </tr>
+  <tr style="border-right:1px solid #dddddd; background-color: lavender; ">
+    <td><%= m.materyalaciklama.html_safe %></td>
+  </tr>
+  <tr style="border-bottom:1px solid #dddddd; border-right:1px solid #dddddd; background-color: aliceblue;">
+    <td>
+    <%= link_to @materyaltur[m.materyaltur] + " Görüntüle", controller: "ogrenci", action: "materyal_incele", id: m.id, unite_id: m.unite_id %></td>
+  </tr>
+</table>
+<% end %>

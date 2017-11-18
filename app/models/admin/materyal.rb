@@ -14,6 +14,7 @@ class Admin::Materyal < ApplicationRecord
 			"image/jpg",
 			"image/jpeg",
 			"image/gif",
+			"text/html",
 			"application/zip",
 			"application/x-zip",
       "application/x-zip-compressed"
