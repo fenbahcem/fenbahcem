@@ -1,4 +1,5 @@
 class Admin::Proje < ApplicationRecord
+	self.per_page = 6	
 	has_attached_file :ek
 	validates_attachment :ek, content_type: {
 		content_type: [

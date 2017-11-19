@@ -25,7 +25,7 @@ class OgrenciController < ApplicationController
 	end
 	
 	def bilimfuari
-		@proje = Admin::Proje.all.order('created_at DESC')
+		@proje = Admin::Proje.paginate(page: params[:page]).order('created_at DESC')
 	end
 		
 	def proje_show

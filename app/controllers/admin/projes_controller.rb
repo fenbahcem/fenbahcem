@@ -72,6 +72,6 @@ class Admin::ProjesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_proje_params
-      params.require(:admin_proje).permit(:projeadi, :projeaciklama, :kisi, :kavram, :nasil, :sonuc, :ek)
+      params.require(:admin_proje).permit(:projeadi, :projeaciklama, :kavram, :nasil, :sonuc, :ek)
     end
 end
