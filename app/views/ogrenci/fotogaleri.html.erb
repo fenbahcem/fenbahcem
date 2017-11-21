@@ -5,53 +5,39 @@
 <style>
 .modal-dialog {width:60%;
 text-align: -webkit-center;}
-
 .thumbnail {
 	width: 100%;
 	height: 100%;
 }
-
 </style>
 
+<link href="https://sachinchoolur.github.io/lightgallery.js/static/css/animate.css" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+<link href="https://sachinchoolur.github.io/lightgallery.js/lightgallery/css/lg-transitions.css" rel="stylesheet">
+<link href="https://sachinchoolur.github.io/lightgallery.js/lightgallery/css/lightgallery.css" rel="stylesheet">
 
-    <% @fotogaleri.each do |f| %>
-      <div class="col-lg-3 col-sm-4 col-xs-6" style="height:157px; margin-bottom:30px;">
-        <a title= <%= f.baslik  %> data-toggle="modal" data-target="#myModal" href="#">
-          <%= image_tag f.resim.url, class:"thumbnail img-responsive" %>
-        </a>
-      </div>
-        <% f.resim.url %>
-    <% end %>
+<script src="https://sachinchoolur.github.io/lightgallery.js/static/js/transition.js"></script>
+<script src="https://sachinchoolur.github.io/lightgallery.js/static/js/wow.js"></script>
+<script src="https://sachinchoolur.github.io/lightgallery.js/static/js/collapse.js"></script>
+<script src="https://sachinchoolur.github.io/lightgallery.js/static/js/jquery.sharrre.min.js"></script>
+<script src="https://cdn.jsdelivr.net/picturefill/2.3.1/picturefill.min.js"></script>
+<script src="https://sachinchoolur.github.io/lightgallery.js/lightgallery/js/lightgallery.js"></script>
+<script src="https://sachinchoolur.github.io/lightgallery.js/lightgallery/js/lg-share.js"></script>
+<script src="https://sachinchoolur.github.io/lightgallery.js/lightgallery/js/lg-fullscreen.js"></script>
+<script src="https://sachinchoolur.github.io/lightgallery.js/lightgallery/js/lg-zoom.js"></script>
+<script src="https://sachinchoolur.github.io/lightgallery.js/lightgallery/js/lg-autoplay.js"></script>
+<script src="https://sachinchoolur.github.io/lightgallery.js/lightgallery/js/lg-pager.js"></script>
+<script src="https://sachinchoolur.github.io/lightgallery.js/lightgallery/js/lg-hash.js"></script>
+<script src="https://sachinchoolur.github.io/lightgallery.js/static/js/main.js"></script>
 
-<!-- Modal -->
-<div tabindex="-1" class="modal fade" id="myModal" role="dialog">
-<div class="modal-dialog">
-<div class="modal-content">
-  <div class="modal-header">
-	  <button class="close" type="button" data-dismiss="modal">×</button>
-	  <h3 class="modal-title">Heading</h3>
-  </div>
-  <div class="modal-body" style="position:relative;">
-	  
-  </div>
-  <div class="modal-footer">
-		<button class="btn btn-default" data-dismiss="modal">Kapat</button>
-  </div>
- </div>
+<div id="lightgallery">
+	<% @fotogaleri.each do |f| %>
+		<%= link_to f.resim.url, { class:"col-lg-3 col-sm-4 col-xs-6", style: "height:157px; margin-bottom:30px;" } do %>
+			<%= image_tag f.resim.url, class:"thumbnail img-responsive" %>
+		<% end %>
+	<% end %>
 </div>
-</div>
+
 <div class="col-lg-12 col-sm-12 col-xs-12">
 	<%= will_paginate @fotogaleri, :renderer => BootstrapPaginationHelper::LinkRenderer, class:"text-center", previous_label: "Önceki Sayfa", next_label: "Sonraki Sayfa" %>
 </div>
-<script>
-$(document).ready(function() {
-	$('.thumbnail').click(function(){
-		  $('.modal-body').empty();
-		  var title = $(this).parent('a').attr("title");
-		  var aciklama = $(this).parent('a').attr("comment");
-		  $('.modal-title').html(title);
-		  $($(this).parents('div').html()).appendTo('.modal-body');
-		  $('#myModal').modal({show:false});
-	});
-	});
-</script>
