@@ -1,7 +1,7 @@
-<%	@materyaltur = { 1 => "Yaprak Test", 2 => "Deneme", 3 => "Yazılı", 4 =>  "Çalışma Kağıtları", 5 => "Çıkmış Sınav Sorulari", 6 => "Kazanımlar", 7 => "Yıllık Plan", 8 => "Günlük Plan", 9 => "BEP" } %>
-<%	@materyalturlink = { 1 => "yapraktest", 2 => "deneme", 3 => "yazili", 4 =>  "calismakagitlari", 5 => "cikmissinavsorulari", 6 => "kazanimlar", 7 => "yillikplan", 8 => "gunlukplan", 9 => "bep" } %>
-<%	@materyalturyazi = { 1 => "Yaprak Testlerini", 2 => "Denemelerini", 3 => "Yazılılarını", 4 =>  "Çalışma Kağıtlarını", 5 => "Çıkmış Sınav Sorularını", 6 => "Kazanımlarını", 7 => "Yıllık Planlarını", 8 => "Günlük Planlarını", 9 => "BEP" } %>
-<%	@materyalturyazi1 = { 1 => "Yaprak Testleri", 2 => "Deneme Sınavları", 3 => "Yazılıları", 4 =>  "Çalışma Kağıtları", 5 => "Çıkmış Sınav Soruları", 6 => "Kazanımları", 7 => "Yıllık Planları", 8 => "Günlük Planları", 9 => "BEP" } %>
+<%	@materyaltur = {0 => "Konu Anlatımı", 1 => "Yaprak Test", 2 => "Deneme", 3 => "Yazılı", 4 =>  "Çalışma Kağıtları", 5 => "Çıkmış Sınav Sorulari", 6 => "Kazanımlar", 7 => "Yıllık Plan", 8 => "Günlük Plan", 9 => "BEP" } %>
+<%	@materyalturlink = {0 => "konuanlatimi", 1 => "yapraktest", 2 => "deneme", 3 => "yazili", 4 =>  "calismakagitlari", 5 => "cikmissinavsorulari", 6 => "kazanimlar", 7 => "yillikplan", 8 => "gunlukplan", 9 => "bep" } %>
+<%	@materyalturyazi = {0 => "Konu Anlatımlarını", 1 => "Yaprak Testlerini", 2 => "Denemelerini", 3 => "Yazılılarını", 4 =>  "Çalışma Kağıtlarını", 5 => "Çıkmış Sınav Sorularını", 6 => "Kazanımlarını", 7 => "Yıllık Planlarını", 8 => "Günlük Planlarını", 9 => "BEP" } %>
+<%	@materyalturyazi1 = {0 => "Konu Anlatımları", 1 => "Yaprak Testleri", 2 => "Deneme Sınavları", 3 => "Yazılıları", 4 =>  "Çalışma Kağıtları", 5 => "Çıkmış Sınav Soruları", 6 => "Kazanımları", 7 => "Yıllık Planları", 8 => "Günlük Planları", 9 => "BEP" } %>
 
 <%= content_for :pagetitle do %>
 	FenBahçem <%= @unitesinif %>. Sınıf Fen Bilimleri Üniteleri <%= @materyaltur[params[:materyaltur]] %> Sınavları

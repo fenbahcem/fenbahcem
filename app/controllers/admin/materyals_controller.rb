@@ -61,7 +61,7 @@ class Admin::MateryalsController < ApplicationController
   def destroy
 		@tur = @admin_materyal.materyaltur
     @admin_materyal.destroy
-		@materyaltur = { 1 => "yapraktest", 2 => "denemesinavlari", 3 => "yazililar", 4 =>  "calismakagitlari", 5 => "cikmissinavsorulari", 6 => "kazanimlar", 7 => "yillikplan", 8 => "gunlukplan", 9 => "bep" }
+		@materyaltur = {0 => "konuanlatimi", 1 => "yapraktest", 2 => "denemesinavlari", 3 => "yazililar", 4 =>  "calismakagitlari", 5 => "cikmissinavsorulari", 6 => "kazanimlar", 7 => "yillikplan", 8 => "gunlukplan", 9 => "bep" }
     respond_to do |format|
 			format.html { redirect_to "/admin/" + @materyaltur[@tur], notice: 'Materyal başarılı bir şekilde silindi.' }
       format.json { head :no_content }

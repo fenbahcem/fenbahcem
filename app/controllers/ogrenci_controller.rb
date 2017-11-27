@@ -9,21 +9,6 @@ class OgrenciController < ApplicationController
     @resim = Admin::Fotogaleri.where(anasayfabaglantisi: true).order('created_at DESC')
   end
 	
-	def uniteler
-		@unite = Admin::Unite.where(sinif: params[:sinif])
-		@unitesinif = params[:sinif]
-	end
-	
-	def unite_konu
-		@konu = Admin::Konuanlatimi.where(sinif: params[:sinif]).where(unite_id: params[:unite_id]) 
-		@unite_konu = params[:uniteadi]
-	end
-	
-	def konuanlatimi_incele
-		@konuanlatimi = Admin::Konuanlatimi.find(params[:konuanlatimi_id])
-		@unite_konu = Admin::Unite.find(params[:unite_id]).uniteadi
-	end
-	
 	def bilimfuari
 		@proje = Admin::Proje.paginate(page: params[:page]).order('created_at DESC')
 	end
