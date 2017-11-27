@@ -32,6 +32,10 @@
 			<td><strong>Sonuç:</strong></td>
 			<td><%= form.cktext_area :sonuc, id: :admin_proje_sonuc, ckeditor: { language: 'tr'} %></td>
 		</tr>
+		<tr>
+			<td><strong>Baskı İşleri</strong></td>
+			<td><%= form.cktext_area :baskiisleri, id: :admin_proje_baskiisleri, ckeditor: { language: 'tr'} %></td>
+		</tr>
     <tr>
       <td><strong>Ek Dosya:</strong></td>
       <% if @admin_proje.ek.exists? %>

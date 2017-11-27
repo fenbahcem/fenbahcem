@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171117180636) do
+ActiveRecord::Schema.define(version: 20171127121619) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -45,20 +45,6 @@ ActiveRecord::Schema.define(version: 20171117180636) do
     t.boolean "anasayfabaglantisi"
   end
 
-  create_table "admin_konuanlatimis", force: :cascade do |t|
-    t.integer "sinif"
-    t.string "kavram"
-    t.text "metin"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.string "konuadi"
-    t.string "dosya_file_name"
-    t.string "dosya_content_type"
-    t.integer "dosya_file_size"
-    t.datetime "dosya_updated_at"
-    t.integer "unite_id"
-  end
-
   create_table "admin_materyals", force: :cascade do |t|
     t.integer "sinif"
     t.integer "materyaltur"
@@ -86,6 +72,7 @@ ActiveRecord::Schema.define(version: 20171117180636) do
     t.string "ek_content_type"
     t.integer "ek_file_size"
     t.datetime "ek_updated_at"
+    t.text "baskiisleri"
   end
 
   create_table "admin_unites", force: :cascade do |t|

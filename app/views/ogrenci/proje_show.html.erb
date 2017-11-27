@@ -231,7 +231,7 @@ left: 35%;
 
 .btn-outline-rounded {
     padding:12px 20px;
-    }
+}
 }
 </style>
 <script>
@@ -317,8 +317,14 @@ $(function(){
               <div class="tab-pane fade" id="settings">
                   <h3 class="head text-center">Proje Ek Dosyaları</h3>
                   <p class="narrow text-center" style="margin-bottom:20px;">
-										<%= link_to "Proje Dosyalarını İndir", @proje.ek.url %>
-									</p>
+                  <%= @proje.baskiisleri.html_safe %>
+                  </p>
+                  <div class="col-md-12 text-center" style="margin-bottom:10px;">
+                    
+                            <%= link_to @proje.ek.url, {class:"btn btn-lg btn-primary", style:"line-height: 40px"} do %>
+                              <i class="glyphicon glyphicon-download pull-left" style="line-height: 40px"></i><span>Proje Dosyalarını İndirin</span>
+                            <% end %> 
+                  </div>
                   
                   <!--<p class="text-center">
 									<a href="" class="btn btn-success btn-outline-rounded green"> start using bootsnipp <span style="margin-left:10px;" class="glyphicon glyphicon-send"></span></a>
