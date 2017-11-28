@@ -15,58 +15,62 @@
 }
 </style>
 
-    <div class="col-lg-6 col-sm-6 col-md-6" style="margin-bottom:20px">
-        <div class="well-block">
-            <div class="well-title">
-				<h2 style="margin-top:0px; margin-bottom:5px;">Öneri ve Şikayetleriniz İçin</h2>
-				<p>Önerileriniz ve şikayetleriniz bizim için çok önemlidir. Her yapacağınız öneri dikkatle incelenecek, her yapacağınız şikayetleri giderip, en kısa zaman içinde e-posta adresiniz üzerinden size bildireceğiz. </p>
-			</div>
-            <form>
-            <div class="row">
-					<div>
-						<table class="table table-striped">
-							<tr>
-								<td><strong>Adınız Soyadınız:</strong></td>
-								<td><%= text_field_tag :adisoyadi,"",  class:"form-control", type:"text" %></td>
-							</tr>
-							<tr>
-								<td><strong>E-Posta Adresiniz:</strong></td>
-								<td><%= text_field_tag :email, "", class:"form-control", type:"email" %></td>
-							</tr>
-							<tr>
-								<td><strong>Mesajınızın Konusu:</strong></td>
-								<td>
-									<%= select_tag :konu, options_for_select([["Öneri","Öneri"],["Şikayet","Şikayet"],["Diğer","Diğer"]]), include_blank: true, class:"form-control" %>
-								</td>
-							</tr>
-						</table>
-					</div>
-            </div>		
-        </div>
-    </div>
+<%= content_for :pagetitle do %>
+  Öneri ve Şikayet
+<% end %>
 
-    <div class="col-lg-6 col-sm-6 col-md-6" style="margin-bottom:20px">
-        <div class="well-block" style="padding:10px;">
-            <div class="well-title" style="margin-bottom:0px;">
-                <h2 style="margin:0px;"></h2>
-			</div>
-			<div class="row">
-				<div class="col-lg-12 col-sm-12 col-md-12">
-					<div>
-						<table class="table table-striped">
-							<tr>
-								<td><strong>Mesajınız:</strong></td>
-							</tr>
-							<tr>
-								<td>
-									<%= text_area_tag :aciklama,"", class:"form-control", rows: "13" %>
-								</td>
-							</tr>
-						</table>
-					</div>
-				</div>	
-			</div>
-        </div>
-    </div>
-		<%= submit_tag "Gönder", class:"btn btn-primary btn-lg btn-block" %>
-	</form>
+<div class="col-lg-6 col-sm-6 col-md-6" style="margin-bottom:20px">
+  <div class="well-block">
+    <div class="well-title">
+			<h2 style="margin-top:0px; margin-bottom:5px;">Öneri ve Şikayetleriniz İçin</h2>
+			<p>Önerileriniz ve şikayetleriniz bizim için çok önemlidir. Her yapacağınız öneri dikkatle incelenecek, her yapacağınız şikayetleri giderip, en kısa zaman içinde e-posta adresiniz üzerinden size bildireceğiz. </p>
+		</div>
+<%= form_tag "/onerivesikayet" do %>
+      <div class="row">
+				<div>
+					<table class="table table-striped">
+					  <tr>
+							<td><strong>Adınız Soyadınız:</strong></td>
+							<td><%= text_field_tag :adisoyadi,"",  class:"form-control", type:"text", required: true, autofocus: true %></td>
+						</tr>
+						<tr>
+							<td><strong>E-Posta Adresiniz:</strong></td>
+							<td><%= text_field_tag :email, "", class:"form-control", required: true, autofocus: true, type:"email" %></td>
+						</tr>
+						<tr>
+							<td><strong>Mesajınızın Konusu:</strong></td>
+							<td>
+								<%= select_tag :konu, options_for_select([["Öneri","Öneri"],["Şikayet","Şikayet"],["Diğer","Diğer"]]), include_blank: true, class:"form-control", required: true, autofocus: true %>
+							</td>
+						</tr>
+					</table>
+			  </div>
+      </div>		
+  </div>
+</div>
+
+<div class="col-lg-6 col-sm-6 col-md-6" style="margin-bottom:20px">
+  <div class="well-block" style="padding:10px;">
+    <div class="well-title" style="margin-bottom:0px;">
+      <h2 style="margin:0px;"></h2>
+		</div>
+		<div class="row">
+			<div class="col-lg-12 col-sm-12 col-md-12">
+			  <div>
+					<table class="table table-striped">
+						<tr>
+							<td><strong>Mesajınız:</strong></td>
+						</tr>
+						<tr>
+							<td>
+							  <%= text_area_tag :aciklama,"", class:"form-control", rows: "13", required: true, autofocus: true %>
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>	
+		</div>
+  </div>
+</div>
+  <%= submit_tag "Gönder", class:"btn btn-primary btn-lg btn-block" %>
+<% end %>

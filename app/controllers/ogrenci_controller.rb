@@ -36,6 +36,7 @@ class OgrenciController < ApplicationController
 		@email = params[:email]
 		@konu = params[:konu]
 		@aciklama = params[:aciklama]
+
 		KullaniciMailer.onerivesikayet_email(@adisoyadi, @email, @konu, @aciklama).deliver_later
 	end
 
