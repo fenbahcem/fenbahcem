@@ -1,4 +1,9 @@
-<h4 id="materyal" style="margin-top: 0px; margin-bottom:10px;"><%= Admin::Unite.find(params[:unite_id]).uniteadi %> Denemeleri</h4>
+<% @materyaltur = {0 =>"Konu Anlatımı", 1 => "Yaprak Test", 2 => "Deneme", 3 => "Yazılı", 4 =>  "Çalışma Kağıtları", 5 => "Çıkmış Sınav Soruları", 6 => "Kazanımlar", 7 => "Yıllık Plan", 8 => "Günlük Plan", 9 => "BEP" } %>
+<%	@materyalturlink = {0 => "konuanlatimi", 1 => "yapraktest", 2 => "deneme", 3 => "yazili", 4 =>  "calismakagitlari", 5 => "cikmissinavsorulari", 6 => "kazanimlar", 7 => "yillikplan", 8 => "gunlukplan", 9 => "bep" } %>
+<%	@materyalturyazi1 = {0 => "Konu Anlatımları", 1 => "Yaprak Testleri", 2 => "Deneme Sınavları", 3 => "Yazılıları", 4 =>  "Çalışma Kağıtları", 5 => "Çıkmış Sınav Soruları", 6 => "Kazanımları", 7 => "Yıllık Planları", 8 => "Günlük Planları", 9 => "BEP" } %>
+
+<h4 id="materyal" style="margin-top: 0px; margin-bottom:10px;"><%= Admin::Unite.find(params[:unite_id]).uniteadi %> <%= @materyalturyazi1[params[:materyaltur]] %></h4>
+
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <ins class="adsbygoogle"
      style="display:block"
@@ -10,8 +15,6 @@
      (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
 <br>	
-<% @materyaltur = {0 =>"Konu Anlatımı", 1 => "Yaprak Test", 2 => "Deneme", 3 => "Yazılı", 4 =>  "Çalışma Kağıtları", 5 => "Çıkmış Sınav Soruları", 6 => "Kazanımlar", 7 => "Yıllık Plan", 8 => "Günlük Plan", 9 => "BEP" } %>
-<%	@materyalturlink = {0 => "konuanlatimi", 1 => "yapraktest", 2 => "deneme", 3 => "yazili", 4 =>  "calismakagitlari", 5 => "cikmissinavsorulari", 6 => "kazanimlar", 7 => "yillikplan", 8 => "gunlukplan", 9 => "bep" } %>
 <% @materyal.each_with_index do |m,i| %>
 <table class="table table-striped">
   <tr style="border-bottom:1px solid #dddddd; border-left:1px solid #dddddd; border-right:1px solid #dddddd; background-color: aliceblue">
