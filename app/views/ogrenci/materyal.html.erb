@@ -43,7 +43,7 @@
 					<hr />
 					<div class="row rating-desc">
 						<div class="col-md-12">
-							<span class="glyphicon glyphicon-th-list"></span><%= Admin::Konuanlatimi.where(sinif: params[:sinif]).where(unite_id: u.id).count %><span class="separator">|</span>
+							<span class="glyphicon glyphicon-th-list"></span><%= sayac(params[:sinif], 0, u.id) %><span class="separator">|</span>
 							<span class="glyphicon glyphicon-hourglass"></span><%= sayac(params[:sinif], 1, u.id) %><span class="separator">|</span>
 							<span class="glyphicon glyphicon-check"></span><%= sayac(params[:sinif], 2, u.id) %><span class="separator">|</span>
 							<span class="glyphicon glyphicon-pencil"></span><%= sayac(params[:sinif], 3, u.id) %><span class="separator">|</span>
