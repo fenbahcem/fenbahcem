@@ -19,13 +19,14 @@
   Öneri ve Şikayet
 <% end %>
 
+<% unless @notice %>
 <div class="col-lg-6 col-sm-6 col-md-6" style="margin-bottom:20px">
   <div class="well-block">
     <div class="well-title">
 			<h2 style="margin-top:0px; margin-bottom:5px;">Öneri ve Şikayetleriniz İçin</h2>
 			<p>Önerileriniz ve şikayetleriniz bizim için çok önemlidir. Her yapacağınız öneri dikkatle incelenecek, her yapacağınız şikayetleri giderip, en kısa zaman içinde e-posta adresiniz üzerinden size bildireceğiz. </p>
 		</div>
-<%= form_tag "/onerivesikayet" do %>
+    <%= form_tag url_for(controller: "ogrenci", action: "onerivesikayet") do %>
       <div class="row">
 				<div>
 					<table class="table table-striped">
@@ -73,4 +74,7 @@
   </div>
 </div>
   <%= submit_tag "Gönder", class:"btn btn-primary btn-lg btn-block" %>
+<% end %>
+<% else %>
+  <%= @notice.html_safe %>
 <% end %>

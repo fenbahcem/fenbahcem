@@ -216,7 +216,8 @@ Rails.application.routes.draw do
 	
   match '/onerivesikayet' => 'ogrenci#onerivesikayet', via: :post
 	get '/onerivesikayet' => 'ogrenci#onerivesikayet'
-	get '/biliminsanlari' => 'ogrenci#biliminsanlari'
+	
+  get '/biliminsanlari' => 'ogrenci#biliminsanlari'
 	get '/resmievraklar' => 'ogrenci#resmievraklar'
 	get '/ilgincbilgiler' => 'ogrenci#ilgincbilgiler'
 	get '/motivasyon' => 'ogrenci#motivasyon'

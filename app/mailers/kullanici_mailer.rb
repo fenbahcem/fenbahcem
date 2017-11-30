@@ -7,5 +7,5 @@ class KullaniciMailer < ApplicationMailer
 		@konu = konu
 		@aciklama = aciklama
 		mail(to: "info.fenbahcem@gmail.com", subject: @konu)
-	end
+  end
 end

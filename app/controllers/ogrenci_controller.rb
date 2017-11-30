@@ -24,9 +24,9 @@ class OgrenciController < ApplicationController
 	def ogrencicalisma
 		@ogrencicalisma = Ogrencicalisma.new(ogrenci_params)	
 		if @ogrencicalisma.save
-			redirect_to "/gonderinyayinlayalim", notice: "<div class='container'><div class='jumbotron' style='color: #3c763d; background-color: #dff0d8; border-color: #d6e9c6'><h1>Tebrikler!</h1>Çalışmanız başarılı bir şekilde sisteme kaydedilmiştir. Uzman ekibimiz çalışmanızı inceleyip, onaylandıktan sonra çalışmanız en kısa sürede yayınlanacaktır. İyi günler ve iyi çalışmalar dileriz.</div></div>"
+      redirect_to "/gonderinyayinlayalim", notice: "<div class='container'><div class='jumbotron' style='color: #3c763d; background-color: #dff0d8; border-color: #d6e9c6'><h1>Talebiniz alınmıştır.</h1>Talebiniz uzman ekibimiz tarafından titzlikle incelenip, en kısa sürede geri bildirim yapılacaktır. İyi günler ve iyi çalışmalar dileriz.</div></div>"
 		else
-			redirect_to "/gonderinyayinlayalim", notice: "<div class='container'><div class='jumbotron' style='color: #a94442; background-color: #f2dede; border-color: #ebccd1'><h1>Üzgünüz!</h1>Formda bulunan adı, soyadı, e-posta ve çalışma açıklama sekmelerinin doldurulması zorunludur. </div></div>"
+			redirect_to "/gonderinyayinlayalim", notice: "<div class='container'><div class='jumbotron' style='color: #a94442; background-color: #f2dede; border-color: #ebccd1'><h1>Üzgünüz!</h1>Formda bulunan adı, soyadı, e-posta ve açıklama sekmelerinin doldurulması zorunludur. </div></div>"
 		end
 	end
 
@@ -36,7 +36,7 @@ class OgrenciController < ApplicationController
 		@email = params[:email]
 		@konu = params[:konu]
 		@aciklama = params[:aciklama]
-
+     
 		KullaniciMailer.onerivesikayet_email(@adisoyadi, @email, @konu, @aciklama).deliver_later
 	end
 
@@ -139,5 +139,4 @@ class OgrenciController < ApplicationController
     def ogrenci_params
       params.require(:ogrencicalisma).permit(:ad, :soyad, :email, :aciklama, :dosya)
     end
-
 end
