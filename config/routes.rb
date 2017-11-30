@@ -213,15 +213,15 @@ Rails.application.routes.draw do
 	# Diger Sayfalar
 	match '/gonderinyayinlayalim' => 'ogrenci#ogrencicalisma', via: :post
 	get '/gonderinyayinlayalim' => 'ogrenci#gonderinyayinlayalim'
-	
+
   match '/onerivesikayet' => 'ogrenci#onerivesikayet', via: :post
 	get '/onerivesikayet' => 'ogrenci#onerivesikayet'
 	
-  get '/biliminsanlari' => 'ogrenci#biliminsanlari'
-	get '/resmievraklar' => 'ogrenci#resmievraklar'
-	get '/ilgincbilgiler' => 'ogrenci#ilgincbilgiler'
-	get '/motivasyon' => 'ogrenci#motivasyon'
-	get '/sinavsistemi' => 'ogrenci#sinavsistemi'
+  get '/biliminsanlari' => 'ogrenci#digersayfalar', tur:0 
+	get '/resmievraklar' => 'ogrenci#digersayfalar', tur: 1
+	get '/ilgincbilgiler' => 'ogrenci#digersayfalar', tur: 2
+	get '/motivasyon' => 'ogrenci#digersayfalar', tur: 3
+	get '/sinavsistemi' => 'ogrenci#digersayfalar', tur: 4
 
 	devise_for :users 
 end

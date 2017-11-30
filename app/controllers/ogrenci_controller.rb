@@ -1,5 +1,5 @@
 class OgrenciController < ApplicationController
-	layout "app-other", only: [:bilimfuari, :proje_show, :fotogaleri, :video, :gonderinyayinlayalim, :onerivesikayet, :biliminsanlari, :resmievraklar, :motivasyon, :sinavsistemi, :ilgincbilgiler]  
+	layout "app-other", only: [:bilimfuari, :proje_show, :fotogaleri, :video, :gonderinyayinlayalim, :onerivesikayet, :digersayfalar]  
 	helper_method :sayac
 	helper_method :toplamgoruntuleme
 	
@@ -40,29 +40,9 @@ class OgrenciController < ApplicationController
 		KullaniciMailer.onerivesikayet_email(@adisoyadi, @email, @konu, @aciklama).deliver_later
 	end
 
-	def biliminsanlari
+	def digersayfalar
 		@digersayfa = Admin::Digersayfa.limit(5).order('id desc')
-		@biliminsanlari = Admin::Digersayfa.where(tur: 0).paginate(page: params[:page]).order('created_at DESC')
-	end
-
-	def resmievraklar
-		@digersayfa = Admin::Digersayfa.limit(5).order('id desc')		
-		@resmievraklar = Admin::Digersayfa.where(tur: 1).paginate(page: params[:page]).order('created_at DESC')
-	end
-
-	def ilgincbilgiler
-		@digersayfa = Admin::Digersayfa.limit(5).order('id desc')	
-		@ilgincbilgiler = Admin::Digersayfa.where(tur: 2).paginate(page: params[:page]).order('created_at DESC')
-	end
-
-	def motivasyon
-		@digersayfa = Admin::Digersayfa.limit(5).order('id desc')	
-		@motivasyon = Admin::Digersayfa.where(tur: 3).paginate(page: params[:page]).order('created_at DESC')
-	end
-
-	def sinavsistemi
-		@digersayfa = Admin::Digersayfa.limit(5).order('id desc')	
-		@sinavsistemi = Admin::Digersayfa.where(tur: 4).paginate(page: params[:page]).order('created_at DESC')
+		@digersayfalar = Admin::Digersayfa.where(tur: params[:tur]).paginate(page: params[:page]).order('created_at DESC')
 	end
 
 	def fotogaleri

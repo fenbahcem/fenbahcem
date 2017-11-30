@@ -49,7 +49,7 @@
 
   <div class="container">	
 		<div class="col-md-8">
-			<% @ilgincbilgiler.each do |b| %>
+			<% @digersayfalar.each do |b| %>
     			<h1><%= b.baslik %></h1>
 				<%= b.metin.html_safe %><br />
 				<br />				
@@ -98,11 +98,10 @@
 
 		</div>
     </div>
-  <% end %>
-      
+    <% end %>
 
 
     <div class="col-lg-12 col-sm-12 col-xs-12">
-        <%= will_paginate @ilgincbilgiler, :renderer => BootstrapPaginationHelper::LinkRenderer, class:"text-center", previous_label: "Önceki Sayfa", next_label: "Sonraki Sayfa" %>
+        <%= will_paginate @digersayfalar, :renderer => BootstrapPaginationHelper::LinkRenderer, class:"text-center", previous_label: "Önceki Sayfa", next_label: "Sonraki Sayfa" %>
     </div>
 </div>
