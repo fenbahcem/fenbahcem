@@ -1,0 +1,24 @@
+<% if notice %>
+	<p class="alert alert-success" id="notice"><%= notice %></p>
+<% end %>
+
+<%= content_for :title do %>
+  <h4 style="margin:0px;">Genel Dosya Görüntüle</h4>
+<% end %>
+
+<table class="table table-striped">
+  <tr>
+    <td><strong>Başlık:</strong></td>
+    <td><%= @admin_geneldosya.baslik %></td>
+  </tr>
+  <tr>
+    <td><strong>Sınıf:</strong></td>
+    <td><%= @admin_geneldosya.sinif %></td>
+  </tr>
+  <tr>
+    <td><strong>Dosya:</strong></td>
+    <td><%= link_to "Görüntle", @admin_geneldosya.dosya.url %></td>
+  </tr>
+</table>
+
+<%= link_to 'Genel Dosya Listesine Geri Git', admin_geneldosyas_path %>

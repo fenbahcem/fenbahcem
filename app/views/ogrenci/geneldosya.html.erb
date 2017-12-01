@@ -1,0 +1,64 @@
+<% @dosya5 = Admin::Geneldosya.where(sinif: 5).map { |u| [u.baslik, u.dosya.url, u.id]} %>
+<% @dosya6 = Admin::Geneldosya.where(sinif: 6).map { |u| [u.baslik, u.dosya.url, u.id]} %>
+<% @dosya7 = Admin::Geneldosya.where(sinif: 7).map { |u| [u.baslik, u.dosya.url, u.id]} %>
+<% @dosya8 = Admin::Geneldosya.where(sinif: 8).map { |u| [u.baslik, u.dosya.url, u.id]} %>
+
+<script>
+function dosya5() {
+	var tds = document.getElementById("unite");
+  tds.innerHTML = ('<% if @dosya5.count > 0 %><table class="table table-striped"><tr><td><strong>S.No</strong></td><td><strong>Açıklama</strong></td><td></td></tr><% @dosya5.each_with_index do |d, i|  %><tr><td><%= i + 1 %></td><td><%= d[0] %></td><td><%= link_to "Dosya İndir", {controller:"ogrenci", action:"geneldosyaincele", id: d[2] } %></td></tr></table><% end %><% else %>Eklenmiş dosya bulunmamaktadır.<% end %>');
+};
+function dosya6() {
+	var tds = document.getElementById("unite");
+  tds.innerHTML = ('<% if @dosya6.count > 0 %><table class="table table-striped"><tr><td><strong>S.No</strong></td><td><strong>Açıklama</strong></td><td></td></tr><% @dosya6.each_with_index do |d, i|  %><tr><td><%= i + 1 %></td><td><%= d[0] %></td><td><%= link_to "Dosya İndir", {controller:"ogrenci", action:"geneldosyaincele", id: d[2] } %></td></tr></table><% end %><% else %>Eklenmiş dosya bulunmamaktadır.<% end %>');
+};
+function dosya7() {
+	var tds = document.getElementById("unite");
+  tds.innerHTML = ('<% if @dosya7.count > 0 %><table class="table table-striped"><tr><td><strong>S.No</strong></td><td><strong>Açıklama</strong></td><td></td></tr><% @dosya7.each_with_index do |d, i|  %><tr><td><%= i + 1 %></td><td><%= d[0] %></td><td><%= link_to "Dosya İndir", {controller:"ogrenci", action:"geneldosyaincele", id: d[2] } %></td></tr></table><% end %><% else %>Eklenmiş dosya bulunmamaktadır.<% end %>');
+};
+function dosya8() {
+	var tds = document.getElementById("unite");
+  tds.innerHTML = ('<% if @dosya8.count >0 %><table class="table table-striped"><tr><td><strong>S.No</strong></td><td><strong>Açıklama</strong></td><td></td></tr><% @dosya8.each_with_index do |d, i|  %><tr><td><%= i + 1 %></td><td><%= d[0] %></td><td><%= link_to "Dosya İndir", {controller:"ogrenci", action:"geneldosyaincele", id: d[2] } %></td></tr></table><% end %><% else %>Eklenmiş dosya bulunmamaktadır.<% end %>');
+};
+</script>
+
+<%= content_for :pagetitle do %>
+  FenBahçem Fen Bilimleri Dosya İndir
+<% end %>
+
+<h3 style="margin-top:0px;">Dosyalar Bölümü</h3>
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout-key="-ff+65+3r-j9+lw"
+     data-ad-client="ca-pub-2249671089197790"
+     data-ad-slot="1687828958"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+<form>
+  <%= select_tag :sinif, options_for_select([["5. Sınıf", 5], ["6. Sınıf", 6], ["7. Sınıf", 7],["8. Sınıf", 8]]), onchange: "
+				if (this.options[selectedIndex].value == 5) {dosya5();}
+				else if (this.options[selectedIndex].value == 6) {dosya6();}
+				else if (this.options[selectedIndex].value == 7) {dosya7();}
+				else if (this.options[selectedIndex].value == 8) {dosya8();}
+  ", prompt: "Sınıf Seçiniz", class:"form-control" %>
+</form>
+
+<div class="unite" id="unite" style="margin-top:10px">
+
+</div>
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout-key="-ff+65+3r-j9+lw"
+     data-ad-client="ca-pub-2249671089197790"
+     data-ad-slot="1687828958"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>

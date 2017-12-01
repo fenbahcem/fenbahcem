@@ -1,0 +1,47 @@
+<%= content_for :pagetitle do %>
+  FenBahçem <%= @geneldosya.baslik %>
+<% end %>
+
+<h3 style="margin-top:0px;">Dosya İndir</h3>
+
+<script charset="utf-8">
+function goruntuleme() {
+ <% toplamgoruntuleme(@geneldosya) %> 
+}
+</script>
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout-key="-ff+65+3r-j9+lw"
+     data-ad-client="ca-pub-2249671089197790"
+     data-ad-slot="1687828958"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+<table class="table table-striped">
+  <tr>
+    <td><strong>Dosya Açıklama:</strong></td>
+    <td><%= @geneldosya.baslik %></td>
+  </tr>
+  <tr>
+    <td><strong>Dosya Görüntüleme Sayısı:</strong></td>
+    <td><%= @geneldosya.sayac %></td>
+  </tr>
+  <tr>
+    <td></td>
+    <td><%= link_to "Dosya İndir", @geneldosya.dosya.url, class:"btn btn-info btn-block" %></td>
+  </tr>
+</table>
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-format="fluid"
+     data-ad-layout-key="-ff+65+3r-j9+lw"
+     data-ad-client="ca-pub-2249671089197790"
+     data-ad-slot="1687828958"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script>

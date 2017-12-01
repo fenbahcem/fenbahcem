@@ -52,7 +52,14 @@ class OgrenciController < ApplicationController
 	def video
 		@video = Admin::Video.where(tur: params[:tur]).paginate(page: params[:page]).order('created_at DESC')
 	end
+  
+  def geneldosya
+    @geneldosya = Admin::Geneldosya.all
+  end
 
+  def geneldosyaincele
+    @geneldosya = Admin::Geneldosya.find(params[:id])
+  end
   # -----Materyal-----
 	
   def materyal

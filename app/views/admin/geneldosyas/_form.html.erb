@@ -1,0 +1,38 @@
+<%= form_with(model: admin_geneldosya, local: true) do |form| %>
+  <% if admin_geneldosya.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(admin_geneldosya.errors.count, "error") %> prohibited this admin_geneldosya from being saved:</h2>
+
+      <ul>
+      <% admin_geneldosya.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+  <table class="table table-striped">
+    <tr>
+      <td><strong>Başlık Ekle:</strong></td>
+      <td><%= form.text_field :baslik, id: :admin_geneldosya_baslik, class:"form-control" %></td>
+    </tr>
+    <tr>
+      <td><strong>Sınıf:</strong></td>
+      <td><%= form.select  :sinif, options_for_select([["5. Sınıf", 5], ["6. Sınıf", 6], ["7. Sınıf", 7],["8. Sınıf", 8]]),{include_blank: true}, class: "form-control" %> 
+    </tr>
+    <tr>
+      <td><strong>Dosya:</strong></td>
+      <% if @admin_geneldosya.dosya.exists? %>
+        <td>
+          Ekli Dosya Adı: <%= @admin_geneldosya.dosya_file_name %><br /><br />
+          <%= form.file_field :dosya, id: :admin_geneldosya_dosya, class: "form-control" %>
+        </td>
+      <% else %>
+			  <td><%= form.file_field :dosya, id: :admin_geneldosya_dosya, class: "form-control" %></td>  
+     <% end %> 
+    </tr>
+		<tr>
+			<td colspan=2><%= form.submit :Kaydet,  class: "btn btn-primary btn-block" %></td>
+		</tr>	
+  </table>
+<% end %>

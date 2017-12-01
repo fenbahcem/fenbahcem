@@ -1,0 +1,29 @@
+<% if notice %>
+	<p class="alert alert-success" id="notice"><%= notice %></p>
+<% end %>
+
+<%= content_for :title do %>
+  <h4 style="margin:0px;">Genel Dosya Listesi</h4>
+<% end %>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Başlık</th>
+      <th>Sınıf</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_geneldosyas.each do |admin_geneldosya| %>
+      <tr>
+        <td><%= admin_geneldosya.baslik %></td>
+        <td><%= admin_geneldosya.sinif %></td>
+        <td><%= link_to 'Görüntüle', admin_geneldosya %></td>
+        <td><%= link_to 'Düzenle', edit_admin_geneldosya_path(admin_geneldosya) %></td>
+        <td><%= link_to 'Sil', admin_geneldosya, method: :delete, data: { confirm: 'Silmek istediğinize eminmisiniz?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20171127121619) do
+ActiveRecord::Schema.define(version: 20171201080951) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -43,6 +43,18 @@ ActiveRecord::Schema.define(version: 20171127121619) do
     t.integer "resim_file_size"
     t.datetime "resim_updated_at"
     t.boolean "anasayfabaglantisi"
+  end
+
+  create_table "admin_geneldosyas", force: :cascade do |t|
+    t.string "baslik"
+    t.integer "sinif"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "dosya_file_name"
+    t.string "dosya_content_type"
+    t.integer "dosya_file_size"
+    t.datetime "dosya_updated_at"
+    t.integer "sayac"
   end
 
   create_table "admin_materyals", force: :cascade do |t|
