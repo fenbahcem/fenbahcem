@@ -12,6 +12,7 @@ Rails.application.routes.draw do
     resources :projes
     resources :unites
     resources :digersayfas
+    resources :geneldosyas
   end
 	
 	get '/admin/ogrencicalisma'	=> 'admin#ogrencicalisma'
@@ -222,6 +223,9 @@ Rails.application.routes.draw do
 	get '/ilgincbilgiler' => 'ogrenci#digersayfalar', tur: 2
 	get '/motivasyon' => 'ogrenci#digersayfalar', tur: 3
 	get '/sinavsistemi' => 'ogrenci#digersayfalar', tur: 4
+  
+  get '/geneldosyalar' => 'ogrenci#geneldosya'
+  get '/geneldosyalar/:id' => 'ogrenci#geneldosyaincele'
 
 	devise_for :users 
 end
