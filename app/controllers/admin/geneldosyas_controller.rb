@@ -30,6 +30,7 @@ class Admin::GeneldosyasController < ApplicationController
 
     respond_to do |format|
       if @admin_geneldosya.save
+        Admin::Duyuru.create(aciklama: @admin_geneldosya.created_at.to_s.split(" ")[0] + " " + @admin_geneldosya.baslik + " dosyası eklenmiştir. <a href='/geneldosyalar/" + @admin_geneldosya.id.to_s + "'>Ulaşmak için tıklayınız. </a>" , tur: 0)
         format.html { redirect_to @admin_geneldosya, notice: 'Geneldosya was successfully created.' }
         format.json { render :show, status: :created, location: @admin_geneldosya }
       else
