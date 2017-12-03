@@ -3,8 +3,13 @@ function goruntuleme() {
  <% toplamgoruntuleme(@materyal) %> 
 }
 </script>
+
 <% @materyalturlink = {0 => "konuanlatimi", 1 => "yapraktest", 2 => "deneme", 3 => "yazili", 4 =>  "calismakagitlari", 5 => "cikmissinavsorulari", 6 => "kazanimlar", 7 => "yillikplan", 8 => "gunlukplan", 9 => "bep" } %>
 <% @materyaltur = {0 => "Konu Anlatımı", 1 => "Yaprak Test", 2 => "Deneme", 3 => "Yazılı", 4 =>  "Çalışma Kağıtları", 5 => "Çıkmış Sınav Soruları", 6 => "Kazanım Testleri ve Kazanımlar", 7 => "Yıllık Plan", 8 => "Günlük Plan", 9 => "BEP" } %>
+
+<%= content_for :pagetitle do %>
+  FenBahçem <%= @materyal.materyaladi %>
+<% end %>
 
 <h3 id="materyal" style="margin-top: 0px; margin-bottom:10px;"><%= @materyal.materyaladi %></h3>
 
@@ -158,7 +163,7 @@ function goruntuleme() {
         <%= image_tag "html.png", width: "75%" %>
       <% end %>
       <br>
-      <%= link_to @materyaltur[r.materyaltur] + " Görüntüle", "/" + "sinif" + r.sinif.to_s + "/" + @materyalturlink[r.materyaltur] + "/" + r.unite_id.to_s + "/" + r.id.to_s  %>
+      <%= link_to @materyaltur[r.materyaltur] + " Görüntüle", "/sinif" + r.sinif.to_s + "/" + @materyalturlink[r.materyaltur] + "/" + r.unite_id.to_s + "/" + r.id.to_s  %>
     </td>
       <% end %>
 

@@ -1,6 +1,9 @@
 <% @tur = { 0 => "Bilim İnsanları", 1 => "Resmi Evraklar" , 2 => "İlginç Bilgiler" , 3 => "Motivasyon" , 4 => "Sınav Sistemi" } %>
 <% @turlink = { 0 => "biliminsanlari", 1 => "resmievraklar" , 2 => "ilgincbilgiler" , 3 => "motivasyon" , 4 => "sinavsistemi" } %>
 
+<%= content_for :pagetitle do %>
+  FenBahçem <%= @tur[params[:tur]] %>
+<% end %>
 
 <style>
 .wrapper{
