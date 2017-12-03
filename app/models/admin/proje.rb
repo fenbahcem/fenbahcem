@@ -1,6 +1,7 @@
 class Admin::Proje < ApplicationRecord
 	self.per_page = 6	
 	has_attached_file :ek
+  searchkick
 	validates_attachment :ek, content_type: {
 		content_type: [
 			"application/vnd.ms-excel",

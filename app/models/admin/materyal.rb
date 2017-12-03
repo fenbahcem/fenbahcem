@@ -1,5 +1,6 @@
 class Admin::Materyal < ApplicationRecord
 	belongs_to :unite
+  searchkick
 	has_attached_file :dosya
 	validates_attachment :dosya, content_type: {
 		content_type: [

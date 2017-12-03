@@ -51,7 +51,7 @@
 		.panel-body table tr td { padding-left: 15px }
 		.panel-body .table {margin-bottom: 0px; }
 		.footer1 {
-			background: #fff url("../images/footer/footer-bg.png") repeat scroll left top;
+			background: #fff repeat scroll left top;
 			margin-top: 100px;
 			padding-top: 40px;
 			padding-right: 0;
@@ -236,10 +236,10 @@
 									<!--<li><a href="#about">Öneri ve Şikayet Kutusu</a></li>-->
 					</ul>
 					<ul class="nav navbar-nav navbar-right">
-									<form class="navbar-form navbar-right">
-										<input type="text" class="form-control" placeholder="Arama Yapın">
-										<button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
-									</form>
+            <form action="/arama" method="GET" class="navbar-form navbar-right">
+              <input name="arama" type="text" class="form-control" placeholder="Arama Yapın">
+              <button type="submit" class="btn btn-default"><i class="glyphicon glyphicon-search"></i></button>
+            </form>
 					</ul>
 				</div>
 			</div>

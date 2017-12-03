@@ -1,0 +1,171 @@
+<% @materyalturlink = {0 => "konuanlatimi", 1 => "yapraktest", 2 => "deneme", 3 => "yazili", 4 =>  "calismakagitlari", 5 => "cikmissinavsorulari", 6 => "kazanimlar", 7 => "yillikplan", 8 => "gunlukplan", 9 => "bep" } %>
+<% @digersayfalink = { 0 => "biliminsanlari", 1 => "resmievraklar" , 2 => "ilgincbilgiler" , 3 => "motivasyon" , 4 => "sinavsistemi" } %>
+<% @videolink = { 0 => "deneyvideolari", 1 => "digervideolar"} %>
+
+<%= content_for :pagetitle do %>
+  FenBahçem Arama Sonuçları <%= params[:arama] %>
+<% end %>
+
+<h3 style="margin-top:0px;margin-bottom:10px;">Arama Sonuçları</h3>
+
+<h4>Materyal</h4>
+<% if @arama[0].results.count > 0 %>
+  <table class="table table-striped">
+  <% @arama[0].results.each_with_index do |a,i| %>
+    <tr>
+      <td rowspan=2 style="vertical-align:middle;text-align:center;"><%= i + 1 %></td>
+      <td><%= a.materyaladi %> <%= a.materyalaciklama.html_safe %></td>
+    </tr>
+    <tr>
+      <td><%= link_to "İlgili materyale ulaşmak için tıklayınız.", "/sinif" + a.sinif.to_s + "/" + @materyalturlink[a.materyaltur] + "/" + a.unite_id.to_s + "/" + a.id.to_s %></td>
+    </tr>
+  <% end %>
+  </table>
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <ins class="adsbygoogle"
+      style="display:block"
+      data-ad-format="fluid"
+      data-ad-layout-key="-fg+5s+5d-ec+6s"
+      data-ad-client="ca-pub-2249671089197790"
+      data-ad-slot="6946289830"></ins>
+  <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+<% else %>
+  Arama sonucu bulunmamaktadır.
+<% end %>
+
+<h4>Proje</h4>
+<% if @arama[1].results.count > 0 %>
+  <table class="table table-striped">
+  <% @arama[1].results.each_with_index do |a,i| %>
+    <tr>
+      <td rowspan=2 style="vertical-align:middle;text-align:center;"><%= i + 1 %></td>
+      <td><%= a.projeadi %> <%= a.projeaciklama.html_safe %></td>
+    </tr>
+    <tr>
+      <td><%= link_to "İlgili projeye ulaşmak için tıklayınız.", "/bilimfuari/proje/" + a.id.to_s %></td>
+    </tr>
+  <% end %>
+  </table>
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <ins class="adsbygoogle"
+      style="display:block"
+      data-ad-format="fluid"
+      data-ad-layout-key="-fg+5s+5d-ec+6s"
+      data-ad-client="ca-pub-2249671089197790"
+      data-ad-slot="6946289830"></ins>
+  <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+<% else %>
+  Arama sonucu bulunmamaktadır.
+<% end %>
+
+<h4>Sayfalar</h4>
+<% if @arama[2].results.count > 0 %>
+  <table class="table table-striped">
+  <% @arama[2].results.each_with_index do |a,i| %>
+    <tr>
+      <td rowspan=2 style="vertical-align:middle;text-align:center;"><%= i + 1 %></td>
+      <td><%= a.baslik %> <%= a.metin.html_safe %></td>
+    </tr>
+    <tr>
+      <td><%= link_to "İlgili sayfaya ulaşmak için tıklayınız.", @digersayfalink[a.tur] %></td>
+    </tr>
+  <% end %>
+  </table>
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <ins class="adsbygoogle"
+      style="display:block"
+      data-ad-format="fluid"
+      data-ad-layout-key="-fg+5s+5d-ec+6s"
+      data-ad-client="ca-pub-2249671089197790"
+      data-ad-slot="6946289830"></ins>
+  <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+<% else %>
+  Arama sonucu bulunmamaktadır.
+<% end %>
+
+<h4>Fotogaleri</h4>
+<% if @arama[3].results.count > 0 %>
+  <table class="table table-striped">
+  <% @arama[3].results.each_with_index do |a,i| %>
+    <tr>
+      <td rowspan=2 style="vertical-align:middle;text-align:center;"><%= i + 1 %></td>
+      <td><%= a.baslik %><br><%= link_to a.resim.url do %><%= image_tag a.resim.url(:thumb) %><% end %></td>
+    </tr>
+    <tr>
+      <td><%= link_to "Fotogaleriye ulaşmak için tıklayınız.", "/fotogaleri" %></td>
+    </tr>
+  <% end %>
+  </table>
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <ins class="adsbygoogle"
+      style="display:block"
+      data-ad-format="fluid"
+      data-ad-layout-key="-fg+5s+5d-ec+6s"
+      data-ad-client="ca-pub-2249671089197790"
+      data-ad-slot="6946289830"></ins>
+  <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+<% else %>
+  Arama sonucu bulunmamaktadır.
+<% end %>
+
+<h4>Video</h4>
+<% if @arama[4].results.count > 0 %>
+  <table class="table table-striped">
+  <% @arama[4].results.each_with_index do |a,i| %>
+    <tr>
+      <td rowspan=2 style="vertical-align:middle;text-align:center;"><%= i + 1 %></td>
+      <td><%= a.baslik %></td>
+    </tr>
+    <tr>
+      <td><%= link_to "Video galeriye ulaşmak için tıklayınız.", @videolink[a.tur] %></td>
+    </tr>
+  <% end %>
+  </table>
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <ins class="adsbygoogle"
+      style="display:block"
+      data-ad-format="fluid"
+      data-ad-layout-key="-fg+5s+5d-ec+6s"
+      data-ad-client="ca-pub-2249671089197790"
+      data-ad-slot="6946289830"></ins>
+  <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+<% else %>
+  Arama sonucu bulunmamaktadır.
+<% end %>
+
+<h4>Dosya</h4>
+<% if @arama[5].results.count > 0 %>
+  <table class="table table-striped">
+  <% @arama[5].results.each_with_index do |a,i| %>
+    <tr>
+      <td rowspan=2 style="vertical-align:middle;text-align:center;"><%= i + 1 %></td>
+      <td><%= a.baslik %></td>
+    </tr>
+    <tr>
+      <td><%= link_to "İlgili dosyaya ulaşmak için tıklayınız.", a.dosya.url %></td>
+    </tr>
+  <% end %>
+  </table>
+  <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+  <ins class="adsbygoogle"
+      style="display:block"
+      data-ad-format="fluid"
+      data-ad-layout-key="-fg+5s+5d-ec+6s"
+      data-ad-client="ca-pub-2249671089197790"
+      data-ad-slot="6946289830"></ins>
+  <script>
+      (adsbygoogle = window.adsbygoogle || []).push({});
+  </script>
+<% else %>
+  Arama sonucu bulunmamaktadır.
+<% end %>

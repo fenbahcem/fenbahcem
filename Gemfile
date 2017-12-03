@@ -35,6 +35,9 @@ gem 'jbuilder', '~> 2.5'
 # video
 gem 'video_info'
 
+# search
+gem 'searchkick'
+
 # file upload
 gem "paperclip", "~> 5.0.0"
 gem 'docsplit', require: 'docsplit'

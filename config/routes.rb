@@ -226,6 +226,8 @@ Rails.application.routes.draw do
   
   get '/geneldosyalar' => 'ogrenci#geneldosya'
   get '/geneldosyalar/:id' => 'ogrenci#geneldosyaincele'
+  
+  get '/arama' => 'ogrenci#arama'
 
 	devise_for :users 
 end
