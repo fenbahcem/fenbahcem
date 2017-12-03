@@ -26,12 +26,13 @@ class Admin::MateryalsController < ApplicationController
   # POST /admin/materyals
   # POST /admin/materyals.json
   def create
+    @materyalturlink = {0 => "konuanlatimi", 1 => "yapraktest", 2 => "deneme", 3 => "yazili", 4 =>  "calismakagitlari", 5 => "cikmissinavsorulari", 6 => "kazanimlar", 7 => "yillikplan", 8 => "gunlukplan", 9 => "bep" }
     @admin_materyal = Admin::Materyal.new(admin_materyal_params)
 
     respond_to do |format|
       if @admin_materyal.save
 				
-				Admin::Duyuru.create(aciklama: @admin_materyal.created_at.to_s.split(" ")[0] + " " + @admin_materyal.sinif.to_s + ". Sınıf " + @admin_materyal.materyaladi + " materyali eklenmiştir.<a href=" + @admin_materyal.dosya.url + "> İndirmek için tıklayınız. </a>" , tur: 0)
+        Admin::Duyuru.create(aciklama: @admin_materyal.created_at.to_s.split(" ")[0] + " " + @admin_materyal.sinif.to_s + ". Sınıf " + @admin_materyal.materyaladi + " materyali eklenmiştir. Materyale ulaşmak için <a href=/sinif" + @admin_materyal.sinif.to_s + "/" + @materyalturlink[@admin_materyal.materyaltur] + "/" + @admin_materyal.unite_id.to_s + "/" + @admin_materyal.id.to_s + "> tıklayınız. </a>" , tur: 0)
 				format.html { redirect_to @admin_materyal, notice: 'Materyal başarılı bir şekilde oluşturuldu.' }
         format.json { render :show, status: :created, location: @admin_materyal }
       else
