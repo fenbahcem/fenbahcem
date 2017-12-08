@@ -131,7 +131,7 @@ function goruntuleme() {
   </tr>
   <tr style="background-color: aliceblue;">
     <td><strong><%= @materyaltur[@materyal.materyaltur] %> Orjinal Halini İndirin:</strong></td>
-    <td><%= link_to "Deneme Dosyasını İndir", @materyal.dosya.url %></td>
+    <td><%= link_to @materyaltur[@materyal.materyaltur] + " Dosyasını İndir", @materyal.dosya.url %></td>
   </tr>
   <tr>
     <td colspan=2><br><br><%= render 'disqus' %></td>

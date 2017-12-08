@@ -1,6 +1,7 @@
 class Admin::Materyal < ApplicationRecord
 	belongs_to :unite
   searchkick
+  validates :sinif, :materyaltur, :materyaladi, :materyalaciklama, :dosya, presence: true
 	has_attached_file :dosya
 	validates_attachment :dosya, content_type: {
 		content_type: [

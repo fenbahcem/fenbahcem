@@ -83,7 +83,7 @@
 						<li class="media">
 							<div class="media-body">
 								<h4 class="media-heading">
-									<a href="#" class="text-info"><%= d.baslik %></a></h4>
+									<a href="/<%= @turlink[d.tur] %>" class="text-info"><%= d.baslik %></a></h4>
 								<p class="margin-top-10 margin-bottom-20"><%= d.metin.truncate(100).html_safe %></p>
 								<% if d.dosya.exists? %>
                                     <div class="text-center">

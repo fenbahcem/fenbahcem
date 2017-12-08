@@ -262,12 +262,27 @@ article:hover .bar-flip {
         <div class="pad">
         <p><strong>Proje Özeti:</strong></p>
         <%= link_to controller: "ogrenci", action: "proje_show", id: p.id do %>
-            <%= p.projeaciklama.html_safe %> Projeye ulaşmak için tıklayınız.
-            <% end %>
+          <%= p.projeaciklama.html_safe %> Projeye ulaşmak için tıklayınız.
+        <% end %>
         </div>
     </div>
 
     </article>
+    <% if i == 1 or i == 4 %>
+    <article class="module">
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <ins class="adsbygoogle"
+           style="display:block"
+           data-ad-format="fluid"
+           data-ad-layout-key="-ff+65+3r-j9+lw"
+           data-ad-client="ca-pub-2249671089197790"
+           data-ad-slot="1687828958"></ins>
+      <script>
+           (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </article>
+    <% end %>
+
 <% end %>
 <%= will_paginate @proje, :renderer => BootstrapPaginationHelper::LinkRenderer, class:"text-center", previous_label: "Önceki Sayfa", next_label: "Sonraki Sayfa" %>
 

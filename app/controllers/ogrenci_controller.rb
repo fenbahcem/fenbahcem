@@ -97,7 +97,7 @@ class OgrenciController < ApplicationController
     file = @materyal.dosya_file_name
     unless File.exists?(File.dirname(@materyal.dosya.path) + "/" + File.basename(file, File.extname(file)) + "_1.png")
       if ["application/zip","application/x-zip","application/x-zip-compressed"].include?@materyal.dosya.content_type
-        Zip::File.open(@materyal.dosya.path) do |zip|
+        ::Zip::File.open(@materyal.dosya.path) do |zip|
           zip.each do |file|
             unless File.exists?(File.dirname(file.zipfile) + "/" + file.name)
               zip.extract(file, File.dirname(@materyal.dosya.path) + "/" + file.name)

@@ -1,7 +1,8 @@
 class Admin::Digersayfa < ApplicationRecord
 	self.per_page = 5
-	has_attached_file :dosya
   searchkick
+  validates :baslik, :metin, :tur, :dosya, presence: true
+	has_attached_file :dosya
 	validates_attachment :dosya, content_type: {
 		content_type: [
 			"application/vnd.ms-excel",

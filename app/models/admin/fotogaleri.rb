@@ -1,6 +1,7 @@
 class Admin::Fotogaleri < ApplicationRecord
 	has_attached_file :resim, styles: { thumb: "100x100#" }
   searchkick
+  validates :resim, presence: true
 	validates_attachment :resim, content_type: {
 		content_type: [
 			"image/png",
