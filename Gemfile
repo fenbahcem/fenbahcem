@@ -41,7 +41,7 @@ gem 'searchkick'
 # file upload
 gem "paperclip", "~> 5.0.0"
 gem 'docsplit', require: 'docsplit'
-gem 'rubyzip'
+gem 'rubyzip', require: 'zip'
 # paginate
 gem 'will_paginate', '~> 3.1.0'
 
