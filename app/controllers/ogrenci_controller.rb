@@ -82,11 +82,15 @@ class OgrenciController < ApplicationController
 		@unite = Admin::Unite.where(sinif: params[:sinif])
 		@materyal =  Admin::Materyal.where(sinif: params[:sinif]).where(materyaltur: params[:materyaltur])
 		@unitesinif = params[:sinif]
+
+    fresh_when last_modified: @materyal.created_at.utc
 	end
 
   def materyal_goruntule
     @materyal = Admin::Materyal.where(sinif: params[:sinif]).where(materyaltur: params[:materyaltur]).where(unite_id: params[:unite_id]).order('created_at DESC')  
 		@unite = params[:uniteadi]
+    
+    fresh_when last_modified: @materyal.created_at.utc
   end
 
   def materyal_incele
@@ -94,6 +98,9 @@ class OgrenciController < ApplicationController
     @randommateryal2 = Admin::Materyal.order("RANDOM()").last(4)
 
     @materyal = Admin::Materyal.find(params[:id])
+    
+    fresh_when last_modified: @materyal.created_at.utc
+    
     file = @materyal.dosya_file_name
     unless File.exists?(File.dirname(@materyal.dosya.path) + "/" + File.basename(file, File.extname(file)) + "_1.png")
       if ["application/zip","application/x-zip","application/x-zip-compressed"].include?@materyal.dosya.content_type

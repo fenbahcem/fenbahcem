@@ -18,6 +18,7 @@ function goruntuleme() {
     <td colspan=5><strong>Bunlar İlginizi Çekebilir</strong></td>
   </tr>
   <tr>
+    <% if @randommateryal.count > 0 %>  
     <% @randommateryal.each do |r| %>
     <td class="text-center">
         <%= r.materyaladi %><br>
@@ -40,6 +41,7 @@ function goruntuleme() {
       <%= link_to @materyaltur[r.materyaltur] + " Görüntüle", "/sinif" + r.sinif.to_s + "/" + @materyalturlink[r.materyaltur] + "/" + r.unite_id.to_s + "/" + r.id.to_s  %>
     </td>
       <% end %>
+    <% end %>
 
     
   </tr>
@@ -142,8 +144,7 @@ function goruntuleme() {
     <td colspan=5><strong>Bunlar İlginizi Çekebilir</strong></td>
   </tr>
   <tr>
-    <%	@materyalturlink = { 1 => "yapraktest", 2 => "deneme", 3 => "yazili", 4 =>  "calismakagitlari", 5 => "cikmissinavsorulari", 6 => "kazanimlar", 7 => "yillikplan", 8 => "gunlukplan", 9 => "bep" } %>
-    <%	@materyaltur = { 1 => "Yaprak Test", 2 => "Deneme", 3 => "Yazılı", 4 =>  "Çalışma Kağıtları", 5 => "Çıkmış Sınav Sorulari", 6 => "Kazanımlar", 7 => "Yıllık Plan", 8 => "Günlük Plan", 9 => "BEP" } %>
+    <% if @randommateryal2.count > 0 %>  
     <% @randommateryal2.each do |r| %>
     <td class="text-center">
         <%= r.materyaladi %><br>
@@ -163,9 +164,10 @@ function goruntuleme() {
         <%= image_tag "html.png", width: "75%" %>
       <% end %>
       <br>
-      <%= link_to @materyaltur[r.materyaltur] + " Görüntüle", "/sinif" + r.sinif.to_s + "/" + @materyalturlink[r.materyaltur] + "/" + r.unite_id.to_s + "/" + r.id.to_s %>
+      <%= link_to @materyaltur[r.materyaltur] + " Görüntüle", "/sinif" + r.sinif.to_s + "/" + @materyalturlink[r.materyaltur] + "/" + r.unite_id.to_s + "/" + r.id.to_s  %>
     </td>
       <% end %>
+    <% end %>
 
   </tr>
 </table>
