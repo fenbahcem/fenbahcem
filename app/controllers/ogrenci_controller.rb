@@ -23,6 +23,9 @@ class OgrenciController < ApplicationController
 		@duyuru = Admin::Duyuru.where(tur:0).order('created_at DESC')
 		@haber = Admin::Duyuru.where(tur:1).order('created_at DESC')
     @resim = Admin::Fotogaleri.where(anasayfabaglantisi: true).order('created_at DESC')
+    fresh_when etag: @resim, public: true
+    fresh_when etag: @duyuru, public: true
+    fresh_when etag: @haber, public: true
   end
 	
 	def bilimfuari
@@ -63,6 +66,7 @@ class OgrenciController < ApplicationController
 
 	def fotogaleri
 		@fotogaleri = Admin::Fotogaleri.paginate(page: params[:page]).order('created_at DESC')		
+    		fresh_when etag: @fotogaleri, public: true
 	end
 
 	def video
@@ -83,14 +87,14 @@ class OgrenciController < ApplicationController
 		@materyal =  Admin::Materyal.where(sinif: params[:sinif]).where(materyaltur: params[:materyaltur])
 		@unitesinif = params[:sinif]
 
-#    fresh_when etag: @materyal, public: true
+    fresh_when etag: @materyal, public: true
 	end
 
   def materyal_goruntule
     @materyal = Admin::Materyal.where(sinif: params[:sinif]).where(materyaltur: params[:materyaltur]).where(unite_id: params[:unite_id]).order('created_at DESC')  
 		@unite = params[:uniteadi]
     
-#    fresh_when etag: @materyal, public: true
+    fresh_when etag: @materyal, public: true
   end
 
   def materyal_incele
@@ -99,7 +103,7 @@ class OgrenciController < ApplicationController
 
     @materyal = Admin::Materyal.find(params[:id])
     
- #   fresh_when last_modified: @materyal.created_at.utc, public: true, etag: @materyal 
+    fresh_when last_modified: @materyal.created_at.utc, public: true, etag: @materyal 
     
     file = @materyal.dosya_file_name
     unless File.exists?(File.dirname(@materyal.dosya.path) + "/" + File.basename(file, File.extname(file)) + "_1.png")
