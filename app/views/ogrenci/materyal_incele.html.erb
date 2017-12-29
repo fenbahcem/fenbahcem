@@ -4,6 +4,13 @@ function goruntuleme() {
 }
 </script>
 
+<link href="https://sachinchoolur.github.io/lightgallery.js/static/css/animate.css" rel="stylesheet">
+<link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+<link href="https://sachinchoolur.github.io/lightgallery.js/lightgallery/css/lg-transitions.css" rel="stylesheet">
+<link href="https://sachinchoolur.github.io/lightgallery.js/lightgallery/css/lightgallery.css" rel="stylesheet">
+
+<%= javascript_include_tag 'ogrenci' %>  
+
 <% @materyalturlink = {0 => "konuanlatimi", 1 => "yapraktest", 2 => "deneme", 3 => "yazili", 4 =>  "calismakagitlari", 5 => "cikmissinavsorulari", 6 => "kazanimlar", 7 => "yillikplan", 8 => "gunlukplan", 9 => "bep" } %>
 <% @materyaltur = {0 => "Konu Anlatımı", 1 => "Yaprak Test", 2 => "Deneme", 3 => "Yazılı", 4 =>  "Çalışma Kağıtları", 5 => "Çıkmış Sınav Soruları", 6 => "Kazanım Testleri ve Kazanımlar", 7 => "Yıllık Plan", 8 => "Günlük Plan", 9 => "BEP" } %>
 
@@ -79,7 +86,7 @@ function goruntuleme() {
           data-ad-slot="6946289830"></ins>
       <script>
           (adsbygoogle = window.adsbygoogle || []).push({});
-      </script>
+      </script> 
     </td>
   </tr>
   <tr style="background-color: aliceblue;">
@@ -88,25 +95,23 @@ function goruntuleme() {
   </tr>
   <tr>
     <td colspan=2>
-      <% @imagelist.first(4).each_with_index do |i, y| %>
-        <div class="col-md-6">
-          <% if y >= 2 %>
-            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-            <ins class="adsbygoogle"
-                style="display:block"
-                data-ad-format="fluid"
-                data-ad-layout-key="-fg+5s+5d-ec+6s"
-                data-ad-client="ca-pub-2249671089197790"
-                data-ad-slot="6946289830"></ins>
-            <script>
-                (adsbygoogle = window.adsbygoogle || []).push({});
-            </script> 
-          <% end %>
+      <div id="lightgallery">
+      <% @imagelist.reverse.first(4).each_with_index do |i, y| %>
         <%= link_to File.dirname(@materyal.dosya.url) + "/" + i do %>
-          <%= image_tag File.dirname(@materyal.dosya.url) + "/" + i, width: "100%"%>
+          <%= image_tag File.dirname(@materyal.dosya.url) + "/" + i, width: "100%", class:"img-responsive col-md-6"%>
         <% end %>
-        </div>
       <% end %>
+      </div>
+      <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+      <ins class="adsbygoogle"
+          style="display:block"
+          data-ad-format="fluid"
+          data-ad-layout-key="-fg+5s+5d-ec+6s"
+          data-ad-client="ca-pub-2249671089197790"
+          data-ad-slot="6946289830"></ins>
+      <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+      </script> 
     </td>
   </tr>
   <tr style="background-color: aliceblue;">
