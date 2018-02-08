@@ -45,7 +45,7 @@ function goruntuleme() {
         <%= image_tag "html.png", width: "75%" %>
       <% end %>
       <br>
-      <%= link_to @materyaltur[r.materyaltur] + " Görüntüle", "/sinif" + r.sinif.to_s + "/" + @materyalturlink[r.materyaltur] + "/" + r.unite_id.to_s + "/" + r.id.to_s  %>
+      <%= link_to "#{@materyaltur[r.materyaltur]} Görüntüle", "/sinif#{r.sinif.to_s}/#{@materyalturlink[r.materyaltur]}/#{r.unite_id.to_s}/#{r.id.to_s}"  %>
     </td>
       <% end %>
     <% end %>
@@ -128,7 +128,7 @@ function goruntuleme() {
   </tr>
   <tr style="background-color: aliceblue;">
     <td><strong><%= @materyaltur[@materyal.materyaltur] %> Orjinal Halini İndirin:</strong></td>
-    <td><%= link_to @materyaltur[@materyal.materyaltur] + " Dosyasını İndir", @materyal.dosya.url %></td>
+    <td><%= link_to "#{@materyaltur[@materyal.materyaltur]} Dosyasını İndir", @materyal.dosya.url %></td>
   </tr>
   <tr>
     <td colspan=2><br><br><%= render 'disqus' %></td>
@@ -159,7 +159,7 @@ function goruntuleme() {
         <%= image_tag "html.png", width: "75%" %>
       <% end %>
       <br>
-      <%= link_to @materyaltur[r.materyaltur] + " Görüntüle", "/sinif" + r.sinif.to_s + "/" + @materyalturlink[r.materyaltur] + "/" + r.unite_id.to_s + "/" + r.id.to_s  %>
+      <%= link_to "#{@materyaltur[r.materyaltur]} Görüntüle", "/sinif#{r.sinif.to_s}/#{@materyalturlink[r.materyaltur]}/#{r.unite_id.to_s}/#{r.id.to_s}"  %>
     </td>
       <% end %>
     <% end %>

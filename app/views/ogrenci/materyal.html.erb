@@ -33,6 +33,16 @@
 						<%= u.uniteadi %>
           </h4>
           <p><%= u.aciklama.html_safe %></p>
+          <p style="margin-bottom:0px;"><b>Ünite İçeriği:</b>
+            <ul> 
+              <% u.materyal.reverse.first(5).each do |materyal| %>
+                <li><%= materyal.materyaladi %></li>
+              <% end %>
+              <% if u.materyal.count > 5  %>
+                ...   
+              <% end %>
+            </ul>
+          </p>
           <% if u.materyal.where(materyaltur: params[:materyaltur]).count > 0 %>
             <p>
             <%= link_to "Ünite " + @materyalturyazi[params[:materyaltur]] + " Görüntüle", {controller:"ogrenci", action:"materyal_goruntule", sinif: u.sinif, unite_id: u.id, materyaltur: params[:materyaltur]}, class:"btn btn-primary btn-block", style:"line-height:30px;vertical-align: middle;height: 43px;" %>
