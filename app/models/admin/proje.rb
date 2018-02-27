@@ -1,6 +1,5 @@
 class Admin::Proje < ApplicationRecord
 	self.per_page = 6	
-  searchkick
   validates :projeadi, :projeaciklama, :nasil, :sonuc, :ek, presence: true
 	has_attached_file :ek
 	validates_attachment :ek, content_type: {

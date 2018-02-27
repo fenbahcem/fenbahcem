@@ -5,7 +5,7 @@ default: &default
 
 development:
   <<: *default
-  database: db/fenbahcem_development
+  database: db/fenbahcem_development_iki
 
 test:
   <<: *default

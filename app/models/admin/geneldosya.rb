@@ -1,6 +1,5 @@
 class Admin::Geneldosya < ApplicationRecord
 	has_attached_file :dosya
-  searchkick
   validates :sinif, :baslik, :dosya, presence: true
 	validates_attachment :dosya, content_type: {
 		content_type: [

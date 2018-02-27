@@ -3,22 +3,6 @@ class OgrenciController < ApplicationController
 	helper_method :sayac
 	helper_method :toplamgoruntuleme
 
-  def arama
-    Admin::Materyal.reindex
-    Admin::Proje.reindex
-    Admin::Digersayfa.reindex
-    Admin::Fotogaleri.reindex
-    Admin::Video.reindex
-    Admin::Geneldosya.reindex
-    @indis1 = Admin::Materyal.search params[:arama], fields: [:materyaladi, :materyalaciklama], execute: false, operator: "or"
-    @indis2 = Admin::Proje.search params[:arama], fields: [:projeadi, :projeaciklama], execute: false, operator: "or"
-    @indis3 = Admin::Digersayfa.search params[:arama], fields: [:baslik, :metin], execute: false, operator: "or"
-    @indis4 = Admin::Fotogaleri.search params[:arama], fields: [:baslik, :aciklama], execute: false, operator: "or"
-    @indis5 = Admin::Video.search params[:arama], fields: [:baslik], execute: false, operator: "or"
-    @indis6 = Admin::Geneldosya.search params[:arama], fields: [:baslik], execute: false, operator: "or"
-    @arama = Searchkick.multi_search([@indis1, @indis2, @indis3, @indis4, @indis5, @indis6])
-  end
-
 	def index
 		@duyuru = Admin::Duyuru.where(tur:0).order('created_at DESC')
 		@haber = Admin::Duyuru.where(tur:1).order('created_at DESC')
